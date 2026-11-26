@@ -1,0 +1,7853 @@
+[
+{
+"group": "Built-in (fast)",
+"note": "Kyutai's ready-made voices: instant, work with every model (sources: VCTK, EARS, Expresso, donations…).",
+"voices": [
+{
+"id": "cosette",
+"label": "Cosette",
+"src": "cosette",
+"builtin": true,
+"tab": "builtin",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"confused"
+]
+},
+{
+"id": "marius",
+"label": "Marius",
+"src": "marius",
+"builtin": true,
+"tab": "builtin",
+"hz": 153,
+"pitch": "mid",
+"gender": "M",
+"tags": []
+},
+{
+"id": "javert",
+"label": "Javert",
+"src": "javert",
+"builtin": true,
+"tab": "builtin",
+"hz": 80,
+"pitch": "low",
+"gender": "M",
+"tags": []
+},
+{
+"id": "alba",
+"label": "Alba",
+"src": "alba",
+"builtin": true,
+"tab": "builtin",
+"hz": 137,
+"pitch": "mid",
+"gender": "F",
+"tags": []
+},
+{
+"id": "jean",
+"label": "Jean",
+"src": "jean",
+"builtin": true,
+"tab": "builtin",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "anna",
+"label": "Anna",
+"src": "anna",
+"builtin": true,
+"tab": "builtin",
+"hz": 200,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 22"
+]
+},
+{
+"id": "vera",
+"label": "Vera",
+"src": "vera",
+"builtin": true,
+"tab": "builtin",
+"hz": 178,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 23"
+]
+},
+{
+"id": "fantine",
+"label": "Fantine",
+"src": "fantine",
+"builtin": true,
+"tab": "builtin",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Manchester",
+"age 22"
+]
+},
+{
+"id": "charles",
+"label": "Charles",
+"src": "charles",
+"builtin": true,
+"tab": "builtin",
+"hz": 80,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Surrey",
+"age 21"
+]
+},
+{
+"id": "paul",
+"label": "Paul",
+"src": "paul",
+"builtin": true,
+"tab": "builtin",
+"hz": 114,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Nottingham",
+"age 23"
+]
+},
+{
+"id": "eponine",
+"label": "Eponine",
+"src": "eponine",
+"builtin": true,
+"tab": "builtin",
+"hz": 160,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"Scottish",
+"Edinburgh",
+"age 23"
+]
+},
+{
+"id": "azelma",
+"label": "Azelma",
+"src": "azelma",
+"builtin": true,
+"tab": "builtin",
+"hz": 213,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Canadian",
+"Toronto",
+"age 24"
+]
+},
+{
+"id": "george",
+"label": "George",
+"src": "george",
+"builtin": true,
+"tab": "builtin",
+"hz": 119,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"New England",
+"age 18"
+]
+},
+{
+"id": "mary",
+"label": "Mary",
+"src": "mary",
+"builtin": true,
+"tab": "builtin",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Indiana",
+"age 19"
+]
+},
+{
+"id": "jane",
+"label": "Jane",
+"src": "jane",
+"builtin": true,
+"tab": "builtin",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Pennsylvania",
+"age 21"
+]
+},
+{
+"id": "michael",
+"label": "Michael",
+"src": "michael",
+"builtin": true,
+"tab": "builtin",
+"hz": 97,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"New Jersey",
+"age 19"
+]
+},
+{
+"id": "eve",
+"label": "Eve",
+"src": "eve",
+"builtin": true,
+"tab": "builtin",
+"hz": 193,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"New Jersey",
+"age 19"
+]
+},
+{
+"id": "bill_boerst",
+"label": "Bill Boerst",
+"src": "bill_boerst",
+"builtin": true,
+"tab": "builtin",
+"hz": 128,
+"pitch": "low",
+"gender": "M",
+"tags": []
+},
+{
+"id": "peter_yearsley",
+"label": "Peter Yearsley",
+"src": "peter_yearsley",
+"builtin": true,
+"tab": "builtin",
+"hz": 107,
+"pitch": "low",
+"gender": "M",
+"tags": []
+},
+{
+"id": "stuart_bell",
+"label": "Stuart Bell",
+"src": "stuart_bell",
+"builtin": true,
+"tab": "builtin",
+"hz": 131,
+"pitch": "low",
+"gender": "M",
+"tags": []
+},
+{
+"id": "caro_davy",
+"label": "Caro Davy",
+"src": "caro_davy",
+"builtin": true,
+"tab": "builtin",
+"hz": 155,
+"pitch": "mid",
+"gender": "F",
+"tags": []
+},
+{
+"id": "giovanni",
+"label": "Giovanni (Italian)",
+"src": "giovanni",
+"builtin": true,
+"tab": "builtin",
+"gender": "M",
+"tags": []
+},
+{
+"id": "lola",
+"label": "Lola (Spanish)",
+"src": "lola",
+"builtin": true,
+"tab": "builtin",
+"gender": "F",
+"tags": []
+},
+{
+"id": "juergen",
+"label": "Juergen (German)",
+"src": "juergen",
+"builtin": true,
+"tab": "builtin",
+"gender": "M",
+"tags": []
+},
+{
+"id": "rafael",
+"label": "Rafael (Portuguese)",
+"src": "rafael",
+"builtin": true,
+"tab": "builtin",
+"gender": "M",
+"tags": []
+},
+{
+"id": "daan",
+"label": "Daan (Dutch)",
+"src": "daan",
+"builtin": true,
+"tab": "builtin",
+"gender": "M",
+"tags": []
+},
+{
+"id": "estelle",
+"label": "Estelle (French)",
+"src": "estelle",
+"builtin": true,
+"tab": "builtin",
+"hz": 232,
+"pitch": "high",
+"gender": "F",
+"tags": []
+}
+]
+},
+{
+"group": "Picks – moods, voice A",
+"note": "Expresso dataset (non-commercial use only). One speaker acting moods.",
+"voices": [
+{
+"id": "pick-a-happy",
+"label": "Happy",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_happy_001_channel1_118s.wav",
+"tab": "moods",
+"hz": 314,
+"pitch": "high",
+"tags": [
+"happy"
+]
+},
+{
+"id": "pick-a-angry",
+"label": "Angry",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_angry_001_channel1_119s.wav",
+"tab": "moods",
+"hz": 291,
+"pitch": "high",
+"tags": [
+"angry"
+]
+},
+{
+"id": "pick-a-sad",
+"label": "Sad",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_sad-sympathetic_001_channel1_267s.wav",
+"tab": "moods",
+"hz": 225,
+"pitch": "high",
+"tags": [
+"sad / sympathetic",
+"sad"
+]
+},
+{
+"id": "pick-a-laughing",
+"label": "Laughing",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_laughing_001_channel1_147s.wav",
+"tab": "moods",
+"hz": 314,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "pick-a-sarcastic",
+"label": "Sarcastic",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_sarcastic_001_channel1_519s.wav",
+"tab": "moods",
+"hz": 225,
+"pitch": "high",
+"tags": [
+"sarcastic"
+]
+},
+{
+"id": "pick-a-fearful",
+"label": "Scared",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_fearful_001_channel1_316s.wav",
+"tab": "moods",
+"hz": 239,
+"pitch": "high",
+"tags": [
+"fearful",
+"scared"
+]
+},
+{
+"id": "pick-a-bored",
+"label": "Bored",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_bored_001_channel1_254s.wav",
+"tab": "moods",
+"hz": 202,
+"pitch": "high",
+"tags": [
+"bored"
+]
+},
+{
+"id": "pick-a-awe",
+"label": "In awe",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_awe_001_channel1_982s.wav",
+"tab": "moods",
+"hz": 202,
+"pitch": "high",
+"tags": [
+"awe",
+"in awe"
+]
+},
+{
+"id": "pick-a-calm",
+"label": "Calm",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_calm_002_channel1_480s.wav",
+"tab": "moods",
+"hz": 195,
+"pitch": "high",
+"tags": [
+"calm"
+]
+},
+{
+"id": "pick-a-whisper",
+"label": "Whisper",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_whisper_001_channel1_198s.wav",
+"tab": "moods",
+"hz": 381,
+"pitch": "high",
+"tags": [
+"whisper"
+]
+},
+{
+"id": "pick-a-projected",
+"label": "Loud / projected",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_projected_001_channel1_192s.wav",
+"tab": "moods",
+"hz": 348,
+"pitch": "high",
+"tags": [
+"projected",
+"loud / projected"
+]
+},
+{
+"id": "pick-a-narration",
+"label": "Narrator",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_narration_001_channel1_605s.wav",
+"tab": "moods",
+"hz": 281,
+"pitch": "high",
+"tags": [
+"narration",
+"narrator"
+]
+}
+]
+},
+{
+"group": "Picks – moods, voice B",
+"note": "Expresso dataset (non-commercial use only). A second speaker.",
+"voices": [
+{
+"id": "pick-b-happy",
+"label": "Happy",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_happy_001_channel1_334s.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"tags": [
+"happy"
+]
+},
+{
+"id": "pick-b-angry",
+"label": "Angry",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_angry_001_channel1_201s.wav",
+"tab": "moods",
+"hz": 216,
+"pitch": "high",
+"tags": [
+"angry"
+]
+},
+{
+"id": "pick-b-sad",
+"label": "Sad",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_sad-sympathetic_001_channel1_454s.wav",
+"tab": "moods",
+"hz": 128,
+"pitch": "low",
+"tags": [
+"sad / sympathetic",
+"sad"
+]
+},
+{
+"id": "pick-b-laughing",
+"label": "Laughing",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_laughing_001_channel1_188s.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "pick-b-sarcastic",
+"label": "Sarcastic",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sarcastic_001_channel1_435s.wav",
+"tab": "moods",
+"hz": 144,
+"pitch": "mid",
+"tags": [
+"sarcastic"
+]
+},
+{
+"id": "pick-b-sleepy",
+"label": "Sleepy",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sleepy_001_channel1_619s.wav",
+"tab": "moods",
+"hz": 110,
+"pitch": "low",
+"tags": [
+"sleepy"
+]
+},
+{
+"id": "pick-b-calm",
+"label": "Calm",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_calm_001_channel1_1143s.wav",
+"tab": "moods",
+"hz": 126,
+"pitch": "low",
+"tags": [
+"calm"
+]
+},
+{
+"id": "pick-b-awe",
+"label": "In awe",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_awe_001_channel1_1323s.wav",
+"tab": "moods",
+"hz": 144,
+"pitch": "mid",
+"tags": [
+"awe",
+"in awe"
+]
+},
+{
+"id": "pick-b-narration",
+"label": "Narrator",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_narration_001_channel1_674s.wav",
+"tab": "moods",
+"hz": 219,
+"pitch": "high",
+"tags": [
+"narration",
+"narrator"
+]
+}
+]
+},
+{
+"group": "Alba – characters",
+"note": "Alba MacKenna, one actor in different roles (CC BY 4.0).",
+"voices": [
+{
+"id": "alba-mackenna-a-moment-by",
+"label": "Alba – A moment by",
+"src": "hf://kyutai/tts-voices/alba-mackenna/a-moment-by.wav",
+"tab": "speakers",
+"hz": 150,
+"pitch": "mid",
+"gender": "F",
+"tags": []
+},
+{
+"id": "alba-mackenna-announcer",
+"label": "Alba – Announcer",
+"src": "hf://kyutai/tts-voices/alba-mackenna/announcer.wav",
+"tab": "speakers",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": []
+},
+{
+"id": "alba-mackenna-casual",
+"label": "Alba – Casual",
+"src": "hf://kyutai/tts-voices/alba-mackenna/casual.wav",
+"tab": "speakers",
+"hz": 137,
+"pitch": "mid",
+"gender": "F",
+"tags": []
+},
+{
+"id": "alba-mackenna-merchant",
+"label": "Alba – Merchant",
+"src": "hf://kyutai/tts-voices/alba-mackenna/merchant.wav",
+"tab": "speakers",
+"hz": 148,
+"pitch": "mid",
+"gender": "F",
+"tags": []
+}
+]
+},
+{
+"group": "Kyutai demo voices",
+"note": "From Kyutai's Unmute demo site (mostly CC0; De Gaulle 1940 recording, one VCTK and one Expresso clip).",
+"voices": [
+{
+"id": "unmute-prod-website-default-voice",
+"label": "Default voice",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/default_voice.wav",
+"tab": "speakers",
+"hz": 271,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "unmute-prod-website-degaulle-2",
+"label": "Degaulle 2",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/degaulle-2.wav",
+"tab": "speakers",
+"hz": 151,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "unmute-prod-website-developer-1",
+"label": "Developer 1",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/developer-1.mp3",
+"tab": "speakers",
+"hz": 113,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "unmute-prod-website-developpeuse-3",
+"label": "Developpeuse 3",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/developpeuse-3.wav",
+"tab": "speakers",
+"hz": 232,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "unmute-prod-website-ex04-narration-longform-00001",
+"label": "Ex04 narration longform 00001",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/ex04_narration_longform_00001.wav",
+"tab": "speakers",
+"hz": 239,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "unmute-prod-website-fabieng-enhanced-v2",
+"label": "Fabieng enhanced v2",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/fabieng-enhanced-v2.wav",
+"tab": "speakers",
+"hz": 144,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "unmute-prod-website-freesound-440565-why-is-there-educationwav",
+"label": "440565 why is there educationwav",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/freesound/440565_why-is-there-educationwav.mp3",
+"tab": "speakers",
+"hz": 202,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "unmute-prod-website-freesound-519189-request-42-hmm-i-dont-knowwav",
+"label": "519189 request 42   hmm i dont knowwav",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/freesound/519189_request-42---hmm-i-dont-knowwav.mp3",
+"tab": "speakers",
+"hz": 148,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "unmute-prod-website-p329-022",
+"label": "P329 022",
+"src": "hf://kyutai/tts-voices/unmute-prod-website/p329_022.wav",
+"tab": "speakers",
+"hz": 202,
+"pitch": "high",
+"tags": []
+}
+]
+},
+{
+"group": "Voice-zero",
+"note": "LibriVox readers via Voice-Zero (CC0).",
+"voices": [
+{
+"id": "voice-zero-bill-boerst",
+"label": "Bill Boerst",
+"src": "hf://kyutai/tts-voices/voice-zero/bill_boerst.wav",
+"tab": "speakers",
+"hz": 128,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-zero-caro-davy",
+"label": "Caro Davy",
+"src": "hf://kyutai/tts-voices/voice-zero/caro_davy.wav",
+"tab": "speakers",
+"hz": 155,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-zero-peter-yearsley",
+"label": "Peter Yearsley",
+"src": "hf://kyutai/tts-voices/voice-zero/peter_yearsley.wav",
+"tab": "speakers",
+"hz": 107,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-zero-stuart-bell",
+"label": "Stuart Bell",
+"src": "hf://kyutai/tts-voices/voice-zero/stuart_bell.wav",
+"tab": "speakers",
+"hz": 131,
+"pitch": "low",
+"tags": []
+}
+]
+},
+{
+"group": "Moods (Expresso)",
+"note": "Four actors acting moods. Non-commercial use only.",
+"voices": [
+{
+"id": "expresso-ex03-ex01-angry-001-channel2-181s",
+"label": "EX01 – angry 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_angry_001_channel2_181s.wav",
+"tab": "moods",
+"hz": 232,
+"pitch": "high",
+"tags": [
+"angry"
+]
+},
+{
+"id": "expresso-ex04-ex01-animal-animaldir-006-channel2-49s",
+"label": "EX01 – animal / animaldir 6",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_animal-animaldir_006_channel2_49s.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"tags": [
+"animal / animaldir"
+]
+},
+{
+"id": "expresso-ex04-ex01-animaldir-animal-004-channel2-88s",
+"label": "EX01 – animaldir / animal 4",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_animaldir-animal_004_channel2_88s.wav",
+"tab": "moods",
+"hz": 192,
+"pitch": "high",
+"tags": [
+"animaldir / animal"
+]
+},
+{
+"id": "expresso-ex03-ex01-awe-001-channel2-1290s",
+"label": "EX01 – awe 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_awe_001_channel2_1290s.wav",
+"tab": "moods",
+"hz": 126,
+"pitch": "low",
+"tags": [
+"awe"
+]
+},
+{
+"id": "expresso-ex03-ex01-calm-001-channel2-1081s",
+"label": "EX01 – calm 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_calm_001_channel2_1081s.wav",
+"tab": "moods",
+"hz": 118,
+"pitch": "low",
+"tags": [
+"calm"
+]
+},
+{
+"id": "expresso-ex04-ex01-child-childdir-003-channel2-283s",
+"label": "EX01 – child / childdir 3",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_child-childdir_003_channel2_283s.wav",
+"tab": "moods",
+"hz": 155,
+"pitch": "mid",
+"tags": [
+"child / childdir"
+]
+},
+{
+"id": "expresso-ex04-ex01-childdir-child-001-channel2-420s",
+"label": "EX01 – childdir / child 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_childdir-child_001_channel2_420s.wav",
+"tab": "moods",
+"hz": 160,
+"pitch": "mid",
+"tags": [
+"childdir / child"
+]
+},
+{
+"id": "expresso-ex03-ex01-confused-001-channel2-816s",
+"label": "EX01 – confused 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_confused_001_channel2_816s.wav",
+"tab": "moods",
+"hz": 142,
+"pitch": "mid",
+"tags": [
+"confused"
+]
+},
+{
+"id": "expresso-ex01-ex02-default-001-channel1-168s",
+"label": "EX01 – default 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_default_001_channel1_168s.wav",
+"tab": "moods",
+"hz": 136,
+"pitch": "mid",
+"tags": [
+"default"
+]
+},
+{
+"id": "expresso-ex03-ex01-desire-004-channel2-580s",
+"label": "EX01 – desire 4",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_desire_004_channel2_580s.wav",
+"tab": "moods",
+"hz": 114,
+"pitch": "low",
+"tags": [
+"desire"
+]
+},
+{
+"id": "expresso-ex04-ex01-disgusted-001-channel2-325s",
+"label": "EX01 – disgusted 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_disgusted_001_channel2_325s.wav",
+"tab": "moods",
+"hz": 172,
+"pitch": "high",
+"tags": [
+"disgusted"
+]
+},
+{
+"id": "expresso-ex01-ex02-enunciated-001-channel1-432s",
+"label": "EX01 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_enunciated_001_channel1_432s.wav",
+"tab": "moods",
+"hz": 186,
+"pitch": "high",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex03-ex01-enunciated-001-channel2-576s",
+"label": "EX01 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_enunciated_001_channel2_576s.wav",
+"tab": "moods",
+"hz": 147,
+"pitch": "mid",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex01-ex02-fast-001-channel1-104s",
+"label": "EX01 – fast 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_fast_001_channel1_104s.wav",
+"tab": "moods",
+"hz": 170,
+"pitch": "high",
+"tags": [
+"fast"
+]
+},
+{
+"id": "expresso-ex03-ex01-happy-001-channel2-257s",
+"label": "EX01 – happy 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_happy_001_channel2_257s.wav",
+"tab": "moods",
+"hz": 205,
+"pitch": "high",
+"tags": [
+"happy"
+]
+},
+{
+"id": "expresso-ex03-ex01-laughing-002-channel2-232s",
+"label": "EX01 – laughing 2",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_laughing_002_channel2_232s.wav",
+"tab": "moods",
+"hz": 180,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex04-ex01-laughing-001-channel2-293s",
+"label": "EX01 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_laughing_001_channel2_293s.wav",
+"tab": "moods",
+"hz": 193,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex04-ex01-narration-001-channel2-686s",
+"label": "EX01 – narration 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_narration_001_channel2_686s.wav",
+"tab": "moods",
+"hz": 146,
+"pitch": "mid",
+"tags": [
+"narration"
+]
+},
+{
+"id": "expresso-ex03-ex01-nonverbal-001-channel2-37s",
+"label": "EX01 – nonverbal 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_nonverbal_001_channel2_37s.wav",
+"tab": "moods",
+"hz": 267,
+"pitch": "high",
+"tags": [
+"nonverbal"
+]
+},
+{
+"id": "expresso-ex01-ex02-projected-001-channel1-46s",
+"label": "EX01 – projected 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_projected_001_channel1_46s.wav",
+"tab": "moods",
+"hz": 258,
+"pitch": "high",
+"tags": [
+"projected"
+]
+},
+{
+"id": "expresso-ex04-ex01-sad-sympathetic-001-channel2-346s",
+"label": "EX01 – sad / sympathetic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_sad-sympathetic_001_channel2_346s.wav",
+"tab": "moods",
+"hz": 110,
+"pitch": "low",
+"tags": [
+"sad / sympathetic"
+]
+},
+{
+"id": "expresso-ex03-ex01-sarcastic-001-channel2-491s",
+"label": "EX01 – sarcastic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sarcastic_001_channel2_491s.wav",
+"tab": "moods",
+"hz": 148,
+"pitch": "mid",
+"tags": [
+"sarcastic"
+]
+},
+{
+"id": "expresso-ex03-ex01-sleepy-001-channel2-662s",
+"label": "EX01 – sleepy 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sleepy_001_channel2_662s.wav",
+"tab": "moods",
+"hz": 113,
+"pitch": "low",
+"tags": [
+"sleepy"
+]
+},
+{
+"id": "expresso-ex04-ex01-sympathetic-sad-008-channel2-453s",
+"label": "EX01 – sympathetic / sad 8",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_sympathetic-sad_008_channel2_453s.wav",
+"tab": "moods",
+"hz": 165,
+"pitch": "mid",
+"tags": [
+"sympathetic / sad"
+]
+},
+{
+"id": "expresso-ex01-ex02-whisper-001-channel1-579s",
+"label": "EX01 – whisper 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_whisper_001_channel1_579s.wav",
+"tab": "moods",
+"hz": 400,
+"pitch": "high",
+"tags": [
+"whisper"
+]
+},
+{
+"id": "expresso-ex04-ex02-angry-001-channel2-150s",
+"label": "EX02 – angry 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_angry_001_channel2_150s.wav",
+"tab": "moods",
+"hz": 208,
+"pitch": "high",
+"tags": [
+"angry"
+]
+},
+{
+"id": "expresso-ex03-ex02-animal-animaldir-002-channel2-89s",
+"label": "EX02 – animal / animaldir 2",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_animal-animaldir_002_channel2_89s.wav",
+"tab": "moods",
+"hz": 276,
+"pitch": "high",
+"tags": [
+"animal / animaldir"
+]
+},
+{
+"id": "expresso-ex03-ex02-animaldir-animal-008-channel2-136s",
+"label": "EX02 – animaldir / animal 8",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_animaldir-animal_008_channel2_136s.wav",
+"tab": "moods",
+"hz": 239,
+"pitch": "high",
+"tags": [
+"animaldir / animal"
+]
+},
+{
+"id": "expresso-ex04-ex02-awe-001-channel2-1013s",
+"label": "EX02 – awe 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_awe_001_channel2_1013s.wav",
+"tab": "moods",
+"hz": 184,
+"pitch": "high",
+"tags": [
+"awe"
+]
+},
+{
+"id": "expresso-ex04-ex02-bored-001-channel2-232s",
+"label": "EX02 – bored 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_bored_001_channel2_232s.wav",
+"tab": "moods",
+"hz": 172,
+"pitch": "high",
+"tags": [
+"bored"
+]
+},
+{
+"id": "expresso-ex04-ex02-calm-001-channel2-336s",
+"label": "EX02 – calm 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_calm_001_channel2_336s.wav",
+"tab": "moods",
+"hz": 195,
+"pitch": "high",
+"tags": [
+"calm"
+]
+},
+{
+"id": "expresso-ex03-ex02-child-childdir-001-channel2-69s",
+"label": "EX02 – child / childdir 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_child-childdir_001_channel2_69s.wav",
+"tab": "moods",
+"hz": 229,
+"pitch": "high",
+"tags": [
+"child / childdir"
+]
+},
+{
+"id": "expresso-ex03-ex02-childdir-child-004-channel2-187s",
+"label": "EX02 – childdir / child 4",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_childdir-child_004_channel2_187s.wav",
+"tab": "moods",
+"hz": 326,
+"pitch": "high",
+"tags": [
+"childdir / child"
+]
+},
+{
+"id": "expresso-ex04-ex02-confused-001-channel2-488s",
+"label": "EX02 – confused 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_confused_001_channel2_488s.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"tags": [
+"confused"
+]
+},
+{
+"id": "expresso-ex01-ex02-default-001-channel2-198s",
+"label": "EX02 – default 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_default_001_channel2_198s.wav",
+"tab": "moods",
+"hz": 167,
+"pitch": "mid",
+"tags": [
+"default"
+]
+},
+{
+"id": "expresso-ex04-ex02-desire-001-channel2-694s",
+"label": "EX02 – desire 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_desire_001_channel2_694s.wav",
+"tab": "moods",
+"hz": 170,
+"pitch": "high",
+"tags": [
+"desire"
+]
+},
+{
+"id": "expresso-ex04-ex02-disgusted-001-channel2-98s",
+"label": "EX02 – disgusted 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_disgusted_001_channel2_98s.wav",
+"tab": "moods",
+"hz": 232,
+"pitch": "high",
+"tags": [
+"disgusted"
+]
+},
+{
+"id": "expresso-ex01-ex02-enunciated-001-channel2-354s",
+"label": "EX02 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_enunciated_001_channel2_354s.wav",
+"tab": "moods",
+"hz": 205,
+"pitch": "high",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex04-ex02-enunciated-001-channel2-898s",
+"label": "EX02 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_enunciated_001_channel2_898s.wav",
+"tab": "moods",
+"hz": 184,
+"pitch": "high",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex01-ex02-fast-001-channel2-73s",
+"label": "EX02 – fast 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_fast_001_channel2_73s.wav",
+"tab": "moods",
+"hz": 200,
+"pitch": "high",
+"tags": [
+"fast"
+]
+},
+{
+"id": "expresso-ex04-ex02-fearful-001-channel2-266s",
+"label": "EX02 – fearful 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_fearful_001_channel2_266s.wav",
+"tab": "moods",
+"hz": 230,
+"pitch": "high",
+"tags": [
+"fearful"
+]
+},
+{
+"id": "expresso-ex04-ex02-happy-001-channel2-140s",
+"label": "EX02 – happy 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_happy_001_channel2_140s.wav",
+"tab": "moods",
+"hz": 269,
+"pitch": "high",
+"tags": [
+"happy"
+]
+},
+{
+"id": "expresso-ex03-ex02-laughing-001-channel2-234s",
+"label": "EX02 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_laughing_001_channel2_234s.wav",
+"tab": "moods",
+"hz": 286,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex04-ex02-laughing-001-channel2-159s",
+"label": "EX02 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_laughing_001_channel2_159s.wav",
+"tab": "moods",
+"hz": 314,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex03-ex02-narration-002-channel2-1136s",
+"label": "EX02 – narration 2",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_narration_002_channel2_1136s.wav",
+"tab": "moods",
+"hz": 195,
+"pitch": "high",
+"tags": [
+"narration"
+]
+},
+{
+"id": "expresso-ex04-ex02-nonverbal-004-channel2-71s",
+"label": "EX02 – nonverbal 4",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_nonverbal_004_channel2_71s.wav",
+"tab": "moods",
+"hz": 296,
+"pitch": "high",
+"tags": [
+"nonverbal"
+]
+},
+{
+"id": "expresso-ex01-ex02-projected-002-channel2-248s",
+"label": "EX02 – projected 2",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_projected_002_channel2_248s.wav",
+"tab": "moods",
+"hz": 308,
+"pitch": "high",
+"tags": [
+"projected"
+]
+},
+{
+"id": "expresso-ex03-ex02-sad-sympathetic-001-channel2-400s",
+"label": "EX02 – sad / sympathetic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_sad-sympathetic_001_channel2_400s.wav",
+"tab": "moods",
+"hz": 182,
+"pitch": "high",
+"tags": [
+"sad / sympathetic"
+]
+},
+{
+"id": "expresso-ex04-ex02-sarcastic-001-channel2-466s",
+"label": "EX02 – sarcastic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_sarcastic_001_channel2_466s.wav",
+"tab": "moods",
+"hz": 232,
+"pitch": "high",
+"tags": [
+"sarcastic"
+]
+},
+{
+"id": "expresso-ex03-ex02-sympathetic-sad-008-channel2-268s",
+"label": "EX02 – sympathetic / sad 8",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_sympathetic-sad_008_channel2_268s.wav",
+"tab": "moods",
+"hz": 276,
+"pitch": "high",
+"tags": [
+"sympathetic / sad"
+]
+},
+{
+"id": "expresso-ex01-ex02-whisper-001-channel2-717s",
+"label": "EX02 – whisper 1",
+"src": "hf://kyutai/tts-voices/expresso/ex01-ex02_whisper_001_channel2_717s.wav",
+"tab": "moods",
+"hz": 364,
+"pitch": "high",
+"tags": [
+"whisper"
+]
+},
+{
+"id": "expresso-ex03-ex01-angry-001-channel1-201s",
+"label": "EX03 – angry 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_angry_001_channel1_201s.wav",
+"tab": "moods",
+"hz": 216,
+"pitch": "high",
+"tags": [
+"angry"
+]
+},
+{
+"id": "expresso-ex03-ex02-animal-animaldir-003-channel1-32s",
+"label": "EX03 – animal / animaldir 3",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_animal-animaldir_003_channel1_32s.wav",
+"tab": "moods",
+"hz": 235,
+"pitch": "high",
+"tags": [
+"animal / animaldir"
+]
+},
+{
+"id": "expresso-ex03-ex02-animaldir-animal-008-channel1-147s",
+"label": "EX03 – animaldir / animal 8",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_animaldir-animal_008_channel1_147s.wav",
+"tab": "moods",
+"hz": 126,
+"pitch": "low",
+"tags": [
+"animaldir / animal"
+]
+},
+{
+"id": "expresso-ex03-ex01-awe-001-channel1-1323s",
+"label": "EX03 – awe 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_awe_001_channel1_1323s.wav",
+"tab": "moods",
+"hz": 144,
+"pitch": "mid",
+"tags": [
+"awe"
+]
+},
+{
+"id": "expresso-ex03-ex01-calm-001-channel1-1143s",
+"label": "EX03 – calm 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_calm_001_channel1_1143s.wav",
+"tab": "moods",
+"hz": 126,
+"pitch": "low",
+"tags": [
+"calm"
+]
+},
+{
+"id": "expresso-ex03-ex02-child-childdir-001-channel1-291s",
+"label": "EX03 – child / childdir 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_child-childdir_001_channel1_291s.wav",
+"tab": "moods",
+"hz": 177,
+"pitch": "high",
+"tags": [
+"child / childdir"
+]
+},
+{
+"id": "expresso-ex03-ex02-childdir-child-004-channel1-308s",
+"label": "EX03 – childdir / child 4",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_childdir-child_004_channel1_308s.wav",
+"tab": "moods",
+"hz": 151,
+"pitch": "mid",
+"tags": [
+"childdir / child"
+]
+},
+{
+"id": "expresso-ex03-ex01-confused-001-channel1-909s",
+"label": "EX03 – confused 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_confused_001_channel1_909s.wav",
+"tab": "moods",
+"hz": 133,
+"pitch": "low",
+"tags": [
+"confused"
+]
+},
+{
+"id": "expresso-ex04-ex03-default-002-channel2-239s",
+"label": "EX03 – default 2",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_default_002_channel2_239s.wav",
+"tab": "moods",
+"hz": 144,
+"pitch": "mid",
+"tags": [
+"default"
+]
+},
+{
+"id": "expresso-ex03-ex01-desire-004-channel1-545s",
+"label": "EX03 – desire 4",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_desire_004_channel1_545s.wav",
+"tab": "moods",
+"hz": 161,
+"pitch": "mid",
+"tags": [
+"desire"
+]
+},
+{
+"id": "expresso-ex03-ex01-disgusted-004-channel1-170s",
+"label": "EX03 – disgusted 4",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_disgusted_004_channel1_170s.wav",
+"tab": "moods",
+"hz": 138,
+"pitch": "mid",
+"tags": [
+"disgusted"
+]
+},
+{
+"id": "expresso-ex03-ex01-enunciated-001-channel1-388s",
+"label": "EX03 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_enunciated_001_channel1_388s.wav",
+"tab": "moods",
+"hz": 193,
+"pitch": "high",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex04-ex03-enunciated-001-channel2-342s",
+"label": "EX03 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_enunciated_001_channel2_342s.wav",
+"tab": "moods",
+"hz": 163,
+"pitch": "mid",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex04-ex03-fast-001-channel2-25s",
+"label": "EX03 – fast 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_fast_001_channel2_25s.wav",
+"tab": "moods",
+"hz": 146,
+"pitch": "mid",
+"tags": [
+"fast"
+]
+},
+{
+"id": "expresso-ex03-ex01-happy-001-channel1-334s",
+"label": "EX03 – happy 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_happy_001_channel1_334s.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"tags": [
+"happy"
+]
+},
+{
+"id": "expresso-ex03-ex01-laughing-001-channel1-188s",
+"label": "EX03 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_laughing_001_channel1_188s.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex03-ex02-laughing-001-channel1-248s",
+"label": "EX03 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_laughing_001_channel1_248s.wav",
+"tab": "moods",
+"hz": 192,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex03-ex02-narration-001-channel1-674s",
+"label": "EX03 – narration 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_narration_001_channel1_674s.wav",
+"tab": "moods",
+"hz": 219,
+"pitch": "high",
+"tags": [
+"narration"
+]
+},
+{
+"id": "expresso-ex03-ex01-nonverbal-006-channel1-62s",
+"label": "EX03 – nonverbal 6",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_nonverbal_006_channel1_62s.wav",
+"tab": "moods",
+"hz": 216,
+"pitch": "high",
+"tags": [
+"nonverbal"
+]
+},
+{
+"id": "expresso-ex04-ex03-projected-001-channel2-179s",
+"label": "EX03 – projected 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_projected_001_channel2_179s.wav",
+"tab": "moods",
+"hz": 216,
+"pitch": "high",
+"tags": [
+"projected"
+]
+},
+{
+"id": "expresso-ex03-ex02-sad-sympathetic-001-channel1-454s",
+"label": "EX03 – sad / sympathetic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_sad-sympathetic_001_channel1_454s.wav",
+"tab": "moods",
+"hz": 128,
+"pitch": "low",
+"tags": [
+"sad / sympathetic"
+]
+},
+{
+"id": "expresso-ex03-ex01-sarcastic-001-channel1-435s",
+"label": "EX03 – sarcastic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sarcastic_001_channel1_435s.wav",
+"tab": "moods",
+"hz": 144,
+"pitch": "mid",
+"tags": [
+"sarcastic"
+]
+},
+{
+"id": "expresso-ex03-ex01-sleepy-001-channel1-619s",
+"label": "EX03 – sleepy 1",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sleepy_001_channel1_619s.wav",
+"tab": "moods",
+"hz": 110,
+"pitch": "low",
+"tags": [
+"sleepy"
+]
+},
+{
+"id": "expresso-ex03-ex02-sympathetic-sad-008-channel1-215s",
+"label": "EX03 – sympathetic / sad 8",
+"src": "hf://kyutai/tts-voices/expresso/ex03-ex02_sympathetic-sad_008_channel1_215s.wav",
+"tab": "moods",
+"hz": 128,
+"pitch": "low",
+"tags": [
+"sympathetic / sad"
+]
+},
+{
+"id": "expresso-ex04-ex03-whisper-002-channel2-266s",
+"label": "EX03 – whisper 2",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_whisper_002_channel2_266s.wav",
+"tab": "moods",
+"hz": 372,
+"pitch": "high",
+"tags": [
+"whisper"
+]
+},
+{
+"id": "expresso-ex04-ex02-angry-001-channel1-119s",
+"label": "EX04 – angry 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_angry_001_channel1_119s.wav",
+"tab": "moods",
+"hz": 291,
+"pitch": "high",
+"tags": [
+"angry"
+]
+},
+{
+"id": "expresso-ex04-ex01-animal-animaldir-006-channel1-196s",
+"label": "EX04 – animal / animaldir 6",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_animal-animaldir_006_channel1_196s.wav",
+"tab": "moods",
+"hz": 291,
+"pitch": "high",
+"tags": [
+"animal / animaldir"
+]
+},
+{
+"id": "expresso-ex04-ex01-animaldir-animal-001-channel1-118s",
+"label": "EX04 – animaldir / animal 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_animaldir-animal_001_channel1_118s.wav",
+"tab": "moods",
+"hz": 291,
+"pitch": "high",
+"tags": [
+"animaldir / animal"
+]
+},
+{
+"id": "expresso-ex04-ex02-awe-001-channel1-982s",
+"label": "EX04 – awe 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_awe_001_channel1_982s.wav",
+"tab": "moods",
+"hz": 202,
+"pitch": "high",
+"tags": [
+"awe"
+]
+},
+{
+"id": "expresso-ex04-ex02-bored-001-channel1-254s",
+"label": "EX04 – bored 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_bored_001_channel1_254s.wav",
+"tab": "moods",
+"hz": 202,
+"pitch": "high",
+"tags": [
+"bored"
+]
+},
+{
+"id": "expresso-ex04-ex02-calm-002-channel1-480s",
+"label": "EX04 – calm 2",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_calm_002_channel1_480s.wav",
+"tab": "moods",
+"hz": 195,
+"pitch": "high",
+"tags": [
+"calm"
+]
+},
+{
+"id": "expresso-ex04-ex01-child-childdir-004-channel1-118s",
+"label": "EX04 – child / childdir 4",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_child-childdir_004_channel1_118s.wav",
+"tab": "moods",
+"hz": 364,
+"pitch": "high",
+"tags": [
+"child / childdir"
+]
+},
+{
+"id": "expresso-ex04-ex01-childdir-child-001-channel1-228s",
+"label": "EX04 – childdir / child 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_childdir-child_001_channel1_228s.wav",
+"tab": "moods",
+"hz": 276,
+"pitch": "high",
+"tags": [
+"childdir / child"
+]
+},
+{
+"id": "expresso-ex04-ex02-confused-001-channel1-499s",
+"label": "EX04 – confused 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_confused_001_channel1_499s.wav",
+"tab": "moods",
+"hz": 202,
+"pitch": "high",
+"tags": [
+"confused"
+]
+},
+{
+"id": "expresso-ex04-ex03-default-001-channel1-3s",
+"label": "EX04 – default 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_default_001_channel1_3s.wav",
+"tab": "moods",
+"hz": 308,
+"pitch": "high",
+"tags": [
+"default"
+]
+},
+{
+"id": "expresso-ex04-ex02-desire-001-channel1-657s",
+"label": "EX04 – desire 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_desire_001_channel1_657s.wav",
+"tab": "moods",
+"hz": 219,
+"pitch": "high",
+"tags": [
+"desire"
+]
+},
+{
+"id": "expresso-ex04-ex01-disgusted-001-channel1-130s",
+"label": "EX04 – disgusted 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_disgusted_001_channel1_130s.wav",
+"tab": "moods",
+"hz": 286,
+"pitch": "high",
+"tags": [
+"disgusted"
+]
+},
+{
+"id": "expresso-ex04-ex02-disgusted-004-channel1-169s",
+"label": "EX04 – disgusted 4",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_disgusted_004_channel1_169s.wav",
+"tab": "moods",
+"hz": 308,
+"pitch": "high",
+"tags": [
+"disgusted"
+]
+},
+{
+"id": "expresso-ex04-ex02-enunciated-001-channel1-496s",
+"label": "EX04 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_enunciated_001_channel1_496s.wav",
+"tab": "moods",
+"hz": 276,
+"pitch": "high",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex04-ex03-enunciated-001-channel1-86s",
+"label": "EX04 – enunciated 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_enunciated_001_channel1_86s.wav",
+"tab": "moods",
+"hz": 302,
+"pitch": "high",
+"tags": [
+"enunciated"
+]
+},
+{
+"id": "expresso-ex04-ex03-fast-001-channel1-208s",
+"label": "EX04 – fast 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_fast_001_channel1_208s.wav",
+"tab": "moods",
+"hz": 271,
+"pitch": "high",
+"tags": [
+"fast"
+]
+},
+{
+"id": "expresso-ex04-ex02-fearful-001-channel1-316s",
+"label": "EX04 – fearful 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_fearful_001_channel1_316s.wav",
+"tab": "moods",
+"hz": 239,
+"pitch": "high",
+"tags": [
+"fearful"
+]
+},
+{
+"id": "expresso-ex04-ex02-happy-001-channel1-118s",
+"label": "EX04 – happy 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_happy_001_channel1_118s.wav",
+"tab": "moods",
+"hz": 314,
+"pitch": "high",
+"tags": [
+"happy"
+]
+},
+{
+"id": "expresso-ex04-ex01-laughing-001-channel1-306s",
+"label": "EX04 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_laughing_001_channel1_306s.wav",
+"tab": "moods",
+"hz": 256,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex04-ex02-laughing-001-channel1-147s",
+"label": "EX04 – laughing 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_laughing_001_channel1_147s.wav",
+"tab": "moods",
+"hz": 314,
+"pitch": "high",
+"tags": [
+"laughing"
+]
+},
+{
+"id": "expresso-ex04-ex01-narration-001-channel1-605s",
+"label": "EX04 – narration 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_narration_001_channel1_605s.wav",
+"tab": "moods",
+"hz": 281,
+"pitch": "high",
+"tags": [
+"narration"
+]
+},
+{
+"id": "expresso-ex04-ex02-nonverbal-004-channel1-18s",
+"label": "EX04 – nonverbal 4",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_nonverbal_004_channel1_18s.wav",
+"tab": "moods",
+"hz": 326,
+"pitch": "high",
+"tags": [
+"nonverbal"
+]
+},
+{
+"id": "expresso-ex04-ex03-projected-001-channel1-192s",
+"label": "EX04 – projected 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_projected_001_channel1_192s.wav",
+"tab": "moods",
+"hz": 348,
+"pitch": "high",
+"tags": [
+"projected"
+]
+},
+{
+"id": "expresso-ex04-ex01-sad-sympathetic-001-channel1-267s",
+"label": "EX04 – sad / sympathetic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_sad-sympathetic_001_channel1_267s.wav",
+"tab": "moods",
+"hz": 225,
+"pitch": "high",
+"tags": [
+"sad / sympathetic"
+]
+},
+{
+"id": "expresso-ex04-ex02-sarcastic-001-channel1-519s",
+"label": "EX04 – sarcastic 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex02_sarcastic_001_channel1_519s.wav",
+"tab": "moods",
+"hz": 225,
+"pitch": "high",
+"tags": [
+"sarcastic"
+]
+},
+{
+"id": "expresso-ex04-ex01-sympathetic-sad-008-channel1-415s",
+"label": "EX04 – sympathetic / sad 8",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex01_sympathetic-sad_008_channel1_415s.wav",
+"tab": "moods",
+"hz": 193,
+"pitch": "high",
+"tags": [
+"sympathetic / sad"
+]
+},
+{
+"id": "expresso-ex04-ex03-whisper-001-channel1-198s",
+"label": "EX04 – whisper 1",
+"src": "hf://kyutai/tts-voices/expresso/ex04-ex03_whisper_001_channel1_198s.wav",
+"tab": "moods",
+"hz": 381,
+"pitch": "high",
+"tags": [
+"whisper"
+]
+}
+]
+},
+{
+"group": "Emotions – EARS p003",
+"note": "One speaker, many emotions and styles (CC BY-NC 4.0).",
+"voices": [
+{
+"id": "ears-p003-emo-adoration-freeform-enhanced",
+"label": "Adoration",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_adoration_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 169,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"adoration"
+]
+},
+{
+"id": "ears-p003-emo-amazement-freeform-enhanced",
+"label": "Amazement",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_amazement_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 219,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"amazement"
+]
+},
+{
+"id": "ears-p003-emo-amusement-freeform-enhanced",
+"label": "Amusement",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_amusement_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 210,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"amusement"
+]
+},
+{
+"id": "ears-p003-emo-anger-freeform-enhanced",
+"label": "Anger",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_anger_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 225,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"anger"
+]
+},
+{
+"id": "ears-p003-emo-confusion-freeform-enhanced",
+"label": "Confusion",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_confusion_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 213,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"confusion"
+]
+},
+{
+"id": "ears-p003-emo-contentment-freeform-enhanced",
+"label": "Contentment",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_contentment_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"contentment"
+]
+},
+{
+"id": "ears-p003-emo-cuteness-freeform-enhanced",
+"label": "Cuteness",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_cuteness_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 182,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"cuteness"
+]
+},
+{
+"id": "ears-p003-emo-desire-freeform-enhanced",
+"label": "Desire",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_desire_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"desire"
+]
+},
+{
+"id": "ears-p003-emo-disappointment-freeform-enhanced",
+"label": "Disappointment",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_disappointment_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 221,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"disappointment"
+]
+},
+{
+"id": "ears-p003-emo-disgust-freeform-enhanced",
+"label": "Disgust",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_disgust_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 162,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"disgust"
+]
+},
+{
+"id": "ears-p003-emo-distress-freeform-enhanced",
+"label": "Distress",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_distress_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 176,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"distress"
+]
+},
+{
+"id": "ears-p003-emo-embarassment-freeform-enhanced",
+"label": "Embarassment",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_embarassment_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 198,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"embarassment"
+]
+},
+{
+"id": "ears-p003-emo-extasy-freeform-enhanced",
+"label": "Extasy",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_extasy_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 305,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"extasy"
+]
+},
+{
+"id": "ears-p003-emo-fear-freeform-enhanced",
+"label": "Fear",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_fear_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 213,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"fear"
+]
+},
+{
+"id": "ears-p003-emo-guilt-freeform-enhanced",
+"label": "Guilt",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_guilt_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 232,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"guilt"
+]
+},
+{
+"id": "ears-p003-emo-interest-freeform-enhanced",
+"label": "Interest",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_interest_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 201,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"interest"
+]
+},
+{
+"id": "ears-p003-emo-neutral-freeform-enhanced",
+"label": "Neutral",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_neutral_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 160,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"neutral"
+]
+},
+{
+"id": "ears-p003-emo-pain-freeform-enhanced",
+"label": "Pain",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_pain_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"pain"
+]
+},
+{
+"id": "ears-p003-emo-pride-freeform-enhanced",
+"label": "Pride",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_pride_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 204,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"pride"
+]
+},
+{
+"id": "ears-p003-emo-realization-freeform-enhanced",
+"label": "Realization",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_realization_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 239,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"realization"
+]
+},
+{
+"id": "ears-p003-emo-relief-freeform-enhanced",
+"label": "Relief",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_relief_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 219,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"relief"
+]
+},
+{
+"id": "ears-p003-emo-sadness-freeform-enhanced",
+"label": "Sadness",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_sadness_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 178,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"sadness"
+]
+},
+{
+"id": "ears-p003-emo-serenity-freeform-enhanced",
+"label": "Serenity",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_serenity_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 168,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"serenity"
+]
+},
+{
+"id": "ears-p003-freeform-speech-01-enhanced",
+"label": "Freeform speech 01",
+"src": "hf://kyutai/tts-voices/ears/p003/freeform_speech_01_enhanced.wav",
+"tab": "moods",
+"hz": 162,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35",
+"freeform speech 01"
+]
+}
+]
+},
+{
+"group": "Emotions – EARS p031",
+"note": "One speaker, many emotions and styles (CC BY-NC 4.0).",
+"voices": [
+{
+"id": "ears-p031-emo-adoration-freeform-enhanced",
+"label": "Adoration",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_adoration_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 125,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"adoration"
+]
+},
+{
+"id": "ears-p031-emo-amazement-freeform-enhanced",
+"label": "Amazement",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_amazement_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 170,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"amazement"
+]
+},
+{
+"id": "ears-p031-emo-amusement-freeform-enhanced",
+"label": "Amusement",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_amusement_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 143,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"amusement"
+]
+},
+{
+"id": "ears-p031-emo-anger-freeform-enhanced",
+"label": "Anger",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_anger_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 271,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"anger"
+]
+},
+{
+"id": "ears-p031-emo-confusion-freeform-enhanced",
+"label": "Confusion",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_confusion_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 158,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"confusion"
+]
+},
+{
+"id": "ears-p031-emo-contentment-freeform-enhanced",
+"label": "Contentment",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_contentment_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 132,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"contentment"
+]
+},
+{
+"id": "ears-p031-emo-cuteness-freeform-enhanced",
+"label": "Cuteness",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_cuteness_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 186,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"cuteness"
+]
+},
+{
+"id": "ears-p031-emo-desire-freeform-enhanced",
+"label": "Desire",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_desire_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 133,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"desire"
+]
+},
+{
+"id": "ears-p031-emo-disappointment-freeform-enhanced",
+"label": "Disappointment",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_disappointment_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 134,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"disappointment"
+]
+},
+{
+"id": "ears-p031-emo-disgust-freeform-enhanced",
+"label": "Disgust",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_disgust_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 254,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"disgust"
+]
+},
+{
+"id": "ears-p031-emo-distress-freeform-enhanced",
+"label": "Distress",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_distress_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 213,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"distress"
+]
+},
+{
+"id": "ears-p031-emo-embarassment-freeform-enhanced",
+"label": "Embarassment",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_embarassment_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 198,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"embarassment"
+]
+},
+{
+"id": "ears-p031-emo-extasy-freeform-enhanced",
+"label": "Extasy",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_extasy_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 250,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"extasy"
+]
+},
+{
+"id": "ears-p031-emo-fear-freeform-enhanced",
+"label": "Fear",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_fear_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 154,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"fear"
+]
+},
+{
+"id": "ears-p031-emo-guilt-freeform-enhanced",
+"label": "Guilt",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_guilt_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 138,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"guilt"
+]
+},
+{
+"id": "ears-p031-emo-interest-freeform-enhanced",
+"label": "Interest",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_interest_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 137,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"interest"
+]
+},
+{
+"id": "ears-p031-emo-neutral-freeform-enhanced",
+"label": "Neutral",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_neutral_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 110,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"neutral"
+]
+},
+{
+"id": "ears-p031-emo-pain-freeform-enhanced",
+"label": "Pain",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_pain_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 160,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"pain"
+]
+},
+{
+"id": "ears-p031-emo-pride-freeform-enhanced",
+"label": "Pride",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_pride_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 170,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"pride"
+]
+},
+{
+"id": "ears-p031-emo-realization-freeform-enhanced",
+"label": "Realization",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_realization_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 174,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"realization"
+]
+},
+{
+"id": "ears-p031-emo-relief-freeform-enhanced",
+"label": "Relief",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_relief_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 148,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"relief"
+]
+},
+{
+"id": "ears-p031-emo-sadness-freeform-enhanced",
+"label": "Sadness",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_sadness_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 108,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"sadness"
+]
+},
+{
+"id": "ears-p031-emo-serenity-freeform-enhanced",
+"label": "Serenity",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_serenity_freeform_enhanced.wav",
+"tab": "moods",
+"hz": 116,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"serenity"
+]
+},
+{
+"id": "ears-p031-freeform-speech-01-enhanced",
+"label": "Freeform speech 01",
+"src": "hf://kyutai/tts-voices/ears/p031/freeform_speech_01_enhanced.wav",
+"tab": "moods",
+"hz": 174,
+"pitch": "high",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25",
+"freeform speech 01"
+]
+}
+]
+},
+{
+"group": "Speakers – EARS",
+"note": "107 speakers, free speech (CC BY-NC 4.0).",
+"voices": [
+{
+"id": "spk-ears-p001-freeform-speech-01-enhanced",
+"label": "EARS p001 – native german",
+"src": "hf://kyutai/tts-voices/ears/p001/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 134,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native german",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p002-freeform-speech-01-enhanced",
+"label": "EARS p002 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p002/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 178,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p003-emo-adoration-freeform-enhanced",
+"label": "EARS p003 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p003/emo_adoration_freeform_enhanced.wav",
+"tab": "speakers",
+"hz": 169,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p004-freeform-speech-01-enhanced",
+"label": "EARS p004 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p004/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 87,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p005-freeform-speech-01-enhanced",
+"label": "EARS p005 – native mandarin",
+"src": "hf://kyutai/tts-voices/ears/p005/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 114,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native mandarin",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p006-freeform-speech-01-enhanced",
+"label": "EARS p006 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p006/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 195,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p007-freeform-speech-01-enhanced",
+"label": "EARS p007 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p007/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p008-freeform-speech-01-enhanced",
+"label": "EARS p008 – native british english",
+"src": "hf://kyutai/tts-voices/ears/p008/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 152,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native british english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p009-freeform-speech-01-enhanced",
+"label": "EARS p009 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p009/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 104,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p010-freeform-speech-01-enhanced",
+"label": "EARS p010 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p010/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p011-freeform-speech-01-enhanced",
+"label": "EARS p011 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p011/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p012-freeform-speech-01-enhanced",
+"label": "EARS p012 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p012/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 190,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p013-freeform-speech-01-enhanced",
+"label": "EARS p013 – native ukrainian",
+"src": "hf://kyutai/tts-voices/ears/p013/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 222,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native ukrainian",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p014-freeform-speech-01-enhanced",
+"label": "EARS p014 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p014/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 162,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p015-freeform-speech-01-enhanced",
+"label": "EARS p015 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p015/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 155,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p016-freeform-speech-01-enhanced",
+"label": "EARS p016 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p016/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 110,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p017-freeform-speech-01-enhanced",
+"label": "EARS p017 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p017/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 82,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p018-freeform-speech-01-enhanced",
+"label": "EARS p018 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p018/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 155,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p019-freeform-speech-01-enhanced",
+"label": "EARS p019 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p019/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 102,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p020-freeform-speech-01-enhanced",
+"label": "EARS p020 – native prefer not to answer",
+"src": "hf://kyutai/tts-voices/ears/p020/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 96,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native prefer not to answer",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p021-freeform-speech-01-enhanced",
+"label": "EARS p021 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p021/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 172,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 66-75"
+]
+},
+{
+"id": "spk-ears-p022-freeform-speech-01-enhanced",
+"label": "EARS p022 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p022/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 112,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p023-freeform-speech-01-enhanced",
+"label": "EARS p023 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p023/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 152,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p024-freeform-speech-01-enhanced",
+"label": "EARS p024 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p024/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p025-freeform-speech-01-enhanced",
+"label": "EARS p025 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p025/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p026-freeform-speech-01-enhanced",
+"label": "EARS p026 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p026/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 215,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p027-freeform-speech-01-enhanced",
+"label": "EARS p027 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p027/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 262,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p028-freeform-speech-01-enhanced",
+"label": "EARS p028 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p028/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 210,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p029-freeform-speech-01-enhanced",
+"label": "EARS p029 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p029/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p030-freeform-speech-01-enhanced",
+"label": "EARS p030 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p030/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 167,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p031-emo-adoration-freeform-enhanced",
+"label": "EARS p031 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p031/emo_adoration_freeform_enhanced.wav",
+"tab": "speakers",
+"hz": 125,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p032-freeform-speech-01-enhanced",
+"label": "EARS p032 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p032/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 149,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p033-freeform-speech-01-enhanced",
+"label": "EARS p033 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p033/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p034-freeform-speech-01-enhanced",
+"label": "EARS p034 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p034/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 162,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p035-freeform-speech-01-enhanced",
+"label": "EARS p035 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p035/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 198,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p036-freeform-speech-01-enhanced",
+"label": "EARS p036 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p036/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 177,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p037-freeform-speech-01-enhanced",
+"label": "EARS p037 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p037/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 219,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p038-freeform-speech-01-enhanced",
+"label": "EARS p038 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p038/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 137,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p039-freeform-speech-01-enhanced",
+"label": "EARS p039 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p039/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 111,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p040-freeform-speech-01-enhanced",
+"label": "EARS p040 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p040/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 95,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p041-freeform-speech-01-enhanced",
+"label": "EARS p041 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p041/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 165,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p042-freeform-speech-01-enhanced",
+"label": "EARS p042 – native spanish",
+"src": "hf://kyutai/tts-voices/ears/p042/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 114,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native spanish",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p043-freeform-speech-01-enhanced",
+"label": "EARS p043 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p043/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p044-freeform-speech-01-enhanced",
+"label": "EARS p044 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p044/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 176,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p045-freeform-speech-01-enhanced",
+"label": "EARS p045 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p045/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 198,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p046-freeform-speech-01-enhanced",
+"label": "EARS p046 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p046/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 98,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p047-freeform-speech-01-enhanced",
+"label": "EARS p047 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p047/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 174,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p048-freeform-speech-01-enhanced",
+"label": "EARS p048 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p048/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 160,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p049-freeform-speech-01-enhanced",
+"label": "EARS p049 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p049/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 144,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p050-freeform-speech-01-enhanced",
+"label": "EARS p050 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p050/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p051-freeform-speech-01-enhanced",
+"label": "EARS p051 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p051/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 176,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p052-freeform-speech-01-enhanced",
+"label": "EARS p052 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p052/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 160,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p053-freeform-speech-01-enhanced",
+"label": "EARS p053 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p053/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 225,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p054-freeform-speech-01-enhanced",
+"label": "EARS p054 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p054/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 84,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p055-freeform-speech-01-enhanced",
+"label": "EARS p055 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p055/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 180,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p056-freeform-speech-01-enhanced",
+"label": "EARS p056 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p056/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 208,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p057-freeform-speech-01-enhanced",
+"label": "EARS p057 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p057/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 116,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p058-freeform-speech-01-enhanced",
+"label": "EARS p058 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p058/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 219,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p059-freeform-speech-01-enhanced",
+"label": "EARS p059 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p059/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 198,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p060-freeform-speech-01-enhanced",
+"label": "EARS p060 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p060/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 106,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p061-freeform-speech-01-enhanced",
+"label": "EARS p061 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p061/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 126,
+"pitch": "low",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p062-freeform-speech-01-enhanced",
+"label": "EARS p062 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p062/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 193,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p063-freeform-speech-01-enhanced",
+"label": "EARS p063 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p063/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 176,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p064-freeform-speech-01-enhanced",
+"label": "EARS p064 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p064/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 162,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p065-freeform-speech-01-enhanced",
+"label": "EARS p065 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p065/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 142,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p066-freeform-speech-01-enhanced",
+"label": "EARS p066 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p066/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 174,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p067-freeform-speech-01-enhanced",
+"label": "EARS p067 – native dari",
+"src": "hf://kyutai/tts-voices/ears/p067/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 195,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native dari",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p068-freeform-speech-01-enhanced",
+"label": "EARS p068 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p068/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 208,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p069-freeform-speech-01-enhanced",
+"label": "EARS p069 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p069/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 155,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p070-freeform-speech-01-enhanced",
+"label": "EARS p070 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p070/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p071-freeform-speech-01-enhanced",
+"label": "EARS p071 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p071/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 126,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p072-freeform-speech-01-enhanced",
+"label": "EARS p072 – native prefer not to answer",
+"src": "hf://kyutai/tts-voices/ears/p072/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 205,
+"pitch": "high",
+"tags": [
+"native prefer not to answer",
+"age prefer not to answer"
+]
+},
+{
+"id": "spk-ears-p073-freeform-speech-01-enhanced",
+"label": "EARS p073 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p073/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 155,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p074-freeform-speech-01-enhanced",
+"label": "EARS p074 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p074/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 91,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p075-freeform-speech-01-enhanced",
+"label": "EARS p075 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p075/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 174,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p076-freeform-speech-01-enhanced",
+"label": "EARS p076 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p076/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 103,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p077-freeform-speech-01-enhanced",
+"label": "EARS p077 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p077/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 103,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p078-freeform-speech-01-enhanced",
+"label": "EARS p078 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p078/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 210,
+"pitch": "high",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p079-freeform-speech-01-enhanced",
+"label": "EARS p079 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p079/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 216,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p080-freeform-speech-01-enhanced",
+"label": "EARS p080 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p080/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p081-freeform-speech-01-enhanced",
+"label": "EARS p081 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p081/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 134,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p082-freeform-speech-01-enhanced",
+"label": "EARS p082 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p082/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 188,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p083-freeform-speech-01-enhanced",
+"label": "EARS p083 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p083/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 144,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p084-freeform-speech-01-enhanced",
+"label": "EARS p084 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p084/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 140,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 66-75"
+]
+},
+{
+"id": "spk-ears-p085-freeform-speech-01-enhanced",
+"label": "EARS p085 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p085/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 91,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p086-freeform-speech-01-enhanced",
+"label": "EARS p086 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p086/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 141,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p087-freeform-speech-01-enhanced",
+"label": "EARS p087 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p087/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p088-freeform-speech-01-enhanced",
+"label": "EARS p088 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p088/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 91,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p089-freeform-speech-01-enhanced",
+"label": "EARS p089 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p089/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 216,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p090-freeform-speech-01-enhanced",
+"label": "EARS p090 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p090/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 118,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p091-freeform-speech-01-enhanced",
+"label": "EARS p091 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p091/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p092-freeform-speech-01-enhanced",
+"label": "EARS p092 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p092/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 163,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p093-freeform-speech-01-enhanced",
+"label": "EARS p093 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p093/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 193,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p094-freeform-speech-01-enhanced",
+"label": "EARS p094 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p094/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 126,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p095-freeform-speech-01-enhanced",
+"label": "EARS p095 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p095/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p096-freeform-speech-01-enhanced",
+"label": "EARS p096 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p096/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 254,
+"pitch": "high",
+"tags": [
+"native american english",
+"age 18-25"
+]
+},
+{
+"id": "spk-ears-p097-freeform-speech-01-enhanced",
+"label": "EARS p097 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p097/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 134,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p098-freeform-speech-01-enhanced",
+"label": "EARS p098 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p098/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 187,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p099-freeform-speech-01-enhanced",
+"label": "EARS p099 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p099/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 108,
+"pitch": "low",
+"gender": "F",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p100-freeform-speech-01-enhanced",
+"label": "EARS p100 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p100/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p101-freeform-speech-01-enhanced",
+"label": "EARS p101 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p101/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 90,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 46-55"
+]
+},
+{
+"id": "spk-ears-p102-freeform-speech-01-enhanced",
+"label": "EARS p102 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p102/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 112,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 26-35"
+]
+},
+{
+"id": "spk-ears-p103-freeform-speech-01-enhanced",
+"label": "EARS p103 – native prefer not to answer",
+"src": "hf://kyutai/tts-voices/ears/p103/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 202,
+"pitch": "high",
+"tags": [
+"native prefer not to answer",
+"age prefer not to answer"
+]
+},
+{
+"id": "spk-ears-p104-freeform-speech-01-enhanced",
+"label": "EARS p104 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p104/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p105-freeform-speech-01-enhanced",
+"label": "EARS p105 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p105/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 105,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native american english",
+"age 36-45"
+]
+},
+{
+"id": "spk-ears-p106-freeform-speech-01-enhanced",
+"label": "EARS p106 – native american english",
+"src": "hf://kyutai/tts-voices/ears/p106/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 182,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"native american english",
+"age 56-65"
+]
+},
+{
+"id": "spk-ears-p107-freeform-speech-01-enhanced",
+"label": "EARS p107 – native russian",
+"src": "hf://kyutai/tts-voices/ears/p107/freeform_speech_01_enhanced.wav",
+"tab": "speakers",
+"hz": 107,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"native russian",
+"age 36-45"
+]
+}
+]
+},
+{
+"group": "Accents – VCTK",
+"note": "British Isles and other English accents (CC BY 4.0).",
+"voices": [
+{
+"id": "vctk-p225-023-enhanced",
+"label": "English – Southern England (p225)",
+"src": "hf://kyutai/tts-voices/vctk/p225_023_enhanced.wav",
+"tab": "accents",
+"hz": 182,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 23"
+]
+},
+{
+"id": "vctk-p226-023-enhanced",
+"label": "English – Surrey (p226)",
+"src": "hf://kyutai/tts-voices/vctk/p226_023_enhanced.wav",
+"tab": "accents",
+"hz": 114,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Surrey",
+"age 22"
+]
+},
+{
+"id": "vctk-p227-023-enhanced",
+"label": "English – Cumbria (p227)",
+"src": "hf://kyutai/tts-voices/vctk/p227_023_enhanced.wav",
+"tab": "accents",
+"hz": 118,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Cumbria",
+"age 38"
+]
+},
+{
+"id": "vctk-p228-023-enhanced",
+"label": "English – Southern England (p228)",
+"src": "hf://kyutai/tts-voices/vctk/p228_023_enhanced.wav",
+"tab": "accents",
+"hz": 200,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 22"
+]
+},
+{
+"id": "vctk-p229-023-enhanced",
+"label": "English – Southern England (p229)",
+"src": "hf://kyutai/tts-voices/vctk/p229_023_enhanced.wav",
+"tab": "accents",
+"hz": 178,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 23"
+]
+},
+{
+"id": "vctk-p230-023-enhanced",
+"label": "English – Stockton-on-tees (p230)",
+"src": "hf://kyutai/tts-voices/vctk/p230_023_enhanced.wav",
+"tab": "accents",
+"hz": 190,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Stockton-on-tees",
+"age 22"
+]
+},
+{
+"id": "vctk-p231-023-enhanced",
+"label": "English – Southern England (p231)",
+"src": "hf://kyutai/tts-voices/vctk/p231_023_enhanced.wav",
+"tab": "accents",
+"hz": 182,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 23"
+]
+},
+{
+"id": "vctk-p232-023-enhanced",
+"label": "English – Southern England (p232)",
+"src": "hf://kyutai/tts-voices/vctk/p232_023_enhanced.wav",
+"tab": "accents",
+"hz": 115,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Southern England",
+"age 23"
+]
+},
+{
+"id": "vctk-p233-023-enhanced",
+"label": "English – Staffordshire (p233)",
+"src": "hf://kyutai/tts-voices/vctk/p233_023_enhanced.wav",
+"tab": "accents",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Staffordshire",
+"age 23"
+]
+},
+{
+"id": "vctk-p234-023-enhanced",
+"label": "Scottish – West Dumfries (p234)",
+"src": "hf://kyutai/tts-voices/vctk/p234_023_enhanced.wav",
+"tab": "accents",
+"hz": 180,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Scottish",
+"West Dumfries",
+"age 22"
+]
+},
+{
+"id": "vctk-p236-023-enhanced",
+"label": "English – Manchester (p236)",
+"src": "hf://kyutai/tts-voices/vctk/p236_023_enhanced.wav",
+"tab": "accents",
+"hz": 239,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Manchester",
+"age 23"
+]
+},
+{
+"id": "vctk-p237-023-enhanced",
+"label": "Scottish – Fife (p237)",
+"src": "hf://kyutai/tts-voices/vctk/p237_023_enhanced.wav",
+"tab": "accents",
+"hz": 79,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Fife",
+"age 22"
+]
+},
+{
+"id": "vctk-p238-023-enhanced",
+"label": "Northern Irish – Belfast (p238)",
+"src": "hf://kyutai/tts-voices/vctk/p238_023_enhanced.wav",
+"tab": "accents",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Northern Irish",
+"Belfast",
+"age 22"
+]
+},
+{
+"id": "vctk-p239-023-enhanced",
+"label": "English – SW England (p239)",
+"src": "hf://kyutai/tts-voices/vctk/p239_023_enhanced.wav",
+"tab": "accents",
+"hz": 188,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"SW England",
+"age 22"
+]
+},
+{
+"id": "vctk-p240-023-enhanced",
+"label": "English – Southern England (p240)",
+"src": "hf://kyutai/tts-voices/vctk/p240_023_enhanced.wav",
+"tab": "accents",
+"hz": 232,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 21"
+]
+},
+{
+"id": "vctk-p241-023-enhanced",
+"label": "Scottish – Perth (p241)",
+"src": "hf://kyutai/tts-voices/vctk/p241_023_enhanced.wav",
+"tab": "accents",
+"hz": 115,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Perth",
+"age 21"
+]
+},
+{
+"id": "vctk-p243-023-enhanced",
+"label": "English – London (p243)",
+"src": "hf://kyutai/tts-voices/vctk/p243_023_enhanced.wav",
+"tab": "accents",
+"hz": 118,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"London",
+"age 22"
+]
+},
+{
+"id": "vctk-p244-023-enhanced",
+"label": "English – Manchester (p244)",
+"src": "hf://kyutai/tts-voices/vctk/p244_023_enhanced.wav",
+"tab": "accents",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Manchester",
+"age 22"
+]
+},
+{
+"id": "vctk-p245-023-enhanced",
+"label": "Irish – Dublin (p245)",
+"src": "hf://kyutai/tts-voices/vctk/p245_023_enhanced.wav",
+"tab": "accents",
+"hz": 89,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Irish",
+"Dublin",
+"age 25"
+]
+},
+{
+"id": "vctk-p246-023-enhanced",
+"label": "Scottish – Selkirk (p246)",
+"src": "hf://kyutai/tts-voices/vctk/p246_023_enhanced.wav",
+"tab": "accents",
+"hz": 104,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Selkirk",
+"age 22"
+]
+},
+{
+"id": "vctk-p247-023-enhanced",
+"label": "Scottish – Argyll (p247)",
+"src": "hf://kyutai/tts-voices/vctk/p247_023_enhanced.wav",
+"tab": "accents",
+"hz": 133,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Argyll",
+"age 22"
+]
+},
+{
+"id": "vctk-p248-023-enhanced",
+"label": "Indian – p248",
+"src": "hf://kyutai/tts-voices/vctk/p248_023_enhanced.wav",
+"tab": "accents",
+"hz": 222,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Indian",
+"age 23"
+]
+},
+{
+"id": "vctk-p249-023-enhanced",
+"label": "Scottish – Aberdeen (p249)",
+"src": "hf://kyutai/tts-voices/vctk/p249_023_enhanced.wav",
+"tab": "accents",
+"hz": 174,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Scottish",
+"Aberdeen",
+"age 22"
+]
+},
+{
+"id": "vctk-p250-023-enhanced",
+"label": "English – SE England (p250)",
+"src": "hf://kyutai/tts-voices/vctk/p250_023_enhanced.wav",
+"tab": "accents",
+"hz": 218,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"SE England",
+"age 22"
+]
+},
+{
+"id": "vctk-p251-023-enhanced",
+"label": "Indian – p251",
+"src": "hf://kyutai/tts-voices/vctk/p251_023_enhanced.wav",
+"tab": "accents",
+"hz": 118,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Indian",
+"age 26"
+]
+},
+{
+"id": "vctk-p252-023-enhanced",
+"label": "Scottish – Edinburgh (p252)",
+"src": "hf://kyutai/tts-voices/vctk/p252_023_enhanced.wav",
+"tab": "accents",
+"hz": 118,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Edinburgh",
+"age 22"
+]
+},
+{
+"id": "vctk-p253-023-enhanced",
+"label": "Welsh – Cardiff (p253)",
+"src": "hf://kyutai/tts-voices/vctk/p253_023_enhanced.wav",
+"tab": "accents",
+"hz": 222,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Welsh",
+"Cardiff",
+"age 22"
+]
+},
+{
+"id": "vctk-p254-023-enhanced",
+"label": "English – Surrey (p254)",
+"src": "hf://kyutai/tts-voices/vctk/p254_023_enhanced.wav",
+"tab": "accents",
+"hz": 80,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Surrey",
+"age 21"
+]
+},
+{
+"id": "vctk-p255-023-enhanced",
+"label": "Scottish – Galloway (p255)",
+"src": "hf://kyutai/tts-voices/vctk/p255_023_enhanced.wav",
+"tab": "accents",
+"hz": 146,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"Scottish",
+"Galloway",
+"age 19"
+]
+},
+{
+"id": "vctk-p256-023-enhanced",
+"label": "English – Birmingham (p256)",
+"src": "hf://kyutai/tts-voices/vctk/p256_023_enhanced.wav",
+"tab": "accents",
+"hz": 87,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Birmingham",
+"age 24"
+]
+},
+{
+"id": "vctk-p257-023-enhanced",
+"label": "English – Southern England (p257)",
+"src": "hf://kyutai/tts-voices/vctk/p257_023_enhanced.wav",
+"tab": "accents",
+"hz": 200,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Southern England",
+"age 24"
+]
+},
+{
+"id": "vctk-p258-023-enhanced",
+"label": "English – Southern England (p258)",
+"src": "hf://kyutai/tts-voices/vctk/p258_023_enhanced.wav",
+"tab": "accents",
+"hz": 114,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Southern England",
+"age 22"
+]
+},
+{
+"id": "vctk-p259-023-enhanced",
+"label": "English – Nottingham (p259)",
+"src": "hf://kyutai/tts-voices/vctk/p259_023_enhanced.wav",
+"tab": "accents",
+"hz": 114,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Nottingham",
+"age 23"
+]
+},
+{
+"id": "vctk-p260-023-enhanced",
+"label": "Scottish – Orkney (p260)",
+"src": "hf://kyutai/tts-voices/vctk/p260_023_enhanced.wav",
+"tab": "accents",
+"hz": 133,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Orkney",
+"age 21"
+]
+},
+{
+"id": "vctk-p261-023-enhanced",
+"label": "Northern Irish – Belfast (p261)",
+"src": "hf://kyutai/tts-voices/vctk/p261_023_enhanced.wav",
+"tab": "accents",
+"hz": 235,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Northern Irish",
+"Belfast",
+"age 26"
+]
+},
+{
+"id": "vctk-p262-023-enhanced",
+"label": "Scottish – Edinburgh (p262)",
+"src": "hf://kyutai/tts-voices/vctk/p262_023_enhanced.wav",
+"tab": "accents",
+"hz": 160,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"Scottish",
+"Edinburgh",
+"age 23"
+]
+},
+{
+"id": "vctk-p263-023-enhanced",
+"label": "Scottish – Aberdeen (p263)",
+"src": "hf://kyutai/tts-voices/vctk/p263_023_enhanced.wav",
+"tab": "accents",
+"hz": 107,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Aberdeen",
+"age 22"
+]
+},
+{
+"id": "vctk-p264-023-enhanced",
+"label": "Scottish – West Lothian (p264)",
+"src": "hf://kyutai/tts-voices/vctk/p264_023_enhanced.wav",
+"tab": "accents",
+"hz": 195,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Scottish",
+"West Lothian",
+"age 23"
+]
+},
+{
+"id": "vctk-p265-023-enhanced",
+"label": "Scottish – Ross (p265)",
+"src": "hf://kyutai/tts-voices/vctk/p265_023_enhanced.wav",
+"tab": "accents",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Scottish",
+"Ross",
+"age 23"
+]
+},
+{
+"id": "vctk-p266-023-enhanced",
+"label": "Irish – Athlone (p266)",
+"src": "hf://kyutai/tts-voices/vctk/p266_023_enhanced.wav",
+"tab": "accents",
+"hz": 195,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Irish",
+"Athlone",
+"age 22"
+]
+},
+{
+"id": "vctk-p267-023-enhanced",
+"label": "English – Yorkshire (p267)",
+"src": "hf://kyutai/tts-voices/vctk/p267_023_enhanced.wav",
+"tab": "accents",
+"hz": 188,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Yorkshire",
+"age 23"
+]
+},
+{
+"id": "vctk-p269-023-enhanced",
+"label": "English – Newcastle (p269)",
+"src": "hf://kyutai/tts-voices/vctk/p269_023_enhanced.wav",
+"tab": "accents",
+"hz": 184,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Newcastle",
+"age 20"
+]
+},
+{
+"id": "vctk-p270-023-enhanced",
+"label": "English – Yorkshire (p270)",
+"src": "hf://kyutai/tts-voices/vctk/p270_023_enhanced.wav",
+"tab": "accents",
+"hz": 107,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Yorkshire",
+"age 21"
+]
+},
+{
+"id": "vctk-p271-023-enhanced",
+"label": "Scottish – Fife (p271)",
+"src": "hf://kyutai/tts-voices/vctk/p271_023_enhanced.wav",
+"tab": "accents",
+"hz": 116,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Fife",
+"age 19"
+]
+},
+{
+"id": "vctk-p272-023-enhanced",
+"label": "Scottish – Edinburgh (p272)",
+"src": "hf://kyutai/tts-voices/vctk/p272_023_enhanced.wav",
+"tab": "accents",
+"hz": 124,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Edinburgh",
+"age 23"
+]
+},
+{
+"id": "vctk-p273-023-enhanced",
+"label": "English – Suffolk (p273)",
+"src": "hf://kyutai/tts-voices/vctk/p273_023_enhanced.wav",
+"tab": "accents",
+"hz": 148,
+"pitch": "mid",
+"gender": "M",
+"tags": [
+"English",
+"Suffolk",
+"age 23"
+]
+},
+{
+"id": "vctk-p274-023-enhanced",
+"label": "English – Essex (p274)",
+"src": "hf://kyutai/tts-voices/vctk/p274_023_enhanced.wav",
+"tab": "accents",
+"hz": 96,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Essex",
+"age 22"
+]
+},
+{
+"id": "vctk-p275-023-enhanced",
+"label": "Scottish – Midlothian (p275)",
+"src": "hf://kyutai/tts-voices/vctk/p275_023_enhanced.wav",
+"tab": "accents",
+"hz": 104,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Midlothian",
+"age 23"
+]
+},
+{
+"id": "vctk-p276-023-enhanced",
+"label": "English – Oxford (p276)",
+"src": "hf://kyutai/tts-voices/vctk/p276_023_enhanced.wav",
+"tab": "accents",
+"hz": 222,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Oxford",
+"age 24"
+]
+},
+{
+"id": "vctk-p277-023-enhanced",
+"label": "English – NE England (p277)",
+"src": "hf://kyutai/tts-voices/vctk/p277_023_enhanced.wav",
+"tab": "accents",
+"hz": 208,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"NE England",
+"age 23"
+]
+},
+{
+"id": "vctk-p278-023-enhanced",
+"label": "English – Cheshire (p278)",
+"src": "hf://kyutai/tts-voices/vctk/p278_023_enhanced.wav",
+"tab": "accents",
+"hz": 113,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Cheshire",
+"age 22"
+]
+},
+{
+"id": "vctk-p279-023-enhanced",
+"label": "English – Leicester (p279)",
+"src": "hf://kyutai/tts-voices/vctk/p279_023_enhanced.wav",
+"tab": "accents",
+"hz": 123,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Leicester",
+"age 23"
+]
+},
+{
+"id": "vctk-p280-023-enhanced",
+"label": "Unknown – France (p280)",
+"src": "hf://kyutai/tts-voices/vctk/p280_023_enhanced.wav",
+"tab": "accents",
+"hz": 188,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Unknown",
+"France",
+"age 25"
+]
+},
+{
+"id": "vctk-p281-023-enhanced",
+"label": "Scottish – Edinburgh (p281)",
+"src": "hf://kyutai/tts-voices/vctk/p281_023_enhanced.wav",
+"tab": "accents",
+"hz": 91,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Edinburgh",
+"age 29"
+]
+},
+{
+"id": "vctk-p282-023-enhanced",
+"label": "English – Newcastle (p282)",
+"src": "hf://kyutai/tts-voices/vctk/p282_023_enhanced.wav",
+"tab": "accents",
+"hz": 195,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"English",
+"Newcastle",
+"age 23"
+]
+},
+{
+"id": "vctk-p283-023-enhanced",
+"label": "Irish – Cork (p283)",
+"src": "hf://kyutai/tts-voices/vctk/p283_023_enhanced.wav",
+"tab": "accents",
+"hz": 206,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Irish",
+"Cork",
+"age 24"
+]
+},
+{
+"id": "vctk-p284-023-enhanced",
+"label": "Scottish – Fife (p284)",
+"src": "hf://kyutai/tts-voices/vctk/p284_023_enhanced.wav",
+"tab": "accents",
+"hz": 99,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Fife",
+"age 20"
+]
+},
+{
+"id": "vctk-p285-023-enhanced",
+"label": "Scottish – Edinburgh (p285)",
+"src": "hf://kyutai/tts-voices/vctk/p285_023_enhanced.wav",
+"tab": "accents",
+"hz": 113,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Scottish",
+"Edinburgh",
+"age 21"
+]
+},
+{
+"id": "vctk-p286-023-enhanced",
+"label": "English – Newcastle (p286)",
+"src": "hf://kyutai/tts-voices/vctk/p286_023_enhanced.wav",
+"tab": "accents",
+"hz": 134,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"Newcastle",
+"age 23"
+]
+},
+{
+"id": "vctk-p287-023-enhanced",
+"label": "English – York (p287)",
+"src": "hf://kyutai/tts-voices/vctk/p287_023_enhanced.wav",
+"tab": "accents",
+"hz": 105,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"English",
+"York",
+"age 23"
+]
+},
+{
+"id": "vctk-p288-023-enhanced",
+"label": "Irish – Dublin (p288)",
+"src": "hf://kyutai/tts-voices/vctk/p288_023_enhanced.wav",
+"tab": "accents",
+"hz": 190,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Irish",
+"Dublin",
+"age 22"
+]
+},
+{
+"id": "vctk-p292-023-enhanced",
+"label": "Northern Irish – Belfast (p292)",
+"src": "hf://kyutai/tts-voices/vctk/p292_023_enhanced.wav",
+"tab": "accents",
+"hz": 107,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Northern Irish",
+"Belfast",
+"age 23"
+]
+},
+{
+"id": "vctk-p293-023-enhanced",
+"label": "Northern Irish – Belfast (p293)",
+"src": "hf://kyutai/tts-voices/vctk/p293_023_enhanced.wav",
+"tab": "accents",
+"hz": 195,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Northern Irish",
+"Belfast",
+"age 22"
+]
+},
+{
+"id": "vctk-p294-023-enhanced",
+"label": "American – San Francisco (p294)",
+"src": "hf://kyutai/tts-voices/vctk/p294_023_enhanced.wav",
+"tab": "accents",
+"hz": 168,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"American",
+"San Francisco",
+"age 33"
+]
+},
+{
+"id": "vctk-p297-023-enhanced",
+"label": "American – New York (p297)",
+"src": "hf://kyutai/tts-voices/vctk/p297_023_enhanced.wav",
+"tab": "accents",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"New York",
+"age 20"
+]
+},
+{
+"id": "vctk-p298-023-enhanced",
+"label": "Irish – Tipperary (p298)",
+"src": "hf://kyutai/tts-voices/vctk/p298_023_enhanced.wav",
+"tab": "accents",
+"hz": 115,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Irish",
+"Tipperary",
+"age 19"
+]
+},
+{
+"id": "vctk-p299-023-enhanced",
+"label": "American – California (p299)",
+"src": "hf://kyutai/tts-voices/vctk/p299_023_enhanced.wav",
+"tab": "accents",
+"hz": 193,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"California",
+"age 25"
+]
+},
+{
+"id": "vctk-p300-023-enhanced",
+"label": "American – California (p300)",
+"src": "hf://kyutai/tts-voices/vctk/p300_023_enhanced.wav",
+"tab": "accents",
+"hz": 200,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"California",
+"age 23"
+]
+},
+{
+"id": "vctk-p301-023-enhanced",
+"label": "American – North Carolina (p301)",
+"src": "hf://kyutai/tts-voices/vctk/p301_023_enhanced.wav",
+"tab": "accents",
+"hz": 165,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"American",
+"North Carolina",
+"age 23"
+]
+},
+{
+"id": "vctk-p302-023-enhanced",
+"label": "Canadian – Montreal (p302)",
+"src": "hf://kyutai/tts-voices/vctk/p302_023_enhanced.wav",
+"tab": "accents",
+"hz": 119,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Canadian",
+"Montreal",
+"age 20"
+]
+},
+{
+"id": "vctk-p303-023-enhanced",
+"label": "Canadian – Toronto (p303)",
+"src": "hf://kyutai/tts-voices/vctk/p303_023_enhanced.wav",
+"tab": "accents",
+"hz": 213,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Canadian",
+"Toronto",
+"age 24"
+]
+},
+{
+"id": "vctk-p304-023-enhanced",
+"label": "Northern Irish – Belfast (p304)",
+"src": "hf://kyutai/tts-voices/vctk/p304_023_enhanced.wav",
+"tab": "accents",
+"hz": 110,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Northern Irish",
+"Belfast",
+"age 22"
+]
+},
+{
+"id": "vctk-p305-023-enhanced",
+"label": "American – Philadelphia (p305)",
+"src": "hf://kyutai/tts-voices/vctk/p305_023_enhanced.wav",
+"tab": "accents",
+"hz": 232,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Philadelphia",
+"age 19"
+]
+},
+{
+"id": "vctk-p306-023-enhanced",
+"label": "American – New York (p306)",
+"src": "hf://kyutai/tts-voices/vctk/p306_023_enhanced.wav",
+"tab": "accents",
+"hz": 183,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"New York",
+"age 21"
+]
+},
+{
+"id": "vctk-p307-023-enhanced",
+"label": "Canadian – Ontario (p307)",
+"src": "hf://kyutai/tts-voices/vctk/p307_023_enhanced.wav",
+"tab": "accents",
+"hz": 244,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Canadian",
+"Ontario",
+"age 23"
+]
+},
+{
+"id": "vctk-p308-023-enhanced",
+"label": "American – Alabama (p308)",
+"src": "hf://kyutai/tts-voices/vctk/p308_023_enhanced.wav",
+"tab": "accents",
+"hz": 178,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Alabama",
+"age 18"
+]
+},
+{
+"id": "vctk-p310-023-enhanced",
+"label": "American – Tennessee (p310)",
+"src": "hf://kyutai/tts-voices/vctk/p310_023_enhanced.wav",
+"tab": "accents",
+"hz": 246,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Tennessee",
+"age 21"
+]
+},
+{
+"id": "vctk-p311-023-enhanced",
+"label": "American – Iowa (p311)",
+"src": "hf://kyutai/tts-voices/vctk/p311_023_enhanced.wav",
+"tab": "accents",
+"hz": 99,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"Iowa",
+"age 21"
+]
+},
+{
+"id": "vctk-p312-023-enhanced",
+"label": "Canadian – Hamilton (p312)",
+"src": "hf://kyutai/tts-voices/vctk/p312_023_enhanced.wav",
+"tab": "accents",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Canadian",
+"Hamilton",
+"age 19"
+]
+},
+{
+"id": "vctk-p313-023-enhanced",
+"label": "Irish – County Down (p313)",
+"src": "hf://kyutai/tts-voices/vctk/p313_023_enhanced.wav",
+"tab": "accents",
+"hz": 168,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"Irish",
+"County Down",
+"age 24"
+]
+},
+{
+"id": "vctk-p314-023-enhanced",
+"label": "South African – Cape Town (p314)",
+"src": "hf://kyutai/tts-voices/vctk/p314_023_enhanced.wav",
+"tab": "accents",
+"hz": 190,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"South African",
+"Cape Town",
+"age 26"
+]
+},
+{
+"id": "vctk-p315-023-enhanced",
+"label": "American – New England (p315)",
+"src": "hf://kyutai/tts-voices/vctk/p315_023_enhanced.wav",
+"tab": "accents",
+"hz": 119,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"New England",
+"age 18"
+]
+},
+{
+"id": "vctk-p316-023-enhanced",
+"label": "Canadian – Alberta (p316)",
+"src": "hf://kyutai/tts-voices/vctk/p316_023_enhanced.wav",
+"tab": "accents",
+"hz": 97,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Canadian",
+"Alberta",
+"age 20"
+]
+},
+{
+"id": "vctk-p317-023-enhanced",
+"label": "Canadian – Hamilton (p317)",
+"src": "hf://kyutai/tts-voices/vctk/p317_023_enhanced.wav",
+"tab": "accents",
+"hz": 246,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Canadian",
+"Hamilton",
+"age 23"
+]
+},
+{
+"id": "vctk-p318-023-enhanced",
+"label": "American – Napa (p318)",
+"src": "hf://kyutai/tts-voices/vctk/p318_023_enhanced.wav",
+"tab": "accents",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Napa",
+"age 32"
+]
+},
+{
+"id": "vctk-p323-023-enhanced",
+"label": "South African – Pretoria (p323)",
+"src": "hf://kyutai/tts-voices/vctk/p323_023_enhanced.wav",
+"tab": "accents",
+"hz": 219,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"South African",
+"Pretoria",
+"age 19"
+]
+},
+{
+"id": "vctk-p326-023-enhanced",
+"label": "Australian – English Sydney (p326)",
+"src": "hf://kyutai/tts-voices/vctk/p326_023_enhanced.wav",
+"tab": "accents",
+"hz": 80,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Australian",
+"English Sydney",
+"age 26"
+]
+},
+{
+"id": "vctk-p329-023-enhanced",
+"label": "American – p329",
+"src": "hf://kyutai/tts-voices/vctk/p329_023_enhanced.wav",
+"tab": "accents",
+"hz": 202,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"age 23"
+]
+},
+{
+"id": "vctk-p330-023-enhanced",
+"label": "American – p330",
+"src": "hf://kyutai/tts-voices/vctk/p330_023_enhanced.wav",
+"tab": "accents",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"age 26"
+]
+},
+{
+"id": "vctk-p333-023-enhanced",
+"label": "American – Indiana (p333)",
+"src": "hf://kyutai/tts-voices/vctk/p333_023_enhanced.wav",
+"tab": "accents",
+"hz": 186,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Indiana",
+"age 19"
+]
+},
+{
+"id": "vctk-p334-023-enhanced",
+"label": "American – Chicago (p334)",
+"src": "hf://kyutai/tts-voices/vctk/p334_023_enhanced.wav",
+"tab": "accents",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"Chicago",
+"age 18"
+]
+},
+{
+"id": "vctk-p335-023-enhanced",
+"label": "New Zealand – English (p335)",
+"src": "hf://kyutai/tts-voices/vctk/p335_023_enhanced.wav",
+"tab": "accents",
+"hz": 200,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"New Zealand",
+"English",
+"age 25"
+]
+},
+{
+"id": "vctk-p336-023-enhanced",
+"label": "South African – Johannesburg (p336)",
+"src": "hf://kyutai/tts-voices/vctk/p336_023_enhanced.wav",
+"tab": "accents",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"South African",
+"Johannesburg",
+"age 18"
+]
+},
+{
+"id": "vctk-p339-023-enhanced",
+"label": "American – Pennsylvania (p339)",
+"src": "hf://kyutai/tts-voices/vctk/p339_023_enhanced.wav",
+"tab": "accents",
+"hz": 205,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Pennsylvania",
+"age 21"
+]
+},
+{
+"id": "vctk-p341-023-enhanced",
+"label": "American – Ohio (p341)",
+"src": "hf://kyutai/tts-voices/vctk/p341_023_enhanced.wav",
+"tab": "accents",
+"hz": 178,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"Ohio",
+"age 26"
+]
+},
+{
+"id": "vctk-p343-023-enhanced",
+"label": "Canadian – Alberta (p343)",
+"src": "hf://kyutai/tts-voices/vctk/p343_023_enhanced.wav",
+"tab": "accents",
+"hz": 157,
+"pitch": "mid",
+"gender": "F",
+"tags": [
+"Canadian",
+"Alberta",
+"age 27"
+]
+},
+{
+"id": "vctk-p345-023-enhanced",
+"label": "American – Florida (p345)",
+"src": "hf://kyutai/tts-voices/vctk/p345_023_enhanced.wav",
+"tab": "accents",
+"hz": 99,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"Florida",
+"age 22"
+]
+},
+{
+"id": "vctk-p347-023-enhanced",
+"label": "South African – Johannesburg (p347)",
+"src": "hf://kyutai/tts-voices/vctk/p347_023_enhanced.wav",
+"tab": "accents",
+"hz": 94,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"South African",
+"Johannesburg",
+"age 26"
+]
+},
+{
+"id": "vctk-p351-023-enhanced",
+"label": "Northern Irish – Derry (p351)",
+"src": "hf://kyutai/tts-voices/vctk/p351_023_enhanced.wav",
+"tab": "accents",
+"hz": 216,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"Northern Irish",
+"Derry",
+"age 21"
+]
+},
+{
+"id": "vctk-p360-023-enhanced",
+"label": "American – New Jersey (p360)",
+"src": "hf://kyutai/tts-voices/vctk/p360_023_enhanced.wav",
+"tab": "accents",
+"hz": 97,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"American",
+"New Jersey",
+"age 19"
+]
+},
+{
+"id": "vctk-p361-023-enhanced",
+"label": "American – New Jersey (p361)",
+"src": "hf://kyutai/tts-voices/vctk/p361_023_enhanced.wav",
+"tab": "accents",
+"hz": 193,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"American",
+"New Jersey",
+"age 19"
+]
+},
+{
+"id": "vctk-p363-023-enhanced",
+"label": "Canadian – Toronto (p363)",
+"src": "hf://kyutai/tts-voices/vctk/p363_023_enhanced.wav",
+"tab": "accents",
+"hz": 108,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Canadian",
+"Toronto",
+"age 22"
+]
+},
+{
+"id": "vctk-p364-023-enhanced",
+"label": "Irish – Donegal (p364)",
+"src": "hf://kyutai/tts-voices/vctk/p364_023_enhanced.wav",
+"tab": "accents",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Irish",
+"Donegal",
+"age 23"
+]
+},
+{
+"id": "vctk-p374-023-enhanced",
+"label": "Australian – English (p374)",
+"src": "hf://kyutai/tts-voices/vctk/p374_023_enhanced.wav",
+"tab": "accents",
+"hz": 123,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Australian",
+"English",
+"age 28"
+]
+},
+{
+"id": "vctk-p376-023-enhanced",
+"label": "Indian – p376",
+"src": "hf://kyutai/tts-voices/vctk/p376_023_enhanced.wav",
+"tab": "accents",
+"hz": 101,
+"pitch": "low",
+"gender": "M",
+"tags": [
+"Indian",
+"age 22"
+]
+},
+{
+"id": "vctk-s5-023-enhanced",
+"label": "British – s5",
+"src": "hf://kyutai/tts-voices/vctk/s5_023_enhanced.wav",
+"tab": "accents",
+"hz": 216,
+"pitch": "high",
+"gender": "F",
+"tags": [
+"British",
+"age 22"
+]
+}
+]
+},
+{
+"group": "Community donations",
+"note": "Volunteers' voices from Kyutai's donation project (CC0).",
+"voices": [
+{
+"id": "voice-donations-0a67-enhanced",
+"label": "0a67",
+"src": "hf://kyutai/tts-voices/voice-donations/0a67_enhanced.wav",
+"tab": "community",
+"hz": 148,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-1410-enhanced",
+"label": "1410",
+"src": "hf://kyutai/tts-voices/voice-donations/1410_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-1dd0-enhanced",
+"label": "1dd0",
+"src": "hf://kyutai/tts-voices/voice-donations/1dd0_enhanced.wav",
+"tab": "community",
+"hz": 134,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-2181-enhanced",
+"label": "2181",
+"src": "hf://kyutai/tts-voices/voice-donations/2181_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-245e-enhanced",
+"label": "245e",
+"src": "hf://kyutai/tts-voices/voice-donations/245e_enhanced.wav",
+"tab": "community",
+"hz": 128,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-29da-enhanced",
+"label": "29da",
+"src": "hf://kyutai/tts-voices/voice-donations/29da_enhanced.wav",
+"tab": "community",
+"hz": 121,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-30c5-enhanced",
+"label": "30c5",
+"src": "hf://kyutai/tts-voices/voice-donations/30c5_enhanced.wav",
+"tab": "community",
+"hz": 112,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-3973-enhanced",
+"label": "3973",
+"src": "hf://kyutai/tts-voices/voice-donations/3973_enhanced.wav",
+"tab": "community",
+"hz": 202,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-4189-enhanced",
+"label": "4189",
+"src": "hf://kyutai/tts-voices/voice-donations/4189_enhanced.wav",
+"tab": "community",
+"hz": 136,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-468c-enhanced",
+"label": "468c",
+"src": "hf://kyutai/tts-voices/voice-donations/468c_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-4b13-enhanced",
+"label": "4b13",
+"src": "hf://kyutai/tts-voices/voice-donations/4b13_enhanced.wav",
+"tab": "community",
+"hz": 131,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-4b70-enhanced",
+"label": "4b70",
+"src": "hf://kyutai/tts-voices/voice-donations/4b70_enhanced.wav",
+"tab": "community",
+"hz": 200,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-5b55-enhanced",
+"label": "5b55",
+"src": "hf://kyutai/tts-voices/voice-donations/5b55_enhanced.wav",
+"tab": "community",
+"hz": 129,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-6148-enhanced",
+"label": "6148",
+"src": "hf://kyutai/tts-voices/voice-donations/6148_enhanced.wav",
+"tab": "community",
+"hz": 114,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-617b-enhanced",
+"label": "617b",
+"src": "hf://kyutai/tts-voices/voice-donations/617b_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-7020-enhanced",
+"label": "7020",
+"src": "hf://kyutai/tts-voices/voice-donations/7020_enhanced.wav",
+"tab": "community",
+"hz": 86,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-7909-enhanced",
+"label": "7909",
+"src": "hf://kyutai/tts-voices/voice-donations/7909_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-7b2b-enhanced",
+"label": "7b2b",
+"src": "hf://kyutai/tts-voices/voice-donations/7b2b_enhanced.wav",
+"tab": "community",
+"hz": 148,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-8935-enhanced",
+"label": "8935",
+"src": "hf://kyutai/tts-voices/voice-donations/8935_enhanced.wav",
+"tab": "community",
+"hz": 108,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-8dc9-enhanced",
+"label": "8dc9",
+"src": "hf://kyutai/tts-voices/voice-donations/8dc9_enhanced.wav",
+"tab": "community",
+"hz": 136,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-8f15-enhanced",
+"label": "8f15",
+"src": "hf://kyutai/tts-voices/voice-donations/8f15_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-92f0-enhanced",
+"label": "92f0",
+"src": "hf://kyutai/tts-voices/voice-donations/92f0_enhanced.wav",
+"tab": "community",
+"hz": 108,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-9a2e-enhanced",
+"label": "9a2e",
+"src": "hf://kyutai/tts-voices/voice-donations/9a2e_enhanced.wav",
+"tab": "community",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-9a66-enhanced",
+"label": "9a66",
+"src": "hf://kyutai/tts-voices/voice-donations/9a66_enhanced.wav",
+"tab": "community",
+"hz": 213,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-ahmad-enhanced",
+"label": "AHmad",
+"src": "hf://kyutai/tts-voices/voice-donations/AHmad_enhanced.wav",
+"tab": "community",
+"hz": 139,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-asen-enhanced",
+"label": "ASEN",
+"src": "hf://kyutai/tts-voices/voice-donations/ASEN_enhanced.wav",
+"tab": "community",
+"hz": 111,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-aadi-enhanced",
+"label": "Aadi",
+"src": "hf://kyutai/tts-voices/voice-donations/Aadi_enhanced.wav",
+"tab": "community",
+"hz": 130,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-abd-enhanced",
+"label": "AbD",
+"src": "hf://kyutai/tts-voices/voice-donations/AbD_enhanced.wav",
+"tab": "community",
+"hz": 111,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-abhinox-enhanced",
+"label": "Abhinox",
+"src": "hf://kyutai/tts-voices/voice-donations/Abhinox_enhanced.wav",
+"tab": "community",
+"hz": 142,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-abo-ayman-enhanced",
+"label": "Abo Ayman",
+"src": "hf://kyutai/tts-voices/voice-donations/Abo_Ayman_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-abob-malay-enhanced",
+"label": "Abob Malay",
+"src": "hf://kyutai/tts-voices/voice-donations/Abob_Malay_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-adarsh-bulla-enhanced",
+"label": "Adarsh Bulla",
+"src": "hf://kyutai/tts-voices/voice-donations/Adarsh_Bulla_enhanced.wav",
+"tab": "community",
+"hz": 130,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-agentcobra-enhanced",
+"label": "AgentCobra",
+"src": "hf://kyutai/tts-voices/voice-donations/AgentCobra_enhanced.wav",
+"tab": "community",
+"hz": 140,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-ajith-enhanced",
+"label": "Ajith",
+"src": "hf://kyutai/tts-voices/voice-donations/Ajith_enhanced.wav",
+"tab": "community",
+"hz": 125,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-alejandro-espanol-latino-enhanced",
+"label": "Alejandro espanol latino",
+"src": "hf://kyutai/tts-voices/voice-donations/Alejandro_espanol_latino_enhanced.wav",
+"tab": "community",
+"hz": 143,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-allen-enhanced",
+"label": "Allen",
+"src": "hf://kyutai/tts-voices/voice-donations/Allen_enhanced.wav",
+"tab": "community",
+"hz": 102,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-amitnag-enhanced",
+"label": "AmitNag",
+"src": "hf://kyutai/tts-voices/voice-donations/AmitNag_enhanced.wav",
+"tab": "community",
+"hz": 144,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-andrea-spanish-enhanced",
+"label": "Andrea (Spanish)",
+"src": "hf://kyutai/tts-voices/voice-donations/Andrea_(Spanish)_enhanced.wav",
+"tab": "community",
+"hz": 168,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-andrea-enhanced",
+"label": "Andrea",
+"src": "hf://kyutai/tts-voices/voice-donations/Andrea_enhanced.wav",
+"tab": "community",
+"hz": 182,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-antoine-vala-enhanced",
+"label": "Antoine Vala",
+"src": "hf://kyutai/tts-voices/voice-donations/Antoine_Vala_enhanced.wav",
+"tab": "community",
+"hz": 144,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-antoni-enhanced",
+"label": "Antoni",
+"src": "hf://kyutai/tts-voices/voice-donations/Antoni_enhanced.wav",
+"tab": "community",
+"hz": 110,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-aon-enhanced",
+"label": "Aon",
+"src": "hf://kyutai/tts-voices/voice-donations/Aon_enhanced.wav",
+"tab": "community",
+"hz": 258,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-arjun-z-enhanced",
+"label": "Arjun Z",
+"src": "hf://kyutai/tts-voices/voice-donations/Arjun_Z_enhanced.wav",
+"tab": "community",
+"hz": 127,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-aryobe-enhanced",
+"label": "Aryobe",
+"src": "hf://kyutai/tts-voices/voice-donations/Aryobe_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-blue-enhanced",
+"label": "BLUE",
+"src": "hf://kyutai/tts-voices/voice-donations/BLUE_enhanced.wav",
+"tab": "community",
+"hz": 139,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-bijay-enhanced",
+"label": "Bijay",
+"src": "hf://kyutai/tts-voices/voice-donations/Bijay_enhanced.wav",
+"tab": "community",
+"hz": 177,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-blake-enhanced",
+"label": "Blake",
+"src": "hf://kyutai/tts-voices/voice-donations/Blake_enhanced.wav",
+"tab": "community",
+"hz": 210,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-bobby-mcfern-enhanced",
+"label": "Bobby McFern",
+"src": "hf://kyutai/tts-voices/voice-donations/Bobby_McFern_enhanced.wav",
+"tab": "community",
+"hz": 98,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-breaking-1-enhanced",
+"label": "Breaking 1",
+"src": "hf://kyutai/tts-voices/voice-donations/Breaking_1_enhanced.wav",
+"tab": "community",
+"hz": 146,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-brokenhypocrite-enhanced",
+"label": "BrokenHypocrite",
+"src": "hf://kyutai/tts-voices/voice-donations/BrokenHypocrite_enhanced.wav",
+"tab": "community",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-butter-enhanced",
+"label": "Butter",
+"src": "hf://kyutai/tts-voices/voice-donations/Butter_enhanced.wav",
+"tab": "community",
+"hz": 80,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-cps-001-enhanced",
+"label": "CPS 001",
+"src": "hf://kyutai/tts-voices/voice-donations/CPS_001_enhanced.wav",
+"tab": "community",
+"hz": 139,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-chujus-enhanced",
+"label": "Chujus",
+"src": "hf://kyutai/tts-voices/voice-donations/Chujus_enhanced.wav",
+"tab": "community",
+"hz": 88,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-cicada-enhanced",
+"label": "Cicada",
+"src": "hf://kyutai/tts-voices/voice-donations/Cicada_enhanced.wav",
+"tab": "community",
+"hz": 142,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-classicwizard-enhanced",
+"label": "ClassicWizard",
+"src": "hf://kyutai/tts-voices/voice-donations/ClassicWizard_enhanced.wav",
+"tab": "community",
+"hz": 122,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-curlinvictus-enhanced",
+"label": "Curlinvictus",
+"src": "hf://kyutai/tts-voices/voice-donations/Curlinvictus_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-darius-enhanced",
+"label": "Darius",
+"src": "hf://kyutai/tts-voices/voice-donations/Darius_enhanced.wav",
+"tab": "community",
+"hz": 75,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-darya-khan-enhanced",
+"label": "Darya khan",
+"src": "hf://kyutai/tts-voices/voice-donations/Darya_khan_enhanced.wav",
+"tab": "community",
+"hz": 127,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-deepak-enhanced",
+"label": "Deepak",
+"src": "hf://kyutai/tts-voices/voice-donations/Deepak_enhanced.wav",
+"tab": "community",
+"hz": 147,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-dhruv-rao-enhanced",
+"label": "Dhruv Rao",
+"src": "hf://kyutai/tts-voices/voice-donations/Dhruv_Rao_enhanced.wav",
+"tab": "community",
+"hz": 178,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-dil-enhanced",
+"label": "Dil",
+"src": "hf://kyutai/tts-voices/voice-donations/Dil_enhanced.wav",
+"tab": "community",
+"hz": 148,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-enrique-spanish-enhanced",
+"label": "Enrique (Spanish)",
+"src": "hf://kyutai/tts-voices/voice-donations/Enrique_(Spanish)_enhanced.wav",
+"tab": "community",
+"hz": 104,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-enrique-enhanced",
+"label": "Enrique",
+"src": "hf://kyutai/tts-voices/voice-donations/Enrique_enhanced.wav",
+"tab": "community",
+"hz": 106,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-erick-enhanced",
+"label": "Erick",
+"src": "hf://kyutai/tts-voices/voice-donations/Erick_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-ernesto-y-enhanced",
+"label": "Ernesto Y",
+"src": "hf://kyutai/tts-voices/voice-donations/Ernesto_Y_enhanced.wav",
+"tab": "community",
+"hz": 139,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-eshan-enhanced",
+"label": "Eshan",
+"src": "hf://kyutai/tts-voices/voice-donations/Eshan_enhanced.wav",
+"tab": "community",
+"hz": 208,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-esteban-aguirre-arias-enhanced",
+"label": "Esteban Aguirre Arias",
+"src": "hf://kyutai/tts-voices/voice-donations/Esteban_Aguirre_Arias_enhanced.wav",
+"tab": "community",
+"hz": 139,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-ferdinand-enhanced",
+"label": "Ferdinand",
+"src": "hf://kyutai/tts-voices/voice-donations/Ferdinand_enhanced.wav",
+"tab": "community",
+"hz": 107,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-flordaddy-enhanced",
+"label": "FlorDaddy",
+"src": "hf://kyutai/tts-voices/voice-donations/FlorDaddy_enhanced.wav",
+"tab": "community",
+"hz": 107,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-fred-mara-enhanced",
+"label": "Fred Mara",
+"src": "hf://kyutai/tts-voices/voice-donations/Fred_Mara_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-giovanne-enhanced",
+"label": "Giovanne",
+"src": "hf://kyutai/tts-voices/voice-donations/Giovanne_enhanced.wav",
+"tab": "community",
+"hz": 163,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-glenn-enhanced",
+"label": "Glenn",
+"src": "hf://kyutai/tts-voices/voice-donations/Glenn_enhanced.wav",
+"tab": "community",
+"hz": 314,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-goku-enhanced",
+"label": "Goku",
+"src": "hf://kyutai/tts-voices/voice-donations/Goku_enhanced.wav",
+"tab": "community",
+"hz": 125,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-gonzalo-1-enhanced",
+"label": "Gonzalo 1",
+"src": "hf://kyutai/tts-voices/voice-donations/Gonzalo-1_enhanced.wav",
+"tab": "community",
+"hz": 147,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-gonzalo-enhanced",
+"label": "Gonzalo",
+"src": "hf://kyutai/tts-voices/voice-donations/Gonzalo_enhanced.wav",
+"tab": "community",
+"hz": 152,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-greggy-enhanced",
+"label": "Greggy",
+"src": "hf://kyutai/tts-voices/voice-donations/Greggy_enhanced.wav",
+"tab": "community",
+"hz": 102,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-haku-enhanced",
+"label": "Haku",
+"src": "hf://kyutai/tts-voices/voice-donations/Haku_enhanced.wav",
+"tab": "community",
+"hz": 250,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-hannah-enhanced",
+"label": "Hannah",
+"src": "hf://kyutai/tts-voices/voice-donations/Hannah_enhanced.wav",
+"tab": "community",
+"hz": 242,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-hardik-clone-enhanced",
+"label": "Hardik Clone",
+"src": "hf://kyutai/tts-voices/voice-donations/Hardik_Clone_enhanced.wav",
+"tab": "community",
+"hz": 151,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-hillbilly-jim-enhanced",
+"label": "Hillbilly Jim",
+"src": "hf://kyutai/tts-voices/voice-donations/Hillbilly_Jim_enhanced.wav",
+"tab": "community",
+"hz": 181,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-hkl-enhanced",
+"label": "Hkl",
+"src": "hf://kyutai/tts-voices/voice-donations/Hkl_enhanced.wav",
+"tab": "community",
+"hz": 198,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-hugo-the-frenchie-enhanced",
+"label": "Hugo the frenchie",
+"src": "hf://kyutai/tts-voices/voice-donations/Hugo_the_frenchie_enhanced.wav",
+"tab": "community",
+"hz": 144,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-ilyass-yea-enhanced",
+"label": "Ilyass yea",
+"src": "hf://kyutai/tts-voices/voice-donations/Ilyass_yea_enhanced.wav",
+"tab": "community",
+"hz": 100,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-imran-475-enhanced",
+"label": "Imran 475",
+"src": "hf://kyutai/tts-voices/voice-donations/Imran_475_enhanced.wav",
+"tab": "community",
+"hz": 165,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-imran-from-i-india-enhanced",
+"label": "Imran from I India",
+"src": "hf://kyutai/tts-voices/voice-donations/Imran_from_I_India_enhanced.wav",
+"tab": "community",
+"hz": 165,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-indian-guy-enhanced",
+"label": "Indian guy",
+"src": "hf://kyutai/tts-voices/voice-donations/Indian_guy_enhanced.wav",
+"tab": "community",
+"hz": 115,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-ineedthisnow-enhanced",
+"label": "Ineedthisnow",
+"src": "hf://kyutai/tts-voices/voice-donations/Ineedthisnow_enhanced.wav",
+"tab": "community",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-jjis2123-enhanced",
+"label": "JJis2123",
+"src": "hf://kyutai/tts-voices/voice-donations/JJis2123_enhanced.wav",
+"tab": "community",
+"hz": 142,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-joshe-enhanced",
+"label": "JOSHE",
+"src": "hf://kyutai/tts-voices/voice-donations/JOSHE_enhanced.wav",
+"tab": "community",
+"hz": 110,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-james-enhanced",
+"label": "James",
+"src": "hf://kyutai/tts-voices/voice-donations/James_enhanced.wav",
+"tab": "community",
+"hz": 208,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-jaspino-enhanced",
+"label": "Jaspino",
+"src": "hf://kyutai/tts-voices/voice-donations/Jaspino_enhanced.wav",
+"tab": "community",
+"hz": 73,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-jaw-enhanced",
+"label": "Jaw",
+"src": "hf://kyutai/tts-voices/voice-donations/Jaw_enhanced.wav",
+"tab": "community",
+"hz": 121,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-jay-enhanced",
+"label": "Jay",
+"src": "hf://kyutai/tts-voices/voice-donations/Jay_enhanced.wav",
+"tab": "community",
+"hz": 147,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-jeff-andrew-enhanced",
+"label": "Jeff Andrew",
+"src": "hf://kyutai/tts-voices/voice-donations/Jeff_Andrew_enhanced.wav",
+"tab": "community",
+"hz": 77,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-jeffrey-enhanced",
+"label": "Jeffrey",
+"src": "hf://kyutai/tts-voices/voice-donations/Jeffrey_enhanced.wav",
+"tab": "community",
+"hz": 126,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-jeremy-q-enhanced",
+"label": "Jeremy Q",
+"src": "hf://kyutai/tts-voices/voice-donations/Jeremy_Q_enhanced.wav",
+"tab": "community",
+"hz": 93,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-jimmy-enhanced",
+"label": "Jimmy",
+"src": "hf://kyutai/tts-voices/voice-donations/Jimmy_enhanced.wav",
+"tab": "community",
+"hz": 122,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-joaopedrobil1-enhanced",
+"label": "Joaopedrobil1",
+"src": "hf://kyutai/tts-voices/voice-donations/Joaopedrobil1_enhanced.wav",
+"tab": "community",
+"hz": 113,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-john-triguero-enhanced",
+"label": "John Triguero",
+"src": "hf://kyutai/tts-voices/voice-donations/John_Triguero_enhanced.wav",
+"tab": "community",
+"hz": 150,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-juanrestrepo177777-enhanced",
+"label": "Juanrestrepo177777",
+"src": "hf://kyutai/tts-voices/voice-donations/Juanrestrepo177777_enhanced.wav",
+"tab": "community",
+"hz": 92,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-karti-enhanced",
+"label": "Karti",
+"src": "hf://kyutai/tts-voices/voice-donations/Karti_enhanced.wav",
+"tab": "community",
+"hz": 113,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-kditz-enhanced",
+"label": "Kditz",
+"src": "hf://kyutai/tts-voices/voice-donations/Kditz_enhanced.wav",
+"tab": "community",
+"hz": 104,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-koorosh-enhanced",
+"label": "Koorosh",
+"src": "hf://kyutai/tts-voices/voice-donations/Koorosh_enhanced.wav",
+"tab": "community",
+"hz": 110,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-lc-enhanced",
+"label": "LC",
+"src": "hf://kyutai/tts-voices/voice-donations/LC_enhanced.wav",
+"tab": "community",
+"hz": 103,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-l-roy-enhanced",
+"label": "L Roy",
+"src": "hf://kyutai/tts-voices/voice-donations/L_Roy_enhanced.wav",
+"tab": "community",
+"hz": 148,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-lake-enhanced",
+"label": "Lake",
+"src": "hf://kyutai/tts-voices/voice-donations/Lake_enhanced.wav",
+"tab": "community",
+"hz": 132,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-lammy-enhanced",
+"label": "Lammy",
+"src": "hf://kyutai/tts-voices/voice-donations/Lammy_enhanced.wav",
+"tab": "community",
+"hz": 98,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-lara-enhanced",
+"label": "Lara",
+"src": "hf://kyutai/tts-voices/voice-donations/Lara_enhanced.wav",
+"tab": "community",
+"hz": 186,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-latin-accent-enhanced",
+"label": "Latin Accent",
+"src": "hf://kyutai/tts-voices/voice-donations/Latin_Accent_enhanced.wav",
+"tab": "community",
+"hz": 248,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-liquescent-enhanced",
+"label": "Liquescent",
+"src": "hf://kyutai/tts-voices/voice-donations/Liquescent_enhanced.wav",
+"tab": "community",
+"hz": 168,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-louis-enhanced",
+"label": "Louis",
+"src": "hf://kyutai/tts-voices/voice-donations/Louis_enhanced.wav",
+"tab": "community",
+"hz": 99,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-lucas-enhanced",
+"label": "Lucas",
+"src": "hf://kyutai/tts-voices/voice-donations/Lucas_enhanced.wav",
+"tab": "community",
+"hz": 134,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-mjdepedro-enhanced",
+"label": "MJDePedro",
+"src": "hf://kyutai/tts-voices/voice-donations/MJDePedro_enhanced.wav",
+"tab": "community",
+"hz": 151,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-maisako-enhanced",
+"label": "Maisako",
+"src": "hf://kyutai/tts-voices/voice-donations/Maisako_enhanced.wav",
+"tab": "community",
+"hz": 90,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-manahen-enhanced",
+"label": "Manahen",
+"src": "hf://kyutai/tts-voices/voice-donations/Manahen_enhanced.wav",
+"tab": "community",
+"hz": 116,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-marshal-indian-enhanced",
+"label": "Marshal Indian",
+"src": "hf://kyutai/tts-voices/voice-donations/Marshal_Indian_enhanced.wav",
+"tab": "community",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-midlands-bedfordshire-dialect-enhanced",
+"label": "Midlands Bedfordshire Dialect",
+"src": "hf://kyutai/tts-voices/voice-donations/Midlands_Bedfordshire_Dialect_enhanced.wav",
+"tab": "community",
+"hz": 88,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-moses-enhanced",
+"label": "Moses",
+"src": "hf://kyutai/tts-voices/voice-donations/Moses_enhanced.wav",
+"tab": "community",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-mrhat-enhanced",
+"label": "MrHat",
+"src": "hf://kyutai/tts-voices/voice-donations/MrHat_enhanced.wav",
+"tab": "community",
+"hz": 128,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-mr-captain-enhanced",
+"label": "Mr captain",
+"src": "hf://kyutai/tts-voices/voice-donations/Mr_captain_enhanced.wav",
+"tab": "community",
+"hz": 110,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-muhtasim-s-voice-enhanced",
+"label": "Muhtasim's Voice",
+"src": "hf://kyutai/tts-voices/voice-donations/Muhtasim's_Voice_enhanced.wav",
+"tab": "community",
+"hz": 112,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-mystery-sir-enhanced",
+"label": "Mystery Sir",
+"src": "hf://kyutai/tts-voices/voice-donations/Mystery_Sir_enhanced.wav",
+"tab": "community",
+"hz": 96,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-narrum-enhanced",
+"label": "Narrum",
+"src": "hf://kyutai/tts-voices/voice-donations/Narrum_enhanced.wav",
+"tab": "community",
+"hz": 112,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-nick-enhanced",
+"label": "Nick",
+"src": "hf://kyutai/tts-voices/voice-donations/Nick_enhanced.wav",
+"tab": "community",
+"hz": 116,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-p0lfr-enhanced",
+"label": "P0LFR",
+"src": "hf://kyutai/tts-voices/voice-donations/P0LFR_enhanced.wav",
+"tab": "community",
+"hz": 160,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-pai-ve-enhanced",
+"label": "Pai ve",
+"src": "hf://kyutai/tts-voices/voice-donations/Pai_ve_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-parthiban-enhanced",
+"label": "Parthiban",
+"src": "hf://kyutai/tts-voices/voice-donations/Parthiban_enhanced.wav",
+"tab": "community",
+"hz": 157,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-prakash369-enhanced",
+"label": "Prakash369",
+"src": "hf://kyutai/tts-voices/voice-donations/Prakash369_enhanced.wav",
+"tab": "community",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-puzzle-enhanced",
+"label": "Puzzle",
+"src": "hf://kyutai/tts-voices/voice-donations/Puzzle_enhanced.wav",
+"tab": "community",
+"hz": 116,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-qasim-wali-khan-enhanced",
+"label": "Qasim Wali Khan",
+"src": "hf://kyutai/tts-voices/voice-donations/Qasim_Wali_Khan_enhanced.wav",
+"tab": "community",
+"hz": 111,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-raj-enhanced",
+"label": "RAJ",
+"src": "hf://kyutai/tts-voices/voice-donations/RAJ_enhanced.wav",
+"tab": "community",
+"hz": 142,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-rafaelpazv-enhanced",
+"label": "Rafaelpazv",
+"src": "hf://kyutai/tts-voices/voice-donations/Rafaelpazv_enhanced.wav",
+"tab": "community",
+"hz": 120,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-rahul-enhanced",
+"label": "Rahul",
+"src": "hf://kyutai/tts-voices/voice-donations/Rahul_enhanced.wav",
+"tab": "community",
+"hz": 136,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-raj25-enhanced",
+"label": "Raj25",
+"src": "hf://kyutai/tts-voices/voice-donations/Raj25_enhanced.wav",
+"tab": "community",
+"hz": 115,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-ramu-enhanced",
+"label": "Ramu",
+"src": "hf://kyutai/tts-voices/voice-donations/Ramu_enhanced.wav",
+"tab": "community",
+"hz": 136,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-ranjith-enhanced",
+"label": "Ranjith",
+"src": "hf://kyutai/tts-voices/voice-donations/Ranjith_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-richard-cuban-enhanced",
+"label": "Richard cuban",
+"src": "hf://kyutai/tts-voices/voice-donations/Richard_cuban_enhanced.wav",
+"tab": "community",
+"hz": 82,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-rony-enhanced",
+"label": "Rony",
+"src": "hf://kyutai/tts-voices/voice-donations/Rony_enhanced.wav",
+"tab": "community",
+"hz": 101,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-roscoe-enhanced",
+"label": "Roscoe",
+"src": "hf://kyutai/tts-voices/voice-donations/Roscoe_enhanced.wav",
+"tab": "community",
+"hz": 90,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-rs-enhanced",
+"label": "Rs",
+"src": "hf://kyutai/tts-voices/voice-donations/Rs_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-rup-enhanced",
+"label": "Rup",
+"src": "hf://kyutai/tts-voices/voice-donations/Rup_enhanced.wav",
+"tab": "community",
+"hz": 210,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-ssa150803-enhanced",
+"label": "SSA150803",
+"src": "hf://kyutai/tts-voices/voice-donations/SSA150803_enhanced.wav",
+"tab": "community",
+"hz": 129,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-ss-1684-enhanced",
+"label": "SS 1684",
+"src": "hf://kyutai/tts-voices/voice-donations/SS_1684_enhanced.wav",
+"tab": "community",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-stone-enhanced",
+"label": "STONE",
+"src": "hf://kyutai/tts-voices/voice-donations/STONE_enhanced.wav",
+"tab": "community",
+"hz": 146,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-samsewak-enhanced",
+"label": "Samsewak",
+"src": "hf://kyutai/tts-voices/voice-donations/Samsewak_enhanced.wav",
+"tab": "community",
+"hz": 110,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-selfie-enhanced",
+"label": "Selfie",
+"src": "hf://kyutai/tts-voices/voice-donations/Selfie_enhanced.wav",
+"tab": "community",
+"hz": 148,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-sheddy-enhanced",
+"label": "Sheddy",
+"src": "hf://kyutai/tts-voices/voice-donations/Sheddy_enhanced.wav",
+"tab": "community",
+"hz": 133,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-siddh-indian-enhanced",
+"label": "Siddh Indian",
+"src": "hf://kyutai/tts-voices/voice-donations/Siddh_Indian_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-sir-tj-enhanced",
+"label": "Sir TJ",
+"src": "hf://kyutai/tts-voices/voice-donations/Sir_TJ_enhanced.wav",
+"tab": "community",
+"hz": 132,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-sirajo-x-enhanced",
+"label": "Sirajo x",
+"src": "hf://kyutai/tts-voices/voice-donations/Sirajo_x_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-sp46-enhanced",
+"label": "Sp46",
+"src": "hf://kyutai/tts-voices/voice-donations/Sp46_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-sr-erick-enhanced",
+"label": "Sr Erick",
+"src": "hf://kyutai/tts-voices/voice-donations/Sr_Erick_enhanced.wav",
+"tab": "community",
+"hz": 114,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-standollars-enhanced",
+"label": "Standollars",
+"src": "hf://kyutai/tts-voices/voice-donations/Standollars_enhanced.wav",
+"tab": "community",
+"hz": 132,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-teslla-enhanced",
+"label": "TESLLA",
+"src": "hf://kyutai/tts-voices/voice-donations/TESLLA_enhanced.wav",
+"tab": "community",
+"hz": 144,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-tahii-enhanced",
+"label": "Tahii",
+"src": "hf://kyutai/tts-voices/voice-donations/Tahii_enhanced.wav",
+"tab": "community",
+"hz": 120,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-thefin-enhanced",
+"label": "TheFin",
+"src": "hf://kyutai/tts-voices/voice-donations/TheFin_enhanced.wav",
+"tab": "community",
+"hz": 87,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-the-sustainabler-enhanced",
+"label": "The Sustainabler",
+"src": "hf://kyutai/tts-voices/voice-donations/The_Sustainabler_enhanced.wav",
+"tab": "community",
+"hz": 137,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-the-other-brother-enhanced",
+"label": "The other brother",
+"src": "hf://kyutai/tts-voices/voice-donations/The_other_brother_enhanced.wav",
+"tab": "community",
+"hz": 103,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-titorium-enhanced",
+"label": "Titorium",
+"src": "hf://kyutai/tts-voices/voice-donations/Titorium_enhanced.wav",
+"tab": "community",
+"hz": 107,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-tonmoy-enhanced",
+"label": "Tonmoy",
+"src": "hf://kyutai/tts-voices/voice-donations/Tonmoy_enhanced.wav",
+"tab": "community",
+"hz": 133,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-umair-enhanced",
+"label": "Umair",
+"src": "hf://kyutai/tts-voices/voice-donations/Umair_enhanced.wav",
+"tab": "community",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-vexat-enhanced",
+"label": "Vexat",
+"src": "hf://kyutai/tts-voices/voice-donations/Vexat_enhanced.wav",
+"tab": "community",
+"hz": 129,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-victor-garcia-enhanced",
+"label": "Victor Garcia",
+"src": "hf://kyutai/tts-voices/voice-donations/Victor_Garcia_enhanced.wav",
+"tab": "community",
+"hz": 90,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-vinith-english-india-enhanced",
+"label": "Vinith   English India",
+"src": "hf://kyutai/tts-voices/voice-donations/Vinith___English_India_enhanced.wav",
+"tab": "community",
+"hz": 127,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-vitch-enhanced",
+"label": "Vitch",
+"src": "hf://kyutai/tts-voices/voice-donations/Vitch_enhanced.wav",
+"tab": "community",
+"hz": 120,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-vivaldi-enhanced",
+"label": "Vivaldi",
+"src": "hf://kyutai/tts-voices/voice-donations/Vivaldi_enhanced.wav",
+"tab": "community",
+"hz": 129,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-w-a-h-enhanced",
+"label": "W A H",
+"src": "hf://kyutai/tts-voices/voice-donations/W_A_H_enhanced.wav",
+"tab": "community",
+"hz": 130,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-wealthiest-enhanced",
+"label": "Wealthiest",
+"src": "hf://kyutai/tts-voices/voice-donations/Wealthiest_enhanced.wav",
+"tab": "community",
+"hz": 99,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-whisperinear-enhanced",
+"label": "WhisperInEar",
+"src": "hf://kyutai/tts-voices/voice-donations/WhisperInEar_enhanced.wav",
+"tab": "community",
+"hz": 286,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-yesid-enhanced",
+"label": "Yesid",
+"src": "hf://kyutai/tts-voices/voice-donations/Yesid_enhanced.wav",
+"tab": "community",
+"hz": 126,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-youfied-enhanced",
+"label": "Youfied",
+"src": "hf://kyutai/tts-voices/voice-donations/Youfied_enhanced.wav",
+"tab": "community",
+"hz": 95,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-yuush-enhanced",
+"label": "Yuush",
+"src": "hf://kyutai/tts-voices/voice-donations/Yuush_enhanced.wav",
+"tab": "community",
+"hz": 113,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-a59a-enhanced",
+"label": "A59a",
+"src": "hf://kyutai/tts-voices/voice-donations/a59a_enhanced.wav",
+"tab": "community",
+"hz": 123,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-a6f9-enhanced",
+"label": "A6f9",
+"src": "hf://kyutai/tts-voices/voice-donations/a6f9_enhanced.wav",
+"tab": "community",
+"hz": 105,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-a96a-enhanced",
+"label": "A96a",
+"src": "hf://kyutai/tts-voices/voice-donations/a96a_enhanced.wav",
+"tab": "community",
+"hz": 127,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-aepeak-enhanced",
+"label": "Aepeak",
+"src": "hf://kyutai/tts-voices/voice-donations/aepeak_enhanced.wav",
+"tab": "community",
+"hz": 155,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-albertoforofo007-enhanced",
+"label": "Albertoforofo007",
+"src": "hf://kyutai/tts-voices/voice-donations/albertoforofo007_enhanced.wav",
+"tab": "community",
+"hz": 103,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-amazon-box-enhanced",
+"label": "Amazon box",
+"src": "hf://kyutai/tts-voices/voice-donations/amazon_box_enhanced.wav",
+"tab": "community",
+"hz": 108,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-awais-shah-enhanced",
+"label": "Awais shah",
+"src": "hf://kyutai/tts-voices/voice-donations/awais_shah_enhanced.wav",
+"tab": "community",
+"hz": 198,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-bathri-enhanced",
+"label": "Bathri",
+"src": "hf://kyutai/tts-voices/voice-donations/bathri_enhanced.wav",
+"tab": "community",
+"hz": 193,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-bbe4-enhanced",
+"label": "Bbe4",
+"src": "hf://kyutai/tts-voices/voice-donations/bbe4_enhanced.wav",
+"tab": "community",
+"hz": 131,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-bc98-enhanced",
+"label": "Bc98",
+"src": "hf://kyutai/tts-voices/voice-donations/bc98_enhanced.wav",
+"tab": "community",
+"hz": 176,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-bevi-enhanced",
+"label": "Bevi",
+"src": "hf://kyutai/tts-voices/voice-donations/bevi_enhanced.wav",
+"tab": "community",
+"hz": 222,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-boom-enhanced",
+"label": "Boom",
+"src": "hf://kyutai/tts-voices/voice-donations/boom_enhanced.wav",
+"tab": "community",
+"hz": 198,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-c0a0-enhanced",
+"label": "C0a0",
+"src": "hf://kyutai/tts-voices/voice-donations/c0a0_enhanced.wav",
+"tab": "community",
+"hz": 147,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-cybina-enhanced",
+"label": "Cybina",
+"src": "hf://kyutai/tts-voices/voice-donations/cybina_enhanced.wav",
+"tab": "community",
+"hz": 107,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-d4a9-enhanced",
+"label": "D4a9",
+"src": "hf://kyutai/tts-voices/voice-donations/d4a9_enhanced.wav",
+"tab": "community",
+"hz": 96,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-dce6-enhanced",
+"label": "Dce6",
+"src": "hf://kyutai/tts-voices/voice-donations/dce6_enhanced.wav",
+"tab": "community",
+"hz": 116,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-dwp-enhanced",
+"label": "Dwp",
+"src": "hf://kyutai/tts-voices/voice-donations/dwp_enhanced.wav",
+"tab": "community",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-e819-enhanced",
+"label": "E819",
+"src": "hf://kyutai/tts-voices/voice-donations/e819_enhanced.wav",
+"tab": "community",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-edd4-enhanced",
+"label": "Edd4",
+"src": "hf://kyutai/tts-voices/voice-donations/edd4_enhanced.wav",
+"tab": "community",
+"hz": 140,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-efeb-enhanced",
+"label": "Efeb",
+"src": "hf://kyutai/tts-voices/voice-donations/efeb_enhanced.wav",
+"tab": "community",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-english-with-german-accent-enhanced",
+"label": "English with german accent",
+"src": "hf://kyutai/tts-voices/voice-donations/english_with_german_accent_enhanced.wav",
+"tab": "community",
+"hz": 110,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-erihppas-enhanced",
+"label": "Erihppas",
+"src": "hf://kyutai/tts-voices/voice-donations/erihppas_enhanced.wav",
+"tab": "community",
+"hz": 246,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-f179-enhanced",
+"label": "F179",
+"src": "hf://kyutai/tts-voices/voice-donations/f179_enhanced.wav",
+"tab": "community",
+"hz": 239,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-f9cf-enhanced",
+"label": "F9cf",
+"src": "hf://kyutai/tts-voices/voice-donations/f9cf_enhanced.wav",
+"tab": "community",
+"hz": 72,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-fa52-enhanced",
+"label": "Fa52",
+"src": "hf://kyutai/tts-voices/voice-donations/fa52_enhanced.wav",
+"tab": "community",
+"hz": 173,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-fc96-enhanced",
+"label": "Fc96",
+"src": "hf://kyutai/tts-voices/voice-donations/fc96_enhanced.wav",
+"tab": "community",
+"hz": 162,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-floyd2026-enhanced",
+"label": "Floyd2026",
+"src": "hf://kyutai/tts-voices/voice-donations/floyd2026_enhanced.wav",
+"tab": "community",
+"hz": 134,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-gmaskell92-enhanced",
+"label": "Gmaskell92",
+"src": "hf://kyutai/tts-voices/voice-donations/gmaskell92_enhanced.wav",
+"tab": "community",
+"hz": 98,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-gyroo-enhanced",
+"label": "Gyroo",
+"src": "hf://kyutai/tts-voices/voice-donations/gyroo_enhanced.wav",
+"tab": "community",
+"hz": 125,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-hielos-1-enhanced",
+"label": "Hielos 1",
+"src": "hf://kyutai/tts-voices/voice-donations/hielos_1_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-hielos-2-enhanced",
+"label": "Hielos 2",
+"src": "hf://kyutai/tts-voices/voice-donations/hielos_2_enhanced.wav",
+"tab": "community",
+"hz": 130,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-injul-enhanced",
+"label": "Injul",
+"src": "hf://kyutai/tts-voices/voice-donations/injul_enhanced.wav",
+"tab": "community",
+"hz": 126,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-kbrn1-enhanced",
+"label": "Kbrn1",
+"src": "hf://kyutai/tts-voices/voice-donations/kbrn1_enhanced.wav",
+"tab": "community",
+"hz": 138,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-oldnerd2-enhanced",
+"label": "OldNerd2",
+"src": "hf://kyutai/tts-voices/voice-donations/oldNerd2_enhanced.wav",
+"tab": "community",
+"hz": 101,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-oldnerd3-enhanced",
+"label": "OldNerd3",
+"src": "hf://kyutai/tts-voices/voice-donations/oldNerd3_enhanced.wav",
+"tab": "community",
+"hz": 122,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-oldnerd-enhanced",
+"label": "OldNerd",
+"src": "hf://kyutai/tts-voices/voice-donations/oldNerd_enhanced.wav",
+"tab": "community",
+"hz": 102,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-ra-xor-enhanced",
+"label": "Ra XOr",
+"src": "hf://kyutai/tts-voices/voice-donations/ra_XOr_enhanced.wav",
+"tab": "community",
+"hz": 182,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-rewi-enhanced",
+"label": "Rewi",
+"src": "hf://kyutai/tts-voices/voice-donations/rewi_enhanced.wav",
+"tab": "community",
+"hz": 163,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "voice-donations-robert-enhanced",
+"label": "Robert",
+"src": "hf://kyutai/tts-voices/voice-donations/robert_enhanced.wav",
+"tab": "community",
+"hz": 114,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-rshah-1-0-enhanced",
+"label": "Rshah 1 0",
+"src": "hf://kyutai/tts-voices/voice-donations/rshah_1_0_enhanced.wav",
+"tab": "community",
+"hz": 128,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-sanjay-enhanced",
+"label": "Sanjay",
+"src": "hf://kyutai/tts-voices/voice-donations/sanjay_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-siddharth-khanna-enhanced",
+"label": "Siddharth khanna",
+"src": "hf://kyutai/tts-voices/voice-donations/siddharth_khanna_enhanced.wav",
+"tab": "community",
+"hz": 98,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-solace-enhanced",
+"label": "Solace",
+"src": "hf://kyutai/tts-voices/voice-donations/solace_enhanced.wav",
+"tab": "community",
+"hz": 107,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-spanish-limaperu-enhanced",
+"label": "Spanish limaperu",
+"src": "hf://kyutai/tts-voices/voice-donations/spanish-limaperu_enhanced.wav",
+"tab": "community",
+"hz": 201,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "voice-donations-stein-enhanced",
+"label": "Stein",
+"src": "hf://kyutai/tts-voices/voice-donations/stein_enhanced.wav",
+"tab": "community",
+"hz": 92,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-sujan-daikoawaj-enhanced",
+"label": "Sujan daikoawaj",
+"src": "hf://kyutai/tts-voices/voice-donations/sujan_daikoawaj_enhanced.wav",
+"tab": "community",
+"hz": 106,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-surazy-enhanced",
+"label": "Surazy",
+"src": "hf://kyutai/tts-voices/voice-donations/surazy_enhanced.wav",
+"tab": "community",
+"hz": 126,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-taiyo-enhanced",
+"label": "Taiyo",
+"src": "hf://kyutai/tts-voices/voice-donations/taiyo_enhanced.wav",
+"tab": "community",
+"hz": 115,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-temp-007-enhanced",
+"label": "Temp 007",
+"src": "hf://kyutai/tts-voices/voice-donations/temp-007_enhanced.wav",
+"tab": "community",
+"hz": 131,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-thepolishdane-enhanced",
+"label": "Thepolishdane",
+"src": "hf://kyutai/tts-voices/voice-donations/thepolishdane_enhanced.wav",
+"tab": "community",
+"hz": 125,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-utk-enhanced",
+"label": "Utk",
+"src": "hf://kyutai/tts-voices/voice-donations/utk_enhanced.wav",
+"tab": "community",
+"hz": 130,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-vinayak-enhanced",
+"label": "Vinayak",
+"src": "hf://kyutai/tts-voices/voice-donations/vinayak_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-virtu-enhanced",
+"label": "Virtu",
+"src": "hf://kyutai/tts-voices/voice-donations/virtu_enhanced.wav",
+"tab": "community",
+"hz": 116,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-willbas-enhanced",
+"label": "Willbas",
+"src": "hf://kyutai/tts-voices/voice-donations/willbas_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-yaemdluffy-enhanced",
+"label": "Yaemdluffy",
+"src": "hf://kyutai/tts-voices/voice-donations/yaemdluffy_enhanced.wav",
+"tab": "community",
+"hz": 118,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "voice-donations-zerocool-enhanced",
+"label": "Zerocool",
+"src": "hf://kyutai/tts-voices/voice-donations/zerocool_enhanced.wav",
+"tab": "community",
+"hz": 101,
+"pitch": "low",
+"tags": []
+}
+]
+},
+{
+"group": "French (CML-TTS)",
+"note": "French speakers from CML-TTS (CC BY 4.0), best with a French model.",
+"voices": [
+{
+"id": "cml-tts-fr-10087-11650-000028-0002-enhanced",
+"label": "French 10087",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/10087_11650_000028-0002_enhanced.wav",
+"tab": "french",
+"hz": 208,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-10177-10625-000134-0003-enhanced",
+"label": "French 10177",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/10177_10625_000134-0003_enhanced.wav",
+"tab": "french",
+"hz": 208,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-10179-11051-000005-0001-enhanced",
+"label": "French 10179",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/10179_11051_000005-0001_enhanced.wav",
+"tab": "french",
+"hz": 288,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-12080-11650-000047-0001-enhanced",
+"label": "French 12080",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/12080_11650_000047-0001_enhanced.wav",
+"tab": "french",
+"hz": 254,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-12205-11650-000004-0002-enhanced",
+"label": "French 12205",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/12205_11650_000004-0002_enhanced.wav",
+"tab": "french",
+"hz": 184,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-12977-10625-000037-0001-enhanced",
+"label": "French 12977",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/12977_10625_000037-0001_enhanced.wav",
+"tab": "french",
+"hz": 225,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-1406-1028-000009-0003-enhanced",
+"label": "French 1406",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/1406_1028_000009-0003_enhanced.wav",
+"tab": "french",
+"hz": 99,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-1591-1028-000108-0004-enhanced",
+"label": "French 1591",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/1591_1028_000108-0004_enhanced.wav",
+"tab": "french",
+"hz": 219,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-1770-1028-000036-0002-enhanced",
+"label": "French 1770",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/1770_1028_000036-0002_enhanced.wav",
+"tab": "french",
+"hz": 127,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-2114-1656-000053-0001-enhanced",
+"label": "French 2114",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/2114_1656_000053-0001_enhanced.wav",
+"tab": "french",
+"hz": 122,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-2154-2576-000020-0003-enhanced",
+"label": "French 2154",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/2154_2576_000020-0003_enhanced.wav",
+"tab": "french",
+"hz": 195,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-2216-1745-000007-0001-enhanced",
+"label": "French 2216",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/2216_1745_000007-0001_enhanced.wav",
+"tab": "french",
+"hz": 128,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-2223-1745-000009-0002-enhanced",
+"label": "French 2223",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/2223_1745_000009-0002_enhanced.wav",
+"tab": "french",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-2465-1943-000152-0002-enhanced",
+"label": "French 2465",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/2465_1943_000152-0002_enhanced.wav",
+"tab": "french",
+"hz": 213,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-296-1028-000022-0001-enhanced",
+"label": "French 296",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/296_1028_000022-0001_enhanced.wav",
+"tab": "french",
+"hz": 130,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-3267-1902-000075-0001-enhanced",
+"label": "French 3267",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/3267_1902_000075-0001_enhanced.wav",
+"tab": "french",
+"hz": 246,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-4193-3103-000004-0001-enhanced",
+"label": "French 4193",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/4193_3103_000004-0001_enhanced.wav",
+"tab": "french",
+"hz": 85,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-4482-3103-000063-0001-enhanced",
+"label": "French 4482",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/4482_3103_000063-0001_enhanced.wav",
+"tab": "french",
+"hz": 124,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-4724-3731-000031-0001-enhanced",
+"label": "French 4724",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/4724_3731_000031-0001_enhanced.wav",
+"tab": "french",
+"hz": 134,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-4937-3731-000004-0001-enhanced",
+"label": "French 4937",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/4937_3731_000004-0001_enhanced.wav",
+"tab": "french",
+"hz": 138,
+"pitch": "mid",
+"tags": []
+},
+{
+"id": "cml-tts-fr-5207-3078-000031-0002-enhanced",
+"label": "French 5207",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/5207_3078_000031-0002_enhanced.wav",
+"tab": "french",
+"hz": 200,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-5476-3103-000072-0001-enhanced",
+"label": "French 5476",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/5476_3103_000072-0001_enhanced.wav",
+"tab": "french",
+"hz": 186,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-577-394-000070-0001-enhanced",
+"label": "French 577",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/577_394_000070-0001_enhanced.wav",
+"tab": "french",
+"hz": 222,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-5790-4893-000052-0001-enhanced",
+"label": "French 5790",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/5790_4893_000052-0001_enhanced.wav",
+"tab": "french",
+"hz": 117,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-579-2548-000015-0001-enhanced",
+"label": "French 579",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/579_2548_000015-0001_enhanced.wav",
+"tab": "french",
+"hz": 199,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-5830-4703-000037-0001-enhanced",
+"label": "French 5830",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/5830_4703_000037-0001_enhanced.wav",
+"tab": "french",
+"hz": 252,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-6318-7016-000027-0002-enhanced",
+"label": "French 6318",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/6318_7016_000027-0002_enhanced.wav",
+"tab": "french",
+"hz": 208,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-7142-2432-000124-0003-enhanced",
+"label": "French 7142",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/7142_2432_000124-0003_enhanced.wav",
+"tab": "french",
+"hz": 133,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-7400-2928-000100-0001-enhanced",
+"label": "French 7400",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/7400_2928_000100-0001_enhanced.wav",
+"tab": "french",
+"hz": 200,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-7591-6742-000149-0002-enhanced",
+"label": "French 7591",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/7591_6742_000149-0002_enhanced.wav",
+"tab": "french",
+"hz": 193,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-7601-7727-000062-0001-enhanced",
+"label": "French 7601",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/7601_7727_000062-0001_enhanced.wav",
+"tab": "french",
+"hz": 98,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-7762-8734-000048-0002-enhanced",
+"label": "French 7762",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/7762_8734_000048-0002_enhanced.wav",
+"tab": "french",
+"hz": 202,
+"pitch": "high",
+"tags": []
+},
+{
+"id": "cml-tts-fr-8128-7016-000047-0002-enhanced",
+"label": "French 8128",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/8128_7016_000047-0002_enhanced.wav",
+"tab": "french",
+"hz": 134,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-928-486-000075-0001-enhanced",
+"label": "French 928",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/928_486_000075-0001_enhanced.wav",
+"tab": "french",
+"hz": 134,
+"pitch": "low",
+"tags": []
+},
+{
+"id": "cml-tts-fr-9834-9697-000150-0003-enhanced",
+"label": "French 9834",
+"src": "hf://kyutai/tts-voices/cml-tts/fr/9834_9697_000150-0003_enhanced.wav",
+"tab": "french",
+"hz": 118,
+"pitch": "low",
+"tags": []
+}
+]
+}
+]

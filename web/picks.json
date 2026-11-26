@@ -1,0 +1,119 @@
+[
+ {
+  "group": "Picks – moods, voice A",
+  "note": "Expresso dataset (non-commercial use only). One speaker acting moods.",
+  "voices": [
+   {
+    "id": "a-happy",
+    "label": "Happy",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_happy_001_channel1_118s.wav"
+   },
+   {
+    "id": "a-angry",
+    "label": "Angry",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_angry_001_channel1_119s.wav"
+   },
+   {
+    "id": "a-sad",
+    "label": "Sad",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex01_sad-sympathetic_001_channel1_267s.wav"
+   },
+   {
+    "id": "a-laughing",
+    "label": "Laughing",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_laughing_001_channel1_147s.wav"
+   },
+   {
+    "id": "a-sarcastic",
+    "label": "Sarcastic",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_sarcastic_001_channel1_519s.wav"
+   },
+   {
+    "id": "a-fearful",
+    "label": "Scared",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_fearful_001_channel1_316s.wav"
+   },
+   {
+    "id": "a-bored",
+    "label": "Bored",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_bored_001_channel1_254s.wav"
+   },
+   {
+    "id": "a-awe",
+    "label": "In awe",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_awe_001_channel1_982s.wav"
+   },
+   {
+    "id": "a-calm",
+    "label": "Calm",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex02_calm_002_channel1_480s.wav"
+   },
+   {
+    "id": "a-whisper",
+    "label": "Whisper",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex03_whisper_001_channel1_198s.wav"
+   },
+   {
+    "id": "a-projected",
+    "label": "Loud / projected",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex03_projected_001_channel1_192s.wav"
+   },
+   {
+    "id": "a-narration",
+    "label": "Narrator",
+    "src": "hf://kyutai/tts-voices/expresso/ex04-ex01_narration_001_channel1_605s.wav"
+   }
+  ]
+ },
+ {
+  "group": "Picks – moods, voice B",
+  "note": "Expresso dataset (non-commercial use only). A second speaker.",
+  "voices": [
+   {
+    "id": "b-happy",
+    "label": "Happy",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_happy_001_channel1_334s.wav"
+   },
+   {
+    "id": "b-angry",
+    "label": "Angry",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_angry_001_channel1_201s.wav"
+   },
+   {
+    "id": "b-sad",
+    "label": "Sad",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex02_sad-sympathetic_001_channel1_454s.wav"
+   },
+   {
+    "id": "b-laughing",
+    "label": "Laughing",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_laughing_001_channel1_188s.wav"
+   },
+   {
+    "id": "b-sarcastic",
+    "label": "Sarcastic",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sarcastic_001_channel1_435s.wav"
+   },
+   {
+    "id": "b-sleepy",
+    "label": "Sleepy",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_sleepy_001_channel1_619s.wav"
+   },
+   {
+    "id": "b-calm",
+    "label": "Calm",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_calm_001_channel1_1143s.wav"
+   },
+   {
+    "id": "b-awe",
+    "label": "In awe",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex01_awe_001_channel1_1323s.wav"
+   },
+   {
+    "id": "b-narration",
+    "label": "Narrator",
+    "src": "hf://kyutai/tts-voices/expresso/ex03-ex02_narration_001_channel1_674s.wav"
+   }
+  ]
+ }
+]

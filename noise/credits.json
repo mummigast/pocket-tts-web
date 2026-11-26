@@ -1,0 +1,55 @@
+[
+ {
+  "id": "street",
+  "label": "Street (Prague)",
+  "credit": "Juan de Vojníkov, Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Karlova_0001.ogg"
+ },
+ {
+  "id": "cafe",
+  "label": "Café / restaurant",
+  "credit": "stephan, Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Restaurant_ambience.ogg"
+ },
+ {
+  "id": "office",
+  "label": "Office / classroom",
+  "credit": "rcrossley, Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Ambient_classroom_mono.ogg"
+ },
+ {
+  "id": "rain",
+  "label": "Rainy street",
+  "credit": "Extemporalist, CC0",
+  "source": "https://commons.wikimedia.org/wiki/File:Urban_Street_on_a_Rainy_Afternoon.flac"
+ },
+ {
+  "id": "mall",
+  "label": "Shopping mall",
+  "credit": "thore, Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:1_minute_at_the_alexa_mall_in_berlin.ogg"
+ },
+ {
+  "id": "station",
+  "label": "Train station",
+  "credit": "Work With Sounds / Werstas, CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:WWS_TheStationTunnelOfTheTampereStation.ogg"
+ },
+ {
+  "id": "subway",
+  "label": "Subway ride",
+  "credit": "PascalHD, CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:TTC_Subway_Line_1_Ambience_-_Dupont_to_St_George_(Freesound).ogg"
+ },
+ {
+  "id": "birds",
+  "label": "Park, birds and breeze",
+  "credit": "ezwa, Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Gentle_breeze_and_birds_singing.ogg"
+ },
+ {
+  "id": "roomtone",
+  "label": "Room tone (soft hiss)",
+  "credit": "Generated (pink noise)"
+ }
+]

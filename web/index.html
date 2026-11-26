@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pocket TTS</title>
+<style>
+:root { --bg:#f5f5f4; --card:#fff; --text:#1c1917; --muted:#78716c; --line:#e7e5e4; --line2:#d6d3d1; --accent:#2563eb; --accent-soft:#dbeafe; --accent-text:#fff; --err:#b91c1c; --star:#d97706; --ok:#16a34a; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1c1917; --card:#292524; --text:#f5f5f4; --muted:#a8a29e; --line:#3a3532; --line2:#57534e; --accent:#60a5fa; --accent-soft:#1e3a5f; --accent-text:#0c0a09; --err:#f87171; --star:#fbbf24; --ok:#4ade80; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+main { max-width:720px; margin:0 auto; padding:16px; display:grid; gap:12px; }
+h1 { font-size:20px; margin:4px 0; }
+.card { background:var(--card); border:1px solid var(--line2); border-radius:10px; padding:14px; display:grid; gap:10px; min-width:0; }
+label, .lbl { font-weight:600; font-size:13px; }
+textarea, select, input[type=text], input[type=search], input[type=file] { width:100%; font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line2); border-radius:6px; padding:8px; }
+textarea { min-height:120px; resize:vertical; }
+.note { color:var(--muted); font-size:13px; margin:0; font-weight:400; }
+.row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.grow { flex:1; min-width:0; }
+button { font:inherit; border:0; border-radius:6px; padding:10px 14px; cursor:pointer; background:var(--accent); color:var(--accent-text); font-weight:600; }
+button.ghost { background:transparent; color:var(--text); border:1px solid var(--line2); padding:7px 10px; font-weight:400; }
+button:disabled { opacity:.5; cursor:default; }
+#install { background:var(--ok); color:#fff; }
+.grid2 { display:grid; grid-template-columns:1fr 2fr; gap:8px; }
+@media (max-width:480px) { .grid2 { grid-template-columns:1fr; } }
+option.off { color:var(--muted); }
+#status { font-size:13px; color:var(--muted); min-height:1.4em; }
+#status.err { color:var(--err); }
+audio { width:100%; }
+a { color:var(--accent); }
+.hidden { display:none !important; }
+#cur { display:flex; gap:10px; align-items:center; }
+#cur-name { font-size:17px; font-weight:600; }
+.tags { color:var(--muted); font-size:12.5px; }
+#browser { display:grid; gap:8px; min-width:0; }
+.tabs, .chips { display:flex; gap:6px; overflow-x:auto; padding-bottom:2px; scrollbar-width:thin; }
+.tab, .chip { flex:none; border:1px solid var(--line2); background:transparent; color:var(--text); border-radius:999px; padding:5px 11px; font-size:13px; font-weight:400; }
+.tab.on, .chip.on { background:var(--accent-soft); border-color:var(--accent); color:var(--text); font-weight:600; }
+.tab .n { color:var(--muted); font-weight:400; margin-left:4px; }
+.chips .sep { flex:none; width:1px; background:var(--line2); margin:2px; }
+#list { max-height:52vh; overflow-y:auto; border:1px solid var(--line); border-radius:8px; }
+.v { display:flex; align-items:center; gap:8px; padding:7px 8px; border-bottom:1px solid var(--line); cursor:pointer; }
+.v:last-child { border-bottom:0; }
+.v:hover { background:var(--bg); }
+.v.sel { background:var(--accent-soft); }
+.v .main { flex:1; min-width:0; }
+.v .name, .v .tags { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.ib { flex:none; width:34px; height:34px; padding:0; border-radius:50%; background:transparent; border:1px solid var(--line2); color:var(--text); font-weight:400; font-size:14px; }
+.ib.star { border-color:transparent; color:var(--muted); font-size:18px; }
+.ib.star.on { color:var(--star); }
+.ib.playing { background:var(--accent); color:var(--accent-text); border-color:var(--accent); }
+.ib.del { border-color:transparent; color:var(--muted); }
+.empty { padding:16px; color:var(--muted); text-align:center; }
+.ib.share { border-color:transparent; color:var(--muted); font-size:15px; }
+.ib.share.on { color:var(--accent); }
+.sh { display:flex; gap:8px; align-items:center; padding:6px 0; border-top:1px solid var(--line); font-size:13.5px; }
+.sh .grow { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.sh.dead { color:var(--muted); }
+#out .row { gap:16px; }
+.dual { position:relative; height:34px; }
+.dual .track { position:absolute; left:0; right:0; top:15px; height:5px; border-radius:3px; background:var(--line2); }
+.dual .fill { position:absolute; top:0; height:5px; border-radius:3px; background:var(--accent); }
+.dual input[type=range] { position:absolute; left:0; top:5px; width:100%; margin:0; background:none; pointer-events:none; -webkit-appearance:none; appearance:none; height:24px; }
+.dual input[type=range]::-webkit-slider-thumb { pointer-events:auto; -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--card); border:3px solid var(--accent); cursor:grab; }
+.dual input[type=range]::-moz-range-thumb { pointer-events:auto; width:16px; height:16px; border-radius:50%; background:var(--card); border:3px solid var(--accent); cursor:grab; }
+.dual input[type=range]::-moz-range-track { background:none; }
+#yt-player iframe { width:100%; aspect-ratio:16/9; border:0; border-radius:8px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Pocket TTS</h1>
+  <p class="note hidden" id="guest-banner"></p>
+
+  <div class="card">
+    <div class="grid2">
+      <div><label for="lang">Language</label><select id="lang"></select></div>
+      <div><label for="model">Model</label><select id="model"></select></div>
+    </div>
+    <div class="row hidden" id="install-row">
+      <button id="install">Install this model</button>
+      <span class="note grow" id="install-note"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <label for="text">Text</label>
+    <textarea id="text">Hello! This is Pocket TTS, running on a computer at home. Pick a voice and try it out.</textarea>
+  </div>
+
+  <div class="card">
+    <span class="lbl">Voice</span>
+    <div id="cur">
+      <button class="ib" id="cur-play" title="Preview">▶</button>
+      <div class="grow"><div id="cur-name">–</div><div class="tags" id="cur-tags"></div></div>
+      <button class="ghost" id="toggle">Change ▾</button>
+    </div>
+    <div id="browser" class="hidden">
+      <div class="tabs" id="tabs"></div>
+      <input type="search" id="q" placeholder="Search name, accent, mood… (e.g. scottish, whisper, anger)">
+      <div class="chips" id="chips"></div>
+      <div id="list"></div>
+      <p class="note" id="count"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="lbl">Sound</span>
+    <div class="grid2">
+      <div><label for="bg">Background</label><select id="bg"><option value="">None</option></select></div>
+      <div><label for="tail">Extra time at the end</label>
+        <select id="tail"><option value="0">None</option><option value="0.5">0.5 s</option><option value="1" selected>1 s</option>
+          <option value="2">2 s</option><option value="3">3 s</option></select></div>
+    </div>
+    <div class="row hidden" id="bg-level-row">
+      <span class="note">Background level</span>
+      <div class="chips" id="bg-level">
+        <button class="chip on" data-v="low">Low</button><button class="chip" data-v="medium">Medium</button><button class="chip" data-v="high">High</button>
+      </div>
+    </div>
+    <p class="note" id="bg-note">The extra time lets the end breathe instead of cutting off; with a background it keeps playing and fades out.</p>
+  </div>
+
+  <div class="card">
+    <label for="yt-url">Clone a voice from YouTube</label>
+    <div class="row">
+      <input type="text" id="yt-url" class="grow" style="width:auto" placeholder="Paste a YouTube link">
+      <button class="ghost" id="yt-check">Check</button>
+    </div>
+    <div id="yt-box" class="hidden" style="display:grid; gap:10px;">
+      <div class="row"><img id="yt-thumb" alt="" style="width:96px;border-radius:6px"><div class="grow"><div id="yt-title" style="font-weight:600"></div><div class="tags" id="yt-meta"></div></div></div>
+      <div class="dual" id="yt-dual">
+        <div class="track"><div class="fill" id="yt-fill"></div></div>
+        <input type="range" id="yt-r1" min="0" step="0.5" aria-label="Start">
+        <input type="range" id="yt-r2" min="0" step="0.5" aria-label="End">
+      </div>
+      <div class="row">
+        <label class="row" style="gap:6px">Start <input type="text" id="yt-s" inputmode="decimal" style="width:84px"></label>
+        <label class="row" style="gap:6px">End <input type="text" id="yt-e" inputmode="decimal" style="width:84px"></label>
+        <span class="note grow" id="yt-len"></span>
+      </div>
+      <input type="text" id="yt-name" placeholder="Name it, e.g. grandpa (optional)">
+      <div class="row">
+        <button class="ghost" id="yt-preview">▶ Preview segment</button>
+        <span class="grow"></span>
+        <button id="yt-save">Save as voice</button>
+      </div>
+      <div id="yt-player"></div>
+      <p class="note">Times as seconds or m:ss. 10–30 s of one person talking, no music works best; the model listens to the first 30 s (max 120 s).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <label for="clip">Or clone a voice from a clip</label>
+    <input type="file" id="clip" accept=".wav,.mp3,.flac,.ogg,.oga,.opus,.m4a,.aac,.webm,.mp4,.amr,.3gp,.wma,audio/*,video/mp4">
+    <input type="text" id="save-as" placeholder="Name it (optional), e.g. grandpa">
+    <p class="note">10–30 seconds of one person talking, no music or noise, works best. A clip overrides the chosen voice.
+      Every clip is kept and shows up under "Mine" (unnamed ones get the date as name).</p>
+  </div>
+
+  <div class="card hidden" id="share-card">
+    <span class="lbl">Share with a friend (no login)</span>
+    <div class="row">
+      <select id="share-hours" style="width:auto">
+        <option value="1">1 hour</option><option value="24" selected>24 hours</option>
+        <option value="72">3 days</option><option value="168">7 days</option>
+      </select>
+      <input type="text" id="share-label" class="grow" placeholder="Who is it for? (optional)" style="width:auto">
+      <button id="share-make">Create link</button>
+    </div>
+    <div class="row hidden" id="share-new">
+      <input type="text" id="share-url" class="grow" readonly style="width:auto">
+      <button class="ghost" id="share-copy">Copy</button>
+    </div>
+    <div id="share-list"></div>
+    <p class="note">Friends get this page without your clones (except the ones marked shared), can't install models,
+      max 3000 characters per text. Their uploaded clips are kept in their own folder.</p>
+  </div>
+
+  <button id="go">Generate</button>
+  <div id="status"></div>
+
+  <div class="card hidden" id="out">
+    <audio id="audio" controls></audio>
+    <div class="row"><a id="dl" download="tts.wav">Download WAV</a><a href="#" id="dl-ogg">Download OGG (voice-note size)</a></div>
+  </div>
+  <audio id="sample" class="hidden"></audio>
+</main>
+
+<!--GUEST-->
+<script>
+const $ = id => document.getElementById(id);
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const GUEST = window.GUEST || null;
+let cfg = null, voices = [], byId = {}, favs = new Set(), poll = null, player = null;
+let cur = store.get('tts-voice') || 'alba';
+const ui = { tab: store.get('tts-tab') || 'builtin', pitch: '', gender: '', facet: '' };
+const TABS = [['fav', '★ Favourites'], ['featured', 'Featured'], ['mine', 'Mine'], ['builtin', 'Built-in'], ['moods', 'Moods & emotions'],
+  ['accents', 'Accents'], ['speakers', 'Speakers'], ['community', 'Community'], ['french', 'French'], ['all', 'All']];
+const PITCH = { low: 'lower voice', mid: 'mid voice', high: 'higher voice' };
+
+// ---------- config ----------
+async function loadConfig() {
+  const r = await fetch('config', { cache: 'no-store' });
+  cfg = await r.json();
+  favs = new Set(GUEST ? JSON.parse(store.get('tts-guest-favs') || '[]') : (cfg.favourites || []));
+  voices = []; byId = {};
+  for (const g of cfg.voices) for (const v of g.voices) {
+    const x = { ...v, group: g.group, tab: v.tab || 'mine', tags: v.tags || [] };
+    x.hay = (x.label + ' ' + x.group + ' ' + x.tags.join(' ') + ' ' + (x.pitch ? PITCH[x.pitch] : '') +
+             (x.gender === 'F' ? ' female woman' : x.gender === 'M' ? ' male man' : '')).toLowerCase();
+    voices.push(x); byId[x.id] = x;
+  }
+  if (!byId[cur]) cur = 'alba';
+  fillLangs(); renderCur(); renderBrowser(); fillBg();
+  if (!GUEST) loadShares();
+}
+
+// ---------- language + model ----------
+function fillLangs() {
+  const lang = $('lang'), keep = lang.value || store.get('tts-lang') || 'english';
+  lang.innerHTML = '';
+  for (const l of cfg.languages) lang.add(new Option(l.lang, l.code));
+  lang.value = cfg.languages.some(l => l.code === keep) ? keep : 'english';
+  fillModels($('model').value || store.get('tts-model'));
+}
+const curLang = () => cfg.languages.find(l => l.code === $('lang').value);
+const curModel = () => curLang().models.find(x => x.id === $('model').value);
+function fillModels(want) {
+  const m = $('model'), l = curLang(); m.innerHTML = '';
+  for (const x of l.models) {
+    const o = new Option(x.label + (x.installed ? '' : x.status === 'installing' ? '  (installing…)' : '  (not installed)'), x.id);
+    if (!x.installed) o.className = 'off';
+    m.add(o);
+  }
+  m.value = l.models.some(x => x.id === want) ? want : l.models[0].id;
+  showModel();
+}
+function showModel() {
+  const x = curModel();
+  store.set('tts-lang', $('lang').value); store.set('tts-model', x.id);
+  $('install-row').classList.toggle('hidden', x.installed);
+  const busy = x.status === 'installing';
+  $('install').disabled = busy;
+  $('install').textContent = busy ? 'Installing…' : 'Install this model';
+  $('install-note').textContent = x.status.startsWith('failed') ? 'Install ' + x.status + '. Try again?' :
+    busy ? 'Downloading and loading, a minute or two.' : 'Downloads once (a few hundred MB), then works offline.';
+  updateGo();
+  const anyBusy = cfg.languages.some(l => l.models.some(m => m.status === 'installing'));
+  if (anyBusy && !poll) poll = setInterval(loadConfig, 4000);
+  if (!anyBusy && poll) { clearInterval(poll); poll = null; }
+}
+$('lang').addEventListener('change', () => {
+  const t = $('text').value.trim(), texts = Object.values(cfg.texts);
+  if (!t || texts.includes(t) || t === $('text').defaultValue.trim()) $('text').value = cfg.texts[$('lang').value] || t;
+  fillModels();
+});
+$('model').addEventListener('change', showModel);
+$('install').addEventListener('click', async () => {
+  $('install').disabled = true;
+  await fetch('install/' + encodeURIComponent($('model').value), { method: 'POST' });
+  loadConfig();
+});
+function updateGo() {
+  const m = cfg && curModel(), clip = $('clip').files[0];
+  const ok = m && m.installed && (clip || byId[cur]);
+  $('go').disabled = !ok;
+  $('go').textContent = m && !m.installed ? 'Install the model first' : 'Generate';
+}
+$('clip').addEventListener('change', updateGo);
+
+// ---------- current voice ----------
+function describe(v) {
+  const bits = [];
+  if (v.gender) bits.push(v.gender === 'F' ? 'female' : 'male');
+  if (v.pitch) bits.push(PITCH[v.pitch]);
+  bits.push(...v.tags.slice(0, 3));
+  return bits.join(' · ');
+}
+function renderCur() {
+  const v = byId[cur]; if (!v) return;
+  $('cur-name').textContent = v.label;
+  const d = describe(v);
+  $('cur-tags').textContent = v.group + (d ? ' · ' + d : '');
+  store.set('tts-voice', cur); updateGo();
+}
+function choose(id) {
+  cur = id; renderCur();
+  for (const el of document.querySelectorAll('.v')) el.classList.toggle('sel', el.dataset.id === id);
+}
+$('toggle').addEventListener('click', () => {
+  const open = !$('browser').classList.toggle('hidden');
+  $('toggle').textContent = open ? 'Done ▴' : 'Change ▾';
+  if (open) { renderBrowser(); const s = document.querySelector('.v.sel'); if (s) s.scrollIntoView({ block: 'nearest' }); }
+});
+$('cur-play').addEventListener('click', () => preview(cur, $('cur-play')));
+
+// ---------- browser ----------
+const inTab = (v, tab) => tab === 'all' || (tab === 'fav' ? favs.has(v.id) : v.tab === tab);
+function facetOf(v) {
+  if (ui.tab === 'speakers') return (v.tags.find(t => t.startsWith('native ')) || '').slice(7);
+  if (ui.tab === 'accents' || ui.tab === 'moods') return v.tags[0] || '';
+  return '';
+}
+function facets(list) {
+  const c = {}; for (const v of list) { const f = facetOf(v); if (f) c[f] = (c[f] || 0) + 1; }
+  const min = ui.tab === 'accents' ? 1 : 2;
+  return Object.entries(c).filter(([, n]) => n >= min).sort((a, b) => b[1] - a[1]);
+}
+function renderBrowser() {
+  if (!cfg || $('browser').classList.contains('hidden')) return;
+  const tabs = $('tabs'); tabs.innerHTML = '';
+  for (const [id, name] of TABS) {
+    const n = voices.filter(v => inTab(v, id)).length;
+    if (!n && id !== 'fav' && id !== 'mine') continue;
+    const b = document.createElement('button'); b.className = 'tab' + (ui.tab === id ? ' on' : ''); b.dataset.tab = id;
+    b.append(name); const s = document.createElement('span'); s.className = 'n'; s.textContent = n; b.appendChild(s);
+    b.onclick = () => { ui.tab = id; ui.facet = ''; store.set('tts-tab', id); renderBrowser(); };
+    tabs.appendChild(b);
+  }
+  const q = $('q').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  let list = voices.filter(v => inTab(v, ui.tab) && q.every(w => v.hay.includes(w)));
+  const chips = $('chips'); chips.innerHTML = '';
+  const chip = (label, on, fn) => { const b = document.createElement('button'); b.className = 'chip' + (on ? ' on' : ''); b.textContent = label; b.onclick = fn; chips.appendChild(b); };
+  const sep = () => { const s = document.createElement('span'); s.className = 'sep'; chips.appendChild(s); };
+  for (const [k, l] of [['', 'Any pitch'], ['low', 'Lower'], ['mid', 'Mid'], ['high', 'Higher']])
+    chip(l, ui.pitch === k, () => { ui.pitch = k; renderBrowser(); });
+  if (list.some(v => v.gender)) {
+    sep();
+    for (const [k, l] of [['', 'Any'], ['F', 'Female'], ['M', 'Male']])
+      chip(l, ui.gender === k, () => { ui.gender = k; renderBrowser(); });
+  }
+  const fs = facets(list);
+  if (fs.length > 1) { sep(); for (const [f, n] of fs) chip(`${f} ${n}`, ui.facet === f, () => { ui.facet = ui.facet === f ? '' : f; renderBrowser(); }); }
+  if (ui.pitch) list = list.filter(v => v.pitch === ui.pitch);
+  if (ui.gender) list = list.filter(v => v.gender === ui.gender);
+  if (ui.facet) list = list.filter(v => facetOf(v) === ui.facet);
+
+  const box = $('list'); box.innerHTML = '';
+  if (!list.length) {
+    const e = document.createElement('div'); e.className = 'empty';
+    e.textContent = ui.tab === 'fav' && !favs.size ? 'No favourites yet: tap ☆ on a voice.' :
+      ui.tab === 'mine' && !q.length ? 'No clones yet: upload a clip below.' : 'No voices match.';
+    box.appendChild(e);
+  }
+  const showGroup = ui.tab === 'all' || ui.tab === 'fav';
+  const frag = document.createDocumentFragment();
+  for (const v of list) {
+    const row = document.createElement('div'); row.className = 'v' + (v.id === cur ? ' sel' : ''); row.dataset.id = v.id;
+    const play = document.createElement('button'); play.className = 'ib'; play.textContent = '▶'; play.title = 'Preview';
+    play.onclick = e => { e.stopPropagation(); preview(v.id, play); };
+    const main = document.createElement('div'); main.className = 'main';
+    const nm = document.createElement('div'); nm.className = 'name'; nm.textContent = v.label;
+    const tg = document.createElement('div'); tg.className = 'tags';
+    tg.textContent = [showGroup ? v.group : '', describe(v)].filter(Boolean).join(' · ');
+    main.append(nm, tg);
+    const star = document.createElement('button'); star.className = 'ib star' + (favs.has(v.id) ? ' on' : '');
+    star.textContent = favs.has(v.id) ? '★' : '☆'; star.title = 'Favourite';
+    star.onclick = e => { e.stopPropagation(); toggleFav(v.id, star); };
+    row.append(play, main, star);
+    if (!GUEST && v.id.startsWith('own:')) {
+      const sh = document.createElement('button'), on = v.tags.includes('shared with guests');
+      sh.className = 'ib share' + (on ? ' on' : ''); sh.textContent = '👥';
+      sh.title = on ? 'Shared with guests (tap to stop)' : 'Not shared with guests (tap to share)';
+      sh.onclick = async e => { e.stopPropagation(); const fd = new FormData(); fd.append('name', v.id.slice(4)); fd.append('on', !on);
+        await fetch('share-voice', { method: 'POST', body: fd }); loadConfig(); };
+      row.appendChild(sh);
+    }
+    if (!GUEST && v.id.startsWith('own:')) {
+      const del = document.createElement('button'); del.className = 'ib del'; del.textContent = '✕'; del.title = 'Remove from list (the clip is kept)';
+      del.onclick = e => { e.stopPropagation(); removeOwn(v); };
+      row.appendChild(del);
+    }
+    row.onclick = () => choose(v.id);
+    frag.appendChild(row);
+  }
+  box.appendChild(frag);
+  const total = voices.filter(v => inTab(v, ui.tab)).length;
+  $('count').textContent = list.length === total ? `${total} voices` : `${list.length} of ${total} voices`;
+}
+$('q').addEventListener('input', renderBrowser);
+
+function toggleFav(id, btn) {
+  const on = !favs.has(id);
+  on ? favs.add(id) : favs.delete(id);
+  btn.classList.toggle('on', on); btn.textContent = on ? '★' : '☆';
+  if (GUEST) store.set('tts-guest-favs', JSON.stringify([...favs]));
+  else { const fd = new FormData(); fd.append('voice', id); fd.append('on', on); fetch('favourite', { method: 'POST', body: fd }); }
+  if (ui.tab === 'fav') renderBrowser();
+  else { const t = document.querySelector('.tab[data-tab="fav"] .n'); if (t) t.textContent = favs.size; }
+}
+async function removeOwn(v) {
+  if (!confirm('Remove "' + v.label + '" from the list? (The clip is kept on the server.)')) return;
+  await fetch('voices/' + encodeURIComponent(v.id.slice(4)), { method: 'DELETE' });
+  if (cur === v.id) cur = 'alba';
+  loadConfig();
+}
+
+// ---------- preview ----------
+let playingBtn = null;
+async function preview(id, btn) {
+  const a = $('sample');
+  if (playingBtn === btn && !a.paused) { a.pause(); stopPreview(); return; }
+  a.pause(); stopPreview();
+  const v = byId[id];
+  if (v && !v.installed && !GUEST) { btn.textContent = '…'; await fetch('install-voice/' + encodeURIComponent(id), { method: 'POST' }); v.installed = true; }
+  a.src = 'sample/' + encodeURIComponent(id);
+  playingBtn = btn; btn.classList.add('playing'); btn.textContent = '■';
+  try { await a.play(); } catch (e) { stopPreview(); status('No preview available for that voice.', true); }
+}
+function stopPreview() {
+  if (playingBtn) { playingBtn.classList.remove('playing'); playingBtn.textContent = '▶'; }
+  playingBtn = null;
+}
+$('sample').addEventListener('ended', stopPreview);
+
+// ---------- OGG download ----------
+let lastBlob = null;
+$('dl-ogg').addEventListener('click', async e => {
+  e.preventDefault(); if (!lastBlob) return;
+  const a = $('dl-ogg'), old = a.textContent; a.textContent = 'Converting…';
+  try {
+    const fd = new FormData(); fd.append('audio', lastBlob, 'tts.wav');
+    const r = await fetch('convert/ogg', { method: 'POST', body: fd });
+    if (!r.ok) throw new Error(r.status);
+    const url = URL.createObjectURL(await r.blob()), l = document.createElement('a');
+    l.href = url; l.download = 'tts-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.ogg';
+    document.body.appendChild(l); l.click(); l.remove();
+  } catch (err) { status('OGG conversion failed: ' + err.message, true); }
+  finally { a.textContent = old; }
+});
+
+// ---------- generate ----------
+function status(msg, err) { $('status').textContent = msg; $('status').className = err ? 'err' : ''; }
+
+class StreamPlayer {
+  constructor() { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); this.hdr = new Uint8Array(0); this.pcm = new Uint8Array(0); this.rate = 0; this.ch = 1; this.next = 0; this.first = null; }
+  add(chunk) {
+    if (!this.rate) {
+      const h = new Uint8Array(this.hdr.length + chunk.length); h.set(this.hdr); h.set(chunk, this.hdr.length);
+      if (h.length < 44) { this.hdr = h; return; }
+      const dv = new DataView(h.buffer); this.ch = dv.getUint16(22, true); this.rate = dv.getUint32(24, true);
+      chunk = h.slice(44);
+    }
+    const p = new Uint8Array(this.pcm.length + chunk.length); p.set(this.pcm); p.set(chunk, this.pcm.length); this.pcm = p;
+    if (this.pcm.length >= 16384) this.flush();
+  }
+  flush() {
+    const frames = Math.floor(this.pcm.length / (2 * this.ch)); if (!frames) return;
+    const bytes = frames * 2 * this.ch, data = this.pcm.slice(0, bytes); this.pcm = this.pcm.slice(bytes);
+    const buf = this.ctx.createBuffer(this.ch, frames, this.rate), i16 = new Int16Array(data.buffer);
+    for (let c = 0; c < this.ch; c++) { const d = buf.getChannelData(c); for (let i = 0; i < frames; i++) d[i] = i16[i * this.ch + c] / 32768; }
+    const s = this.ctx.createBufferSource(); s.buffer = buf; s.connect(this.ctx.destination);
+    const t = Math.max(this.ctx.currentTime, this.next); s.start(t); this.next = t + buf.duration;
+    if (this.first === null) this.first = performance.now();
+  }
+  stop() { try { this.ctx.close(); } catch (e) {} }
+}
+
+$('go').addEventListener('click', async () => {
+  const text = $('text').value.trim();
+  if (!text) { status('Write some text first.', true); return; }
+  if (player) player.stop();
+  const fd = new FormData(); fd.append('text', text); fd.append('model', $('model').value);
+  fd.append('bg', $('bg').value); fd.append('bg_level', bgLevel); fd.append('tail', $('tail').value);
+  const clip = $('clip').files[0], saveAs = $('save-as').value.trim();
+  if (clip) { fd.append('voice_wav', clip); if (saveAs) fd.append('save_as', saveAs); }
+  else {
+    if (!GUEST && byId[cur] && !byId[cur].installed) await fetch('install-voice/' + encodeURIComponent(cur), { method: 'POST' });
+    fd.append('voice', cur);
+  }
+  $('go').disabled = true; $('out').classList.add('hidden');
+  status(clip ? 'Reading the clip and generating… (cloning takes ~10 s)' : 'Generating… (a voice or model used for the first time takes a few seconds)');
+  const t0 = performance.now();
+  try {
+    const r = await fetch('tts', { method: 'POST', body: fd });
+    if (!r.ok) { let m = r.status + ''; try { m = (await r.json()).detail || m; } catch (e) {} throw new Error(m); }
+    player = new StreamPlayer();
+    const reader = r.body.getReader(), parts = [];
+    for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); player.add(value); }
+    player.flush();
+    lastBlob = new Blob(parts, { type: 'audio/wav' });
+    const url = URL.createObjectURL(lastBlob);
+    $('audio').src = url; $('dl').href = url; $('out').classList.remove('hidden');
+    const first = player.first ? ((player.first - t0) / 1000).toFixed(1) + ' s to first sound, ' : '';
+    status('Done: ' + first + ((performance.now() - t0) / 1000).toFixed(1) + ' s total.');
+    if (clip) {
+      $('clip').value = ''; $('save-as').value = '';
+      await loadConfig();
+      const want = saveAs ? (GUEST ? 'guest:' : 'own:') + saveAs.toLowerCase().replace(/ /g, '-') : null;
+      const clips = voices.filter(v => /^(own|guest):clip-/.test(v.id)).map(v => v.id).sort();
+      if (want && byId[want]) choose(want); else if (clips.length) choose(clips[clips.length - 1]);
+    }
+  } catch (e) { status('Error: ' + e.message, true); }
+  finally { updateGo(); }
+});
+
+// ---------- background + tail ----------
+let bgLevel = store.get('tts-bg-level') || 'low';
+function fillBg() {
+  const sel = $('bg'), keep = sel.value || store.get('tts-bg') || '';
+  sel.length = 1;
+  for (const b of cfg.backgrounds || []) sel.add(new Option(b.label, b.id));
+  sel.value = [...sel.options].some(o => o.value === keep) ? keep : '';
+  const t = store.get('tts-tail'); if (t !== null && [...$('tail').options].some(o => o.value === t)) $('tail').value = t;
+  showBg();
+}
+function showBg() {
+  const id = $('bg').value, b = (cfg.backgrounds || []).find(x => x.id === id);
+  $('bg-level-row').classList.toggle('hidden', !id);
+  for (const c of $('bg-level').children) c.classList.toggle('on', c.dataset.v === bgLevel);
+  $('bg-note').textContent = b ? 'Recording: ' + b.credit + '.' :
+    'The extra time lets the end breathe instead of cutting off; with a background it keeps playing and fades out.';
+  store.set('tts-bg', id); store.set('tts-tail', $('tail').value); store.set('tts-bg-level', bgLevel);
+}
+$('bg').addEventListener('change', showBg);
+$('tail').addEventListener('change', showBg);
+for (const c of $('bg-level').children) c.addEventListener('click', () => { bgLevel = c.dataset.v; showBg(); });
+
+// ---------- YouTube clip picker ----------
+let yt = null;
+const fmt = t => { t = Math.max(0, t); const m = Math.floor(t / 60), s = t - m * 60; return m + ':' + (s < 10 ? '0' : '') + (Number.isInteger(s) ? s : s.toFixed(1)); };
+const parseT = v => { v = String(v).trim().replace(',', '.'); if (!v) return NaN; const p = v.split(':').map(Number); return p.reduce((a, x) => a * 60 + x, 0); };
+function ytSet(start, end, from) {
+  const d = yt.duration;
+  start = Math.min(Math.max(0, start), d - 1); end = Math.min(Math.max(end, start + 1), d);
+  if (end - start > 120) { if (from === 'start') end = start + 120; else start = end - 120; }
+  yt.start = start; yt.end = end;
+  $('yt-r1').value = start; $('yt-r2').value = end;
+  if (document.activeElement !== $('yt-s')) $('yt-s').value = fmt(start);
+  if (document.activeElement !== $('yt-e')) $('yt-e').value = fmt(end);
+  $('yt-fill').style.left = (start / d * 100) + '%'; $('yt-fill').style.width = ((end - start) / d * 100) + '%';
+  const len = end - start;
+  $('yt-len').textContent = `${len.toFixed(1)} s` + (len > 30 ? ' (only the first 30 s are used)' : len < 8 ? ' (a bit short)' : '');
+}
+$('yt-check').addEventListener('click', async () => {
+  const url = $('yt-url').value.trim(); if (!url) return;
+  $('yt-check').disabled = true; $('yt-check').textContent = 'Checking…';
+  try {
+    const fd = new FormData(); fd.append('url', url);
+    const r = await fetch('yt/info', { method: 'POST', body: fd });
+    const d = await r.json(); if (!r.ok) throw new Error(d.detail || r.status);
+    yt = { ...d, url };
+    $('yt-title').textContent = d.title; $('yt-meta').textContent = (d.channel ? d.channel + ' · ' : '') + fmt(d.duration);
+    $('yt-thumb').src = `https://i.ytimg.com/vi/${d.id}/mqdefault.jpg`;
+    for (const r of [$('yt-r1'), $('yt-r2')]) r.max = d.duration;
+    $('yt-player').innerHTML = '';
+    $('yt-box').classList.remove('hidden');
+    ytSet(0, Math.min(30, d.duration));
+  } catch (e) { status('YouTube: ' + e.message, true); }
+  finally { $('yt-check').disabled = false; $('yt-check').textContent = 'Check'; }
+});
+$('yt-url').addEventListener('keydown', e => { if (e.key === 'Enter') $('yt-check').click(); });
+$('yt-r1').addEventListener('input', () => ytSet(+$('yt-r1').value, yt.end > +$('yt-r1').value ? yt.end : +$('yt-r1').value + 1, 'start'));
+$('yt-r2').addEventListener('input', () => ytSet(Math.min(yt.start, +$('yt-r2').value - 1), +$('yt-r2').value, 'end'));
+$('yt-s').addEventListener('change', () => { const t = parseT($('yt-s').value); if (!isNaN(t)) ytSet(t, Math.max(yt.end, t + 1), 'start'); else ytSet(yt.start, yt.end); });
+$('yt-e').addEventListener('change', () => { const t = parseT($('yt-e').value); if (!isNaN(t)) ytSet(Math.min(yt.start, t - 1), t, 'end'); else ytSet(yt.start, yt.end); });
+for (const id of ['yt-s', 'yt-e']) $(id).addEventListener('blur', () => ytSet(yt.start, yt.end));
+$('yt-preview').addEventListener('click', () => {
+  const f = document.createElement('iframe');
+  f.allow = 'autoplay; encrypted-media'; f.referrerPolicy = 'strict-origin-when-cross-origin';
+  f.src = `https://www.youtube-nocookie.com/embed/${yt.id}?start=${Math.floor(yt.start)}&end=${Math.ceil(yt.end)}&autoplay=1&rel=0`;
+  $('yt-player').innerHTML = ''; $('yt-player').appendChild(f);
+});
+$('yt-save').addEventListener('click', async () => {
+  $('yt-save').disabled = true; $('yt-save').textContent = 'Downloading…';
+  try {
+    const fd = new FormData(); fd.append('url', yt.url); fd.append('start', yt.start); fd.append('end', yt.end); fd.append('name', $('yt-name').value);
+    const r = await fetch('yt/clip', { method: 'POST', body: fd });
+    const d = await r.json(); if (!r.ok) throw new Error(d.detail || r.status);
+    $('yt-player').innerHTML = ''; $('yt-name').value = '';
+    await loadConfig(); choose(d.voice);
+    status('Saved "' + byId[d.voice].label + '" and picked it. Press Generate to try it.');
+  } catch (e) { status('YouTube: ' + e.message, true); }
+  finally { $('yt-save').disabled = false; $('yt-save').textContent = 'Save as voice'; }
+});
+
+// ---------- sharing (admin only) ----------
+function ago(t) {
+  const h = (t * 1000 - Date.now()) / 3600000;
+  if (h <= 0) return 'expired';
+  return h >= 48 ? `${Math.round(h / 24)} days left` : h >= 1 ? `${Math.round(h)} h left` : `${Math.max(1, Math.round(h * 60))} min left`;
+}
+async function loadShares() {
+  const r = await fetch('shares', { cache: 'no-store' }); if (!r.ok) return;
+  const list = await r.json(), box = $('share-list'); box.innerHTML = '';
+  for (const s of list) {
+    const row = document.createElement('div'); row.className = 'sh' + (s.active ? '' : ' dead');
+    const t = document.createElement('span'); t.className = 'grow';
+    t.textContent = `${s.label || 'Link'} · ${ago(s.expires)} · ${s.uses} uses` + (s.clips ? ` · ${s.clips} clips` : '');
+    row.appendChild(t);
+    if (s.active) {
+      const c = document.createElement('button'); c.className = 'ghost'; c.textContent = 'Copy';
+      c.onclick = () => copy(location.origin + '/s/' + s.token + '/', c);
+      const x = document.createElement('button'); x.className = 'ghost'; x.textContent = 'Revoke';
+      x.onclick = async () => { if (!confirm('End this link now?')) return; await fetch('shares/' + encodeURIComponent(s.token), { method: 'DELETE' }); loadShares(); };
+      row.append(c, x);
+    }
+    box.appendChild(row);
+  }
+}
+async function copy(text, btn) {
+  try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy', 1500); }
+  catch (e) { prompt('Copy this link:', text); }
+}
+$('share-make').addEventListener('click', async () => {
+  const fd = new FormData(); fd.append('hours', $('share-hours').value); fd.append('label', $('share-label').value);
+  const r = await fetch('shares', { method: 'POST', body: fd });
+  if (!r.ok) { status('Could not create link', true); return; }
+  const s = await r.json();
+  $('share-url').value = location.origin + s.path; $('share-new').classList.remove('hidden'); $('share-label').value = '';
+  copy($('share-url').value, $('share-copy'));
+  loadShares();
+});
+$('share-copy').addEventListener('click', () => copy($('share-url').value, $('share-copy')));
+
+if (GUEST) {
+  const b = $('guest-banner'); b.classList.remove('hidden');
+  b.textContent = 'Shared link: works until ' + new Date(GUEST.expires * 1000).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) + '.';
+} else {
+  $('share-card').classList.remove('hidden');
+}
+
+loadConfig().then(() => {
+  if (location.hash === '#voices') $('toggle').click();
+  if (location.hash === '#sound') { $('bg').value = 'street'; showBg(); $('bg').scrollIntoView(); }
+  if (location.hash.startsWith('#yt=')) { $('yt-url').value = decodeURIComponent(location.hash.slice(4)); $('yt-check').click(); $('yt-url').scrollIntoView(); }
+});
+</script>
+</body>
+</html>

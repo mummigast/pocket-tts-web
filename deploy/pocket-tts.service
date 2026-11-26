@@ -1,0 +1,17 @@
+# Example systemd *user* service. ./setup.sh --service writes one with the right paths for you.
+# Manual: copy to ~/.config/systemd/user/pocket-tts.service, fix the paths, then
+#   systemctl --user daemon-reload && systemctl --user enable --now pocket-tts
+#   loginctl enable-linger $USER    # keep it running when you're logged out
+[Unit]
+Description=Pocket TTS web UI
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/pocket-tts-web
+ExecStart=%h/pocket-tts-web/.venv/bin/python %h/pocket-tts-web/web/app.py --host 127.0.0.1 --port 18700
+Restart=on-failure
+RestartSec=10
+Nice=5
+
+[Install]
+WantedBy=default.target

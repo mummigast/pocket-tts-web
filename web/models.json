@@ -1,0 +1,13 @@
+[
+ {"lang": "English", "code": "english", "models": [
+  ["english", "Oct 2026 – best (recommended)"],
+  ["english_2026-09_2", "Sept 2026 v2 – better questions and pauses"],
+  ["english_2026-09_24l", "Sept 2026 large – slower, richer"],
+  ["english_2026-09", "Sept 2026"]]},
+ {"lang": "French", "code": "french", "models": [["french_24l", "Large – best"], ["french", "Standard – faster"]]},
+ {"lang": "German", "code": "german", "models": [["german_24l", "Large – best"], ["german", "Standard – faster"]]},
+ {"lang": "Spanish", "code": "spanish", "models": [["spanish_24l", "Large – best"], ["spanish", "Standard – faster"]]},
+ {"lang": "Italian", "code": "italian", "models": [["italian_24l", "Large – best"], ["italian", "Standard – faster"]]},
+ {"lang": "Portuguese", "code": "portuguese", "models": [["portuguese_24l", "Large – best"], ["portuguese", "Standard – faster"]]},
+ {"lang": "Dutch", "code": "dutch", "models": [["dutch_24l", "Large – best"], ["dutch", "Standard – faster"]]}
+]
