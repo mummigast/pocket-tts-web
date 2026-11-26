@@ -3,6 +3,18 @@
 # Make a password hash with:  caddy hash-password
 tts.example.com {
 	encode zstd gzip
+	# Access log without API keys (they can be in the URL or the X-Api-Key header).
+	log {
+		format filter {
+			wrap json
+			fields {
+				request>uri query {
+					replace key REDACTED
+				}
+				request>headers>X-Api-Key replace REDACTED
+			}
+		}
+	}
 	request_body {
 		max_size 50MB
 	}

@@ -484,6 +484,7 @@ PAUSE_RE = re.compile(r"\[(?:pause|break)(?:\s+(\d+(?:[.,]\d+)?)\s*(ms|s)?)?\]",
 LINE_RE = re.compile(r"^\s*([^\W\d_][\w .'’-]{0,39}?)\s*:\s*(\S.*)$")
 TURN_GAP = 0.35          # silence between speakers in a conversation
 MAX_PARTS = 400
+MAX_PAUSE_TOTAL = 60     # seconds of [pause] per clip (memory: silence is generated as audio)
 
 
 def voice_names(guest: str | None) -> dict[str, str]:
@@ -548,6 +549,8 @@ def parse_text(text: str, guest: str | None) -> dict:
         parts.pop()
     if len(parts) > MAX_PARTS:
         raise HTTPException(400, f"Too many lines/pauses (max {MAX_PARTS})")
+    if sum(p[1] for p in parts if p[0] == "pause") > MAX_PAUSE_TOTAL:
+        raise HTTPException(400, f"Too much pause in total (max {MAX_PAUSE_TOTAL} s)")
     if not any(p[0] == "say" for p in parts):
         raise HTTPException(400, "Nothing to say")
     cast = list(dict.fromkeys(p[1] for p in parts if p[0] == "say" and p[1]))
@@ -1157,17 +1160,38 @@ def save_keys(d: dict) -> None:
     tmp.replace(API_KEYS)
 
 
+API_FAIL_MAX, API_FAIL_WINDOW = 10, 600      # wrong keys per client per 10 min before 429
+_api_fails: dict[str, list[float]] = {}
+
+
+def client_ip(request: Request) -> str:
+    # The app only listens on 127.0.0.1 behind the reverse proxy, which sets X-Forwarded-For to the real client.
+    # Use the LAST entry: the one our proxy added. Earlier entries could be sent by the client itself.
+    xff = request.headers.get("x-forwarded-for", "")
+    return xff.split(",")[-1].strip() if xff else (request.client.host if request.client else "?")
+
+
 def check_api_key(request: Request) -> str:
+    ip, now = client_ip(request), time.time()
+    fails = [t for t in _api_fails.get(ip, []) if now - t < API_FAIL_WINDOW]
+    _api_fails[ip] = fails
+    if len(fails) >= API_FAIL_MAX:
+        raise HTTPException(429, "Too many wrong keys, try again later")
+    if len(_api_fails) > 10000:                   # don't let the table grow forever
+        _api_fails.clear()
     key = request.query_params.get("key") or request.headers.get("x-api-key") or ""
     auth = request.headers.get("authorization", "")
     if auth.lower().startswith("bearer "):
         key = auth[7:].strip()
-    if not key:
+    if not key or len(key) > 200:
+        _api_fails[ip].append(now)
         raise HTTPException(401, "API key required (?key=, X-API-Key or Authorization: Bearer)")
     h = hashlib.sha256(key.encode()).hexdigest()
     with _api_lock:
         keys = load_keys()
         if h not in keys:
+            _api_fails[ip].append(now)
+            log.warning("API: wrong key from %s", ip)
             raise HTTPException(401, "Invalid API key")
         keys[h]["last_used"] = time.time()
         keys[h]["uses"] = keys[h].get("uses", 0) + 1
@@ -1283,6 +1307,9 @@ def main() -> None:
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO)
     (ROOT / "tmp").mkdir(exist_ok=True)
+    for d in (ROOT / "state", ROOT / "tmp", VOICES):   # share tokens, key hashes, clips: owner only
+        d.mkdir(exist_ok=True)
+        d.chmod(0o700)
     for p in (ROOT / "tmp").glob("*"):
         p.unlink(missing_ok=True)
     get_state(DEFAULT_MODEL, get_model(DEFAULT_MODEL), "")

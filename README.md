@@ -113,6 +113,10 @@ Parameters: `text` (required, max 5000 chars), `voice` (id or name, see `GET /ap
 (`mp3` default, `ogg`, `wav`, or put it in the path: `/api/tts.mp3`), `bg`, `bg_level` (low/medium/high), `speed`,
 `tail`, `expressiveness` (0.1–1.0, default 0.3). The key goes in `?key=`, `X-API-Key:` or `Authorization: Bearer`.
 
+Security: keys are long random tokens, stored only as hashes; 10 wrong keys from one address within 10 minutes get
+that address blocked for a while. If you use `?key=` in URLs, blank it out of your proxy's access log
+(see the `log` block in [`deploy/Caddyfile.example`](deploy/Caddyfile.example)).
+
 **Home Assistant** example (a Cast speaker fetches the URL itself, so it must be reachable from the speaker):
 
 ```yaml
