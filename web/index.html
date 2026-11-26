@@ -106,7 +106,7 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
     <textarea id="text">Hello! This is Pocket TTS, running on a computer at home. Pick a voice and try it out.</textarea>
     <div class="row">
       <button class="ghost" id="add-pause" title="Insert a pause at the cursor">+ Pause</button>
-      <span class="note grow" id="cast">Tip: <code>[pause 2s]</code> adds a pause. For a conversation, start lines with a voice name: <code>Alba: Hi!</code></span>
+      <span class="note grow" id="cast">Tip: <code>[pause 2s]</code> adds a pause. For a conversation, start lines with a voice name: <code>Alba: Hi!</code> To stress a word, put <code>!</code> right after it: <code>I never! said that.</code></span>
     </div>
   </div>
 
@@ -203,6 +203,7 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
   </div>
 
   <button id="go">Generate</button>
+  <label class="row note" style="gap:6px; margin-top:6px"><input type="checkbox" id="live"> Play while generating (can be choppy)</label>
   <div id="status"></div>
 
   <div class="card hidden" id="out">
@@ -678,6 +679,8 @@ class StreamPlayer {
   stop() { try { this.ctx.close(); } catch (e) {} }
 }
 
+$('live').checked = store.get('tts-live') === '1';
+$('live').addEventListener('change', () => store.set('tts-live', $('live').checked ? '1' : '0'));
 $('go').addEventListener('click', async () => {
   const text = $('text').value.trim();
   if (!text) { status('Write some text first.', true); return; }
@@ -701,11 +704,13 @@ $('go').addEventListener('click', async () => {
     if (!r.ok) { let m = r.status + ''; try { m = (await r.json()).detail || m; } catch (e) {} throw new Error(m); }
     player = new StreamPlayer();
     const reader = r.body.getReader(), parts = [];
-    for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); player.add(value); }
-    player.flush();
+    const live = $('live').checked;
+    for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); if (live) player.add(value); }
+    if (live) player.flush();
     lastBlob = new Blob(parts, { type: 'audio/wav' });
     const url = URL.createObjectURL(lastBlob);
     $('audio').src = url; $('dl').href = url; $('out').classList.remove('hidden');
+    if (!live) $('audio').play().catch(() => {});
     const first = player.first ? ((player.first - t0) / 1000).toFixed(1) + ' s to first sound, ' : '';
     status('Done: ' + first + ((performance.now() - t0) / 1000).toFixed(1) + ' s total.');
     setTimeout(loadHistory, 300);

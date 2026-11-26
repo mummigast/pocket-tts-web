@@ -266,8 +266,12 @@ def resolve_src(voice: str, model_id: str, guest: str | None):
     return p
 
 
+def state_key(mid: str, voice: str, guest: str | None = None) -> tuple[str, str]:
+    return (mid, f"{guest}/{voice}" if voice.startswith("guest:") else voice)
+
+
 def get_state(mid: str, model: TTSModel, voice: str, guest: str | None = None):
-    key = (mid, f"{guest}/{voice}" if voice.startswith("guest:") else voice)
+    key = state_key(mid, voice, guest)
     with _lock:
         if key in _states:
             _states.move_to_end(key)
@@ -611,8 +615,123 @@ def tuned(model: TTSModel, temp: float | None) -> TTSModel:
     return m
 
 
+# Conversations with 2+ voices: the first line streams in this process as usual, the other lines are generated
+# at the same time in worker processes and played back in order. Measured on the 3960X: one generation does not
+# get faster with more torch threads (small autoregressive model), but separate processes scale ~linearly.
+# Single-voice text is never split.
+PARALLEL_WORKERS = 6
+_pool = None
+_pool_lock = threading.Lock()
+
+
+def parallel_pool():
+    global _pool
+    with _pool_lock:
+        if _pool is None:
+            import multiprocessing as mp
+            import sys
+            from concurrent.futures import ProcessPoolExecutor
+            sys.path.insert(0, str(WEB))
+            _pool = ProcessPoolExecutor(PARALLEL_WORKERS, mp_context=mp.get_context("spawn"))
+        return _pool
+
+
+def warm_pool() -> None:
+    """Start the workers and load the default model in each, so the first conversation doesn't wait for it."""
+    try:
+        import par_worker
+        pool = parallel_pool()
+        for f in [pool.submit(par_worker.warm, DEFAULT_MODEL) for _ in range(PARALLEL_WORKERS * 2)]:
+            f.result()
+        log.info("parallel pool ready (%d workers)", PARALLEL_WORKERS)
+    except Exception:
+        log.exception("parallel pool warm-up failed")
+
+
+def parallel_chunks(model, mid, parts, default_state, guest, stop, temp):
+    """Same output as the sequential path, or None if this text shouldn't be split."""
+    says = [p for p in parts if p[0] == "say"]
+    if len(says) < 2 or len({p[1] for p in says}) < 2:   # p[1] None = the selected voice
+        return None
+    try:
+        import par_worker
+        pool = parallel_pool()
+    except Exception:
+        log.exception("parallel pool unavailable")
+        return None
+    sr = model.config.mimi.sample_rate
+    first = next(i for i, p in enumerate(parts) if p[0] == "say")
+    futures: dict = {}
+    closed = threading.Event()
+    ready = {i: threading.Event() for i, p in enumerate(parts) if p[0] == "say" and i != first}
+
+    def send(i, state):
+        futures[i] = pool.submit(par_worker.say, mid, state, parts[i][2], temp)
+
+    later = []
+    with _lock:   # voices already cloned: submit right now
+        for i in ready:
+            state = default_state if parts[i][1] is None else _states.get(state_key(mid, parts[i][1], guest))
+            if state is None:
+                later.append(i)
+            else:
+                send(i, state)
+                ready[i].set()
+
+    def submit_later():   # clone new voices in the background, so the first line isn't delayed
+        for i in later:
+            try:
+                if not (stop.is_set() or closed.is_set()):
+                    send(i, get_state(mid, model, parts[i][1], guest))
+            except Exception:
+                log.exception("parallel submit failed")
+            ready[i].set()
+    if later:
+        threading.Thread(target=submit_later, daemon=True).start()
+
+    def gen():
+        gen_model = tuned(model, temp)
+        try:
+            for i, p in enumerate(parts):
+                if stop.is_set():
+                    return
+                if p[0] == "pause":
+                    yield torch.zeros(int(p[1] * sr))
+                elif i == first:
+                    state = default_state if p[1] is None else get_state(mid, model, p[1], guest)
+                    yield from gen_model.generate_audio_stream(model_state=state, text_to_generate=p[2], stop=stop)
+                else:
+                    while not ready[i].wait(0.5):
+                        if stop.is_set():
+                            return
+                    while True:
+                        try:
+                            if i not in futures:
+                                raise RuntimeError("not submitted")
+                            yield torch.from_numpy(futures[i].result(timeout=0.5))
+                            break
+                        except TimeoutError:
+                            if stop.is_set():
+                                return
+                        except Exception:   # worker died etc.: do this line here instead
+                            log.exception("parallel line failed, generating it in-process")
+                            state = default_state if p[1] is None else get_state(mid, model, p[1], guest)
+                            yield from gen_model.generate_audio_stream(model_state=state, text_to_generate=p[2],
+                                                                       stop=stop)
+                            break
+        finally:
+            closed.set()
+            for f in list(futures.values()):
+                f.cancel()
+    return gen()
+
+
 def chunk_stream(model: TTSModel, mid: str, parts: list, default_state, guest: str | None, stop: threading.Event,
                  temp: float | None = None):
+    par = parallel_chunks(model, mid, parts, default_state, guest, stop, temp)
+    if par is not None:
+        yield from par
+        return
     sr = model.config.mimi.sample_rate
     gen_model = tuned(model, temp)
     for p in parts:
@@ -1313,6 +1432,7 @@ def main() -> None:
     for p in (ROOT / "tmp").glob("*"):
         p.unlink(missing_ok=True)
     get_state(DEFAULT_MODEL, get_model(DEFAULT_MODEL), "")
+    threading.Thread(target=warm_pool, daemon=True).start()
     uvicorn.run(app, host=args.host, port=args.port, proxy_headers=False)
 
 
