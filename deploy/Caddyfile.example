@@ -1,5 +1,5 @@
 # Example Caddy site for putting the UI on the internet. Adapt to your own setup.
-# The app has NO login of its own: everything except /s/* (share links) MUST be behind a login.
+# The app has NO login of its own: everything except /s/* (share links) and /api/* (API key) MUST be behind a login.
 # Make a password hash with:  caddy hash-password
 tts.example.com {
 	encode zstd gzip
@@ -8,6 +8,10 @@ tts.example.com {
 	}
 	# Share links: no login, the app checks the link's token itself.
 	handle /s/* {
+		reverse_proxy 127.0.0.1:18700
+	}
+	# API: no login, the app requires an API key on every request.
+	handle /api/* {
 		reverse_proxy 127.0.0.1:18700
 	}
 	# Everything else: your login (basic auth here; forward_auth to Authentik/oauth2-proxy also works).

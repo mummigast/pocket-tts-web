@@ -29,7 +29,8 @@ from queue import Queue
 import numpy as np
 import torch
 import uvicorn
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI
+from fastapi import File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
 
 from pocket_tts.data.audio import stream_audio_chunks
@@ -353,42 +354,6 @@ def with_background(chunks, nid: str, level: str, tail: float):
         yield torch.from_numpy(a)
 
 
-def stream(model: TTSModel, text: str, state, on_done=None, bg: str = "", bg_level: str = "low", tail: float = 0.0):
-    q: Queue = Queue()
-    stop = threading.Event()
-
-    class ToQueue(io.IOBase):
-        def write(self, data):
-            q.put(bytes(data))
-
-        def flush(self):
-            pass
-
-        def close(self):
-            q.put(None)
-
-    def work():
-        try:
-            chunks = model.generate_audio_stream(model_state=state, text_to_generate=text, stop=stop)
-            if bg or tail > 0:
-                chunks = with_background(chunks, bg, bg_level, tail)
-            stream_audio_chunks(ToQueue(), chunks, model.config.mimi.sample_rate)
-        except Exception:
-            log.exception("generation failed")
-            q.put(None)
-
-    t = threading.Thread(target=work, daemon=True)
-    t.start()
-    try:
-        while (d := q.get()) is not None:
-            yield d
-    finally:
-        stop.set()
-        t.join()
-        if on_done:
-            on_done()
-
-
 def clip_names(folder: Path) -> list[str]:
     return sorted({p.stem for p in folder.glob("*") if p.is_file() and p.suffix.lower() in AUDIO_EXT and NAME_RE.match(p.stem)})
 
@@ -432,7 +397,8 @@ def build_config(guest: str | None) -> dict:
             "backgrounds": [{"id": n["id"], "label": n["label"], "credit": n["credit"]} for n in noise_catalog()]}
 
 
-def save_upload(voice_wav: UploadFile, m: TTSModel, model: str, save_as: str | None, folder: Path, prefix: str):
+def save_upload(voice_wav: UploadFile, m: TTSModel, model: str, save_as: str | None, folder: Path, prefix: str,
+                trim_start: float | None = None, trim_end: float | None = None):
     name = "clip-" + time.strftime("%Y%m%d-%H%M%S")
     if save_as:
         name = save_as.strip().lower().replace(" ", "-")
@@ -450,7 +416,10 @@ def save_upload(voice_wav: UploadFile, m: TTSModel, model: str, save_as: str | N
     # Any format a phone records (ogg/opus voice notes, m4a, webm, mp3…) → mono 24 kHz 16-bit WAV.
     tmp = orig.with_suffix(".conv.wav")
     try:
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(orig), "-vn", "-ac", "1", "-ar", "24000",
+        trim = []
+        if trim_start is not None and trim_end is not None and trim_end - trim_start >= 1:
+            trim = ["-ss", f"{max(0.0, trim_start):.2f}", "-to", f"{trim_end:.2f}"]
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(orig), *trim, "-vn", "-ac", "1", "-ar", "24000",
                         "-c:a", "pcm_s16le", str(tmp)], check=True, capture_output=True, timeout=120)
         state = m.get_state_for_audio_prompt(tmp, truncate=True)
     except Exception:
@@ -510,6 +479,234 @@ def sample_path(vid: str, guest: str | None) -> Path:
     return p
 
 
+# ---- text → parts: [pause …] markers and "Name: line" conversations ----
+PAUSE_RE = re.compile(r"\[(?:pause|break)(?:\s+(\d+(?:[.,]\d+)?)\s*(ms|s)?)?\]", re.I)
+LINE_RE = re.compile(r"^\s*([^\W\d_][\w .'’-]{0,39}?)\s*:\s*(\S.*)$")
+TURN_GAP = 0.35          # silence between speakers in a conversation
+MAX_PARTS = 400
+
+
+def voice_names(guest: str | None) -> dict[str, str]:
+    """lower-case name → voice id. Clones first, then the catalog in page order (built-ins first)."""
+    names: dict[str, str] = {}
+
+    def add(key: str, vid: str):
+        names.setdefault(key.lower().strip(), vid)
+
+    if guest is None:
+        for n in clip_names(VOICES):
+            add(label_of(n), f"own:{n}"); add(n, f"own:{n}")
+    else:
+        for n in clip_names(VOICES):
+            if n in shared_own():
+                add(label_of(n), f"own:{n}"); add(n, f"own:{n}")
+        for n in clip_names(GUESTS / guest):
+            add(label_of(n), f"guest:{n}"); add(n, f"guest:{n}")
+    for g in load_json("voices.json"):
+        for v in g["voices"]:
+            add(v["label"], v["id"]); add(v["id"], v["id"])
+    return names
+
+
+def parse_text(text: str, guest: str | None) -> dict:
+    """→ {"parts": [("say", voice|None, text) | ("pause", seconds)], "cast": [...], "unknown": [...]}"""
+    names = voice_names(guest)
+    lines = text.splitlines()
+    matches = [LINE_RE.match(l) for l in lines]
+    script = any(m and m.group(1).lower().strip() in names for m in matches)
+    blocks: list[tuple[str | None, str]] = []
+    unknown: list[str] = []
+    if script:
+        for line, m in zip(lines, matches):
+            if m and m.group(1).lower().strip() in names:
+                blocks.append((names[m.group(1).lower().strip()], m.group(2)))
+            elif line.strip():
+                if m and m.group(1) not in unknown and len(m.group(1).split()) <= 3:
+                    unknown.append(m.group(1))
+                if blocks:   # a line without a known name continues the previous speaker
+                    blocks[-1] = (blocks[-1][0], blocks[-1][1] + " " + line.strip())
+                else:
+                    blocks.append((None, line.strip()))
+    else:
+        blocks = [(None, text)]
+    parts: list[tuple] = []
+    for voice, t in blocks:
+        pos = 0
+        for m in PAUSE_RE.finditer(t):
+            if t[pos:m.start()].strip():
+                parts.append(("say", voice, t[pos:m.start()].strip()))
+            secs = float((m.group(1) or "0.7").replace(",", "."))
+            if (m.group(2) or "").lower() == "ms":
+                secs /= 1000
+            parts.append(("pause", max(0.05, min(secs, 10.0))))
+            pos = m.end()
+        if t[pos:].strip():
+            parts.append(("say", voice, t[pos:].strip()))
+        if script:
+            parts.append(("pause", TURN_GAP))
+    while parts and parts[-1][0] == "pause" and script:
+        parts.pop()
+    if len(parts) > MAX_PARTS:
+        raise HTTPException(400, f"Too many lines/pauses (max {MAX_PARTS})")
+    if not any(p[0] == "say" for p in parts):
+        raise HTTPException(400, "Nothing to say")
+    cast = list(dict.fromkeys(p[1] for p in parts if p[0] == "say" and p[1]))
+    return {"parts": parts, "cast": cast, "unknown": unknown, "script": script}
+
+
+# ---- history: the last generations, per admin / per share link ----
+HISTORY = ROOT / "state" / "history"
+HISTORY_KEEP = 20
+HID_RE = re.compile(r"^\d{13,16}$")
+
+
+def history_dir(who: str) -> Path:
+    return HISTORY / ("admin" if who == "admin" else re.sub(r"[^a-z0-9]", "", who))
+
+
+def save_history(who: str, audio: np.ndarray, sr: int, meta: dict) -> None:
+    d = history_dir(who)
+    d.mkdir(parents=True, exist_ok=True)
+    hid = str(int(time.time() * 1000))
+    import soundfile as sf
+    sf.write(d / f"{hid}.wav", audio, sr, subtype="PCM_16")
+    (d / f"{hid}.json").write_text(json.dumps({**meta, "id": hid, "time": time.time(), "seconds": round(len(audio) / sr, 1)}))
+    old = sorted(p.stem for p in d.glob("*.json"))[:-HISTORY_KEEP]
+    for h in old:
+        (d / f"{h}.json").unlink(missing_ok=True)
+        (d / f"{h}.wav").unlink(missing_ok=True)
+
+
+def list_history(who: str) -> list:
+    d = history_dir(who)
+    out = []
+    for p in sorted(d.glob("*.json"), reverse=True):
+        try:
+            out.append(json.loads(p.read_text()))
+        except Exception:
+            pass
+    return out
+
+
+def history_file(who: str, hid: str) -> Path:
+    p = history_dir(who) / f"{hid}.wav"
+    if not HID_RE.match(hid) or not p.exists():
+        raise HTTPException(404, "Not in history")
+    return p
+
+
+# ---- generation: parts → chunks → background → speed → stream (+ history) ----
+def chunk_stream(model: TTSModel, mid: str, parts: list, default_state, guest: str | None, stop: threading.Event):
+    sr = model.config.mimi.sample_rate
+    for p in parts:
+        if stop.is_set():
+            return
+        if p[0] == "pause":
+            yield torch.zeros(int(p[1] * sr))
+        else:
+            state = default_state if p[1] is None else get_state(mid, model, p[1], guest)
+            yield from model.generate_audio_stream(model_state=state, text_to_generate=p[2], stop=stop)
+
+
+def apply_speed(audio: np.ndarray, sr: int, speed: float) -> np.ndarray:
+    """Tempo change that keeps the pitch (ffmpeg atempo)."""
+    r = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(sr), "-ac", "1", "-i", "pipe:0",
+                        "-filter:a", f"atempo={speed:.3f}", "-f", "f32le", "-ar", str(sr), "-ac", "1", "pipe:1"],
+                       input=audio.astype(np.float32).tobytes(), capture_output=True, timeout=300)
+    if r.returncode != 0:
+        raise RuntimeError(r.stderr.decode()[-200:])
+    return np.frombuffer(r.stdout, dtype=np.float32)
+
+
+def render(model, mid, parts, default_state, guest, opts) -> tuple[np.ndarray, int]:
+    """Whole clip at once (API, speed ≠ 1)."""
+    stop = threading.Event()
+    sr = model.config.mimi.sample_rate
+    chunks = chunk_stream(model, mid, parts, default_state, guest, stop)
+    if opts["bg"] or opts["tail"] > 0:
+        chunks = with_background(chunks, opts["bg"], opts["bg_level"], opts["tail"])
+    audio = np.concatenate([c.detach().float().cpu().numpy().reshape(-1) for c in chunks] or [np.zeros(1, np.float32)])
+    if abs(opts["speed"] - 1.0) > 0.01:
+        audio = apply_speed(audio, sr, opts["speed"])
+    return np.clip(audio, -1, 1), sr
+
+
+def stream(model, mid, parts, default_state, guest, opts, on_done=None, record=None):
+    """Streams a WAV while generating (speed 1.0), or renders first and then sends it (other speeds)."""
+    q: Queue = Queue()
+    stop = threading.Event()
+    sr = model.config.mimi.sample_rate
+
+    class ToQueue(io.IOBase):
+        def write(self, data):
+            q.put(bytes(data))
+
+        def flush(self):
+            pass
+
+        def close(self):
+            q.put(None)
+
+    def work():
+        kept: list[np.ndarray] = []
+        try:
+            if abs(opts["speed"] - 1.0) > 0.01:
+                audio, _ = render(model, mid, parts, default_state, guest, opts)
+                kept = [audio]
+                stream_audio_chunks(ToQueue(), iter([torch.from_numpy(audio)]), sr)
+            else:
+                chunks = chunk_stream(model, mid, parts, default_state, guest, stop)
+                if opts["bg"] or opts["tail"] > 0:
+                    chunks = with_background(chunks, opts["bg"], opts["bg_level"], opts["tail"])
+
+                def tee(cs):
+                    for c in cs:
+                        kept.append(c.detach().float().cpu().numpy().reshape(-1))
+                        yield c
+                stream_audio_chunks(ToQueue(), tee(chunks), sr)
+            if record and kept and not stop.is_set():
+                record(np.concatenate(kept), sr)
+        except Exception:
+            log.exception("generation failed")
+            q.put(None)
+
+    t = threading.Thread(target=work, daemon=True)
+    t.start()
+    try:
+        while (d := q.get()) is not None:
+            yield d
+    finally:
+        stop.set()
+        t.join()
+        if on_done:
+            on_done()
+
+
+def check_opts(bg: str, bg_level: str, tail: float, speed: float) -> dict:
+    bg, tail = check_bg(bg, bg_level, tail)
+    if not 0.7 <= speed <= 1.5:
+        raise HTTPException(400, "Speed must be 0.7–1.5")
+    return {"bg": bg, "bg_level": bg_level, "tail": tail, "speed": speed}
+
+
+def encode(audio: np.ndarray, sr: int, fmt: str) -> tuple[bytes, str]:
+    if fmt == "wav":
+        buf = io.BytesIO()
+        import soundfile as sf
+        sf.write(buf, audio, sr, format="WAV", subtype="PCM_16")
+        return buf.getvalue(), "audio/wav"
+    args = {"mp3": (["-c:a", "libmp3lame", "-b:a", "96k", "-f", "mp3"], "audio/mpeg"),
+            "ogg": (["-c:a", "libopus", "-b:a", "48k", "-application", "voip", "-f", "ogg"], "audio/ogg")}
+    if fmt not in args:
+        raise HTTPException(400, "format: mp3, ogg or wav")
+    a, mime = args[fmt]
+    r = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(sr), "-ac", "1", "-i", "pipe:0", *a, "pipe:1"],
+                       input=audio.astype(np.float32).tobytes(), capture_output=True, timeout=300)
+    if r.returncode != 0:
+        raise HTTPException(500, "Encoding failed")
+    return r.stdout, mime
+
+
 def page_html(guest_info: dict | None) -> str:
     html = (WEB / "index.html").read_text(encoding="utf-8")
     inject = f"<script>window.GUEST = {json.dumps(guest_info)};</script>"
@@ -532,22 +729,59 @@ async def config() -> JSONResponse:
     return JSONResponse(build_config(None), headers={"Cache-Control": "no-store"})
 
 
+def recorder(who: str, text: str, voice: str, model: str, opts: dict, cast: list):
+    meta = {"text": text[:400], "voice": voice, "cast": cast, "model": model, **opts}
+    return lambda audio, sr: save_history(who, audio, sr, meta)
+
+
+def parse_summary(text: str, guest: str | None) -> dict:
+    p = parse_text(text, guest) if text.strip() else {"cast": [], "unknown": [], "script": False, "parts": []}
+    return {"cast": p["cast"], "unknown": p["unknown"], "script": p["script"],
+            "pauses": sum(1 for x in p["parts"] if x[0] == "pause" and x[1] != TURN_GAP)}
+
+
 @app.post("/tts")
 def tts(text: str = Form(...), model: str = Form(DEFAULT_MODEL), voice: str = Form(""),
         voice_wav: UploadFile | None = File(None), save_as: str | None = Form(None),
-        bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0)) -> StreamingResponse:
+        trim_start: float | None = Form(None), trim_end: float | None = Form(None),
+        bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0), speed: float = Form(1.0)) -> StreamingResponse:
     text = text.strip()
     if not text:
         raise HTTPException(400, "Text cannot be empty")
     if len(text) > 20000:
         raise HTTPException(400, "Text too long (max 20 000 characters)")
+    opts = check_opts(bg, bg_level, tail, speed)
+    parsed = parse_text(text, None)
     m = check_model(model)
     if voice_wav is not None and voice_wav.filename:
-        state = save_upload(voice_wav, m, model, save_as, VOICES, "own:")
+        state = save_upload(voice_wav, m, model, save_as, VOICES, "own:", trim_start, trim_end)
+        voice = "(uploaded clip)"
     else:
         state = get_state(model, m, voice)
-    bg, tail = check_bg(bg, bg_level, tail)
-    return wav_response(stream(m, text, state, bg=bg, bg_level=bg_level, tail=tail))
+    return wav_response(stream(m, model, parsed["parts"], state, None, opts,
+                               record=recorder("admin", text, voice, model, opts, parsed["cast"])))
+
+
+@app.post("/parse")
+def parse_route(text: str = Form(...)) -> dict:
+    return parse_summary(text, None)
+
+
+@app.get("/history")
+def history_route() -> list:
+    return list_history("admin")
+
+
+@app.get("/history/{hid}.wav")
+def history_wav(hid: str):
+    return FileResponse(history_file("admin", hid), media_type="audio/wav", filename=f"tts-{hid}.wav")
+
+
+@app.delete("/history/{hid}")
+def history_delete(hid: str) -> dict:
+    p = history_file("admin", hid)
+    p.unlink(); p.with_suffix(".json").unlink(missing_ok=True)
+    return {"deleted": hid}
 
 
 @app.post("/install/{mid}")
@@ -697,15 +931,18 @@ def guest_sample(token: str, vid: str):
 @app.post("/s/{token}/tts")
 def guest_tts(token: str, text: str = Form(...), model: str = Form(DEFAULT_MODEL), voice: str = Form(""),
               voice_wav: UploadFile | None = File(None), save_as: str | None = Form(None),
-              bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0)) -> StreamingResponse:
+              trim_start: float | None = Form(None), trim_end: float | None = Form(None),
+              bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0),
+              speed: float = Form(1.0)) -> StreamingResponse:
     g = check_token(token)
-    bg, tail = check_bg(bg, bg_level, tail)
+    opts = check_opts(bg, bg_level, tail, speed)
     text = text.strip()
     if not text:
         raise HTTPException(400, "Text cannot be empty")
     if len(text) > GUEST_TEXT_MAX:
         raise HTTPException(400, f"Text too long (max {GUEST_TEXT_MAX} characters)")
     guest_quota(g, clip=voice_wav is not None and bool(voice_wav.filename))
+    parsed = parse_text(text, g)
     if g in _guest_busy:
         raise HTTPException(429, "Wait for the current one to finish")
     if not _guest_sem.acquire(blocking=False):
@@ -719,11 +956,13 @@ def guest_tts(token: str, text: str = Form(...), model: str = Form(DEFAULT_MODEL
     try:
         m = check_model(model)
         if voice_wav is not None and voice_wav.filename:
-            state = save_upload(voice_wav, m, model, save_as, GUESTS / g, f"{g}/guest:")
+            state = save_upload(voice_wav, m, model, save_as, GUESTS / g, f"{g}/guest:", trim_start, trim_end)
+            voice = "(uploaded clip)"
         else:
             state = get_state(model, m, voice, g)
         _guest_count[g] = _guest_count.get(g, 0) + 1
-        return wav_response(stream(m, text, state, on_done=done, bg=bg, bg_level=bg_level, tail=tail))
+        return wav_response(stream(m, model, parsed["parts"], state, g, opts, on_done=done,
+                                   record=recorder(g, text, voice, model, opts, parsed["cast"])))
     except Exception:
         done()
         raise
@@ -851,6 +1090,166 @@ def guest_yt_clip(token: str, url: str = Form(...), start: float = Form(...), en
         return {"voice": "guest:" + yt_clip(url, start, end, name, GUESTS / g, f"{g}/guest:")}
     finally:
         _guest_busy.discard(g)
+
+
+@app.post("/s/{token}/parse")
+def guest_parse(token: str, text: str = Form(...)) -> dict:
+    return parse_summary(text, check_token(token))
+
+
+@app.get("/s/{token}/history")
+def guest_history(token: str) -> list:
+    return list_history(check_token(token))
+
+
+@app.get("/s/{token}/history/{hid}.wav")
+def guest_history_wav(token: str, hid: str):
+    return FileResponse(history_file(check_token(token), hid), media_type="audio/wav", filename=f"tts-{hid}.wav")
+
+
+@app.delete("/s/{token}/history/{hid}")
+def guest_history_delete(token: str, hid: str) -> dict:
+    p = history_file(check_token(token), hid)
+    p.unlink(); p.with_suffix(".json").unlink(missing_ok=True)
+    return {"deleted": hid}
+
+
+# ---- API for scripts / Home Assistant: /api/* with a key (your proxy lets /api/* through without login) ----
+API_KEYS = ROOT / "state" / "api-keys.json"
+_api_lock = threading.Lock()
+
+
+def load_keys() -> dict:
+    try:
+        return json.loads(API_KEYS.read_text())
+    except Exception:
+        return {}
+
+
+def save_keys(d: dict) -> None:
+    API_KEYS.parent.mkdir(exist_ok=True)
+    tmp = API_KEYS.with_suffix(".tmp")
+    tmp.write_text(json.dumps(d, indent=1))
+    tmp.chmod(0o600)
+    tmp.replace(API_KEYS)
+
+
+def check_api_key(request: Request) -> str:
+    key = request.query_params.get("key") or request.headers.get("x-api-key") or ""
+    auth = request.headers.get("authorization", "")
+    if auth.lower().startswith("bearer "):
+        key = auth[7:].strip()
+    if not key:
+        raise HTTPException(401, "API key required (?key=, X-API-Key or Authorization: Bearer)")
+    h = hashlib.sha256(key.encode()).hexdigest()
+    with _api_lock:
+        keys = load_keys()
+        if h not in keys:
+            raise HTTPException(401, "Invalid API key")
+        keys[h]["last_used"] = time.time()
+        keys[h]["uses"] = keys[h].get("uses", 0) + 1
+        save_keys(keys)
+    return h[:8]
+
+
+@app.get("/api-keys")
+def api_keys_list() -> list:
+    return [{"id": h[:8], "label": k.get("label", ""), "created": k["created"], "last_used": k.get("last_used"),
+             "uses": k.get("uses", 0)} for h, k in sorted(load_keys().items(), key=lambda kv: kv[1]["created"])]
+
+
+@app.post("/api-keys")
+def api_keys_create(label: str = Form("")) -> dict:
+    key = "tts_" + secrets.token_urlsafe(24)
+    with _api_lock:
+        keys = load_keys()
+        keys[hashlib.sha256(key.encode()).hexdigest()] = {"label": label.strip()[:60], "created": time.time()}
+        save_keys(keys)
+    return {"key": key}   # shown once; only its hash is stored
+
+
+@app.delete("/api-keys/{kid}")
+def api_keys_delete(kid: str) -> dict:
+    with _api_lock:
+        keys = load_keys()
+        hit = [h for h in keys if h[:8] == kid]
+        if not hit:
+            raise HTTPException(404, "No such key")
+        for h in hit:
+            del keys[h]
+        save_keys(keys)
+    return {"deleted": kid}
+
+
+async def api_params(request: Request) -> dict:
+    params = dict(request.query_params)
+    if request.method == "POST":
+        if "application/json" in request.headers.get("content-type", ""):
+            params.update({k: str(v) for k, v in (await request.json()).items()})
+        else:
+            params.update({k: v for k, v in (await request.form()).items() if isinstance(v, str)})
+    params.pop("key", None)
+    return params
+
+
+def api_voice(v: str) -> str:
+    """Accept a voice id or a name ("Alba", "David Attenborough")."""
+    if not v or v in catalog() or v.startswith("own:"):
+        return v
+    vid = voice_names(None).get(v.lower().strip())
+    if not vid:
+        raise HTTPException(404, f"Unknown voice {v!r} (see /api/voices)")
+    return vid
+
+
+def api_render(params: dict, fmt: str):
+    text = (params.get("text") or "").strip()
+    if not text:
+        raise HTTPException(400, "text is required")
+    if len(text) > 5000:
+        raise HTTPException(400, "text too long (max 5000 characters)")
+    model = params.get("model") or DEFAULT_MODEL
+    voice = api_voice(params.get("voice") or "")
+    try:
+        opts = check_opts(params.get("bg", ""), params.get("bg_level", "low"),
+                          float(params.get("tail", 0.5)), float(params.get("speed", 1.0)))
+    except ValueError:
+        raise HTTPException(400, "tail and speed must be numbers")
+    parsed = parse_text(text, None)
+    m = check_model(model)
+    state = get_state(model, m, voice)
+    audio, sr = render(m, model, parsed["parts"], state, None, opts)
+    data, mime = encode(audio, sr, fmt)
+    from fastapi.responses import Response
+    return Response(data, media_type=mime, headers={"Content-Disposition": f"inline; filename=tts.{fmt}",
+                                                    "Cache-Control": "no-store"})
+
+
+@app.api_route("/api/tts", methods=["GET", "POST"])
+async def api_tts(request: Request):
+    """text, voice (id or name), model, format (mp3|ogg|wav, default mp3), bg, bg_level, tail, speed."""
+    check_api_key(request)
+    params = await api_params(request)
+    from starlette.concurrency import run_in_threadpool
+    return await run_in_threadpool(api_render, params, params.get("format", "mp3"))
+
+
+@app.api_route("/api/tts.{fmt}", methods=["GET", "POST"])
+async def api_tts_ext(request: Request, fmt: str):
+    """Same, with the format in the URL (some players want a file extension, e.g. Cast speakers)."""
+    check_api_key(request)
+    params = await api_params(request)
+    from starlette.concurrency import run_in_threadpool
+    return await run_in_threadpool(api_render, params, fmt)
+
+
+@app.get("/api/voices")
+async def api_voices(request: Request) -> list:
+    check_api_key(request)
+    out = [{"id": f"own:{n}", "name": label_of(n), "group": "My cloned voices"} for n in clip_names(VOICES)]
+    for g in load_json("voices.json"):
+        out += [{"id": v["id"], "name": v["label"], "group": g["group"]} for v in g["voices"]]
+    return out
 
 
 def main() -> None:

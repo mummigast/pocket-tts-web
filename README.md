@@ -20,6 +20,10 @@ that runs on an ordinary CPU, with voice cloning.
 - **7 languages** (English, French, German, Spanish, Italian, Portuguese, Dutch); extra models install from the page
 - **Background ambience** (street, café, rain, …) at low / medium / high, plus a little extra time at the end
 - **Share links**: give a friend a login-free link that expires (1 h – 7 days), revoke it any time
+- **Pauses** (`[pause 2s]`), **speed** 0.7–1.5× (pitch kept), and **conversations**: lines like `Alba: Hi!` /
+  `George: Hello.` become one clip with several voices
+- **Trim** uploaded clips with a slider, and a **history** of your last 20 clips
+- An **API** with keys, for Home Assistant, scripts or chat bots (MP3 / OGG / WAV)
 - Download as **WAV** or **OGG** (Opus, voice-note size). Audio streams while it is generated.
 
 Everything runs on your machine; nothing is sent to an outside service except downloads (models, voices, YouTube).
@@ -82,7 +86,8 @@ you preview or use them. With `./setup.sh --service` it runs as `pocket-tts` und
 ## 4. Putting it online
 
 > **The app has no login of its own.** It listens on `127.0.0.1` only. If you make it reachable from the internet,
-> put a reverse proxy with a login in front of it, and let **only `/s/*`** (the share links) through without login.
+> put a reverse proxy with a login in front of it, and let **only `/s/*`** (share links) and **`/api/*`** (needs an
+> API key) through without login.
 
 [`deploy/Caddyfile.example`](deploy/Caddyfile.example) shows this with Caddy and basic auth; forward auth to
 Authentik, oauth2-proxy etc. works the same way. Allow uploads of ~50 MB in the proxy.
@@ -90,6 +95,35 @@ Authentik, oauth2-proxy etc. works the same way. Allow uploads of ~50 MB in the 
 Share-link guests can use the installed models and the voice library, upload / YouTube-clone their own voices
 (kept in `voices/guests/`), max 3000 characters per text, one generation at a time per link. They cannot see your
 own clones unless you mark one as shared (👥), install models, or delete anything.
+
+## API
+
+Create a key in the page's **API** card (it is shown once; only a hash is stored). Then:
+
+```bash
+# MP3 that any speaker or player can fetch directly
+curl -o hello.mp3 "http://127.0.0.1:18700/api/tts.mp3?key=YOUR_KEY&voice=alba&text=The%20washing%20machine%20is%20done."
+
+# POST with JSON; pauses, conversations, background and speed work too
+curl -o door.ogg -H "Authorization: Bearer YOUR_KEY" -H "Content-Type: application/json" \
+     -d '{"text": "Someone is at the door. [pause 1s] Go and look!", "voice": "George", "format": "ogg", "bg": "rain"}' \
+     http://127.0.0.1:18700/api/tts
+```
+
+Parameters: `text` (required, max 5000 chars), `voice` (id or name, see `GET /api/voices`), `model`, `format`
+(`mp3` default, `ogg`, `wav`, or put it in the path: `/api/tts.mp3`), `bg`, `bg_level` (low/medium/high), `speed`,
+`tail`. The key goes in `?key=`, `X-API-Key:` or `Authorization: Bearer`.
+
+**Home Assistant** example (a Cast speaker fetches the URL itself, so it must be reachable from the speaker):
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.kitchen
+data:
+  media_content_type: music
+  media_content_id: "https://tts.example.com/api/tts.mp3?key=YOUR_KEY&voice=alba&text=Dinner%20is%20ready"
+```
 
 ## Files
 

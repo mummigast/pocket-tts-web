@@ -58,6 +58,13 @@ a { color:var(--accent); }
 .sh .grow { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .sh.dead { color:var(--muted); }
 #out .row { gap:16px; }
+code { font-family:ui-monospace,SFMono-Regular,monospace; font-size:12.5px; background:var(--bg); padding:1px 4px; border-radius:4px; }
+.hist { display:flex; gap:8px; align-items:center; padding:7px 0; border-top:1px solid var(--line); font-size:13.5px; }
+.hist .grow { overflow:hidden; }
+.hist .t { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hist a { font-size:13px; }
+input[type=range].speed { width:100%; accent-color:var(--accent); }
+.keybox { font-family:ui-monospace,monospace; font-size:13px; word-break:break-all; background:var(--bg); padding:8px; border-radius:6px; border:1px solid var(--line2); }
 .dual { position:relative; height:34px; }
 .dual .track { position:absolute; left:0; right:0; top:15px; height:5px; border-radius:3px; background:var(--line2); }
 .dual .fill { position:absolute; top:0; height:5px; border-radius:3px; background:var(--accent); }
@@ -87,6 +94,10 @@ a { color:var(--accent); }
   <div class="card">
     <label for="text">Text</label>
     <textarea id="text">Hello! This is Pocket TTS, running on a computer at home. Pick a voice and try it out.</textarea>
+    <div class="row">
+      <button class="ghost" id="add-pause" title="Insert a pause at the cursor">+ Pause</button>
+      <span class="note grow" id="cast">Tip: <code>[pause 2s]</code> adds a pause. For a conversation, start lines with a voice name: <code>Alba: Hi!</code></span>
+    </div>
   </div>
 
   <div class="card">
@@ -112,6 +123,10 @@ a { color:var(--accent); }
       <div><label for="tail">Extra time at the end</label>
         <select id="tail"><option value="0">None</option><option value="0.5">0.5 s</option><option value="1" selected>1 s</option>
           <option value="2">2 s</option><option value="3">3 s</option></select></div>
+    </div>
+    <div>
+      <label for="speed">Speed <span class="note" id="speed-val">1.00×</span></label>
+      <input type="range" class="speed" id="speed" min="0.7" max="1.5" step="0.05" value="1">
     </div>
     <div class="row hidden" id="bg-level-row">
       <span class="note">Background level</span>
@@ -154,6 +169,19 @@ a { color:var(--accent); }
   <div class="card">
     <label for="clip">Or clone a voice from a clip</label>
     <input type="file" id="clip" accept=".wav,.mp3,.flac,.ogg,.oga,.opus,.m4a,.aac,.webm,.mp4,.amr,.3gp,.wma,audio/*,video/mp4">
+    <div id="trim-box" class="hidden" style="display:grid; gap:10px;">
+      <div class="dual">
+        <div class="track"><div class="fill" id="tr-fill"></div></div>
+        <input type="range" id="tr-r1" min="0" step="0.1" aria-label="Start">
+        <input type="range" id="tr-r2" min="0" step="0.1" aria-label="End">
+      </div>
+      <div class="row">
+        <label class="row" style="gap:6px">Start <input type="text" id="tr-s" inputmode="decimal" style="width:84px"></label>
+        <label class="row" style="gap:6px">End <input type="text" id="tr-e" inputmode="decimal" style="width:84px"></label>
+        <span class="note grow" id="tr-len"></span>
+        <button class="ghost" id="tr-play">▶ Preview</button>
+      </div>
+    </div>
     <input type="text" id="save-as" placeholder="Name it (optional), e.g. grandpa">
     <p class="note">10–30 seconds of one person talking, no music or noise, works best. A clip overrides the chosen voice.
       Every clip is kept and shows up under "Mine" (unnamed ones get the date as name).</p>
@@ -185,6 +213,29 @@ a { color:var(--accent); }
     <audio id="audio" controls></audio>
     <div class="row"><a id="dl" download="tts.wav">Download WAV</a><a href="#" id="dl-ogg">Download OGG (voice-note size)</a></div>
   </div>
+  <div class="card hidden" id="hist-card">
+    <span class="lbl">Recent</span>
+    <div id="hist-list"></div>
+    <p class="note">The last 20 are kept on the server.</p>
+  </div>
+
+  <div class="card hidden" id="api-card">
+    <span class="lbl">API (Home Assistant, scripts)</span>
+    <div class="row">
+      <input type="text" id="api-label" class="grow" style="width:auto" placeholder="What is it for? e.g. Home Assistant">
+      <button class="ghost" id="api-make">Create key</button>
+    </div>
+    <div id="api-new" class="hidden" style="display:grid; gap:6px;">
+      <p class="note">Copy it now, it is only shown once:</p>
+      <div class="keybox" id="api-key"></div>
+      <p class="note">Example (MP3 a speaker can play):</p>
+      <div class="keybox" id="api-example"></div>
+    </div>
+    <div id="api-list"></div>
+    <p class="note">GET or POST <code>/api/tts</code> (or <code>/api/tts.mp3</code>, <code>.ogg</code>, <code>.wav</code>) with <code>text</code>, <code>voice</code> (id or name),
+      optional <code>model</code>, <code>bg</code>, <code>bg_level</code>, <code>speed</code>, <code>tail</code>. Key as <code>?key=</code>, <code>X-API-Key</code> or <code>Authorization: Bearer</code>.
+      Voice list: <code>/api/voices</code>. Pauses and conversations work here too.</p>
+  </div>
   <audio id="sample" class="hidden"></audio>
 </main>
 
@@ -215,7 +266,7 @@ async function loadConfig() {
   }
   if (!byId[cur]) cur = 'alba';
   fillLangs(); renderCur(); renderBrowser(); fillBg();
-  if (!GUEST) loadShares();
+  if (!GUEST) { loadShares(); loadKeys(); }
 }
 
 // ---------- language + model ----------
@@ -416,6 +467,140 @@ function stopPreview() {
 }
 $('sample').addEventListener('ended', stopPreview);
 
+// ---------- text helpers: pause button + conversation preview ----------
+$('add-pause').addEventListener('click', () => {
+  const t = $('text'), a = t.selectionStart ?? t.value.length, b = t.selectionEnd ?? a;
+  const ins = (a > 0 && !/\s$/.test(t.value.slice(0, a)) ? ' ' : '') + '[pause 1s] ';
+  t.value = t.value.slice(0, a) + ins + t.value.slice(b);
+  t.focus(); t.selectionStart = t.selectionEnd = a + ins.length; checkCast();
+});
+let castTimer = null;
+const CAST_TIP = $('cast').innerHTML;
+function checkCast() {
+  clearTimeout(castTimer);
+  castTimer = setTimeout(async () => {
+    const text = $('text').value;
+    if (!/^\s*[^\W\d_][\w .'’-]{0,39}?\s*:\s*\S/mu.test(text) && !/\[(pause|break)/i.test(text)) { $('cast').innerHTML = CAST_TIP; return; }
+    const fd = new FormData(); fd.append('text', text);
+    try {
+      const r = await fetch('parse', { method: 'POST', body: fd }); if (!r.ok) return;
+      const p = await r.json(), bits = [];
+      if (p.script) bits.push('Conversation: ' + p.cast.map(id => byId[id] ? byId[id].label : id).join(', ') + ' (lines without a known name use the chosen voice)');
+      if (p.unknown.length) bits.push('Unknown name' + (p.unknown.length > 1 ? 's' : '') + ': ' + p.unknown.join(', ') + ' (read as text)');
+      if (p.pauses) bits.push(p.pauses + ' pause' + (p.pauses > 1 ? 's' : ''));
+      $('cast').textContent = bits.length ? bits.join(' · ') : '';
+      if (!bits.length) $('cast').innerHTML = CAST_TIP;
+    } catch (e) {}
+  }, 400);
+}
+$('text').addEventListener('input', checkCast);
+
+// ---------- speed ----------
+function showSpeed() { $('speed-val').textContent = (+$('speed').value).toFixed(2) + '×' + (+$('speed').value !== 1 ? ' (arrives when done, no streaming)' : ''); store.set('tts-speed', $('speed').value); }
+$('speed').addEventListener('input', showSpeed);
+{ const sp = store.get('tts-speed'); if (sp) $('speed').value = sp; showSpeed(); }
+
+// ---------- trim an uploaded clip ----------
+let trim = null;
+function trSet(start, end, from) {
+  const d = trim.duration;
+  start = Math.min(Math.max(0, start), Math.max(0, d - 1)); end = Math.min(Math.max(end, start + 1), d);
+  trim.start = start; trim.end = end;
+  $('tr-r1').value = start; $('tr-r2').value = end;
+  if (document.activeElement !== $('tr-s')) $('tr-s').value = fmt(start);
+  if (document.activeElement !== $('tr-e')) $('tr-e').value = fmt(end);
+  $('tr-fill').style.left = (start / d * 100) + '%'; $('tr-fill').style.width = ((end - start) / d * 100) + '%';
+  const len = end - start;
+  $('tr-len').textContent = `${len.toFixed(1)} s` + (len > 30 ? ' (only the first 30 s are used)' : len < 8 ? ' (a bit short)' : '');
+}
+$('clip').addEventListener('change', () => {
+  const f = $('clip').files[0]; trim = null; $('trim-box').classList.add('hidden');
+  if (!f) return;
+  const a = new Audio(); a.preload = 'metadata'; a.src = URL.createObjectURL(f);
+  a.addEventListener('loadedmetadata', () => {
+    if (!isFinite(a.duration) || a.duration < 2) return;   // unknown length (some formats in some browsers): send as is
+    trim = { duration: a.duration, audio: a };
+    for (const r of [$('tr-r1'), $('tr-r2')]) r.max = a.duration;
+    $('trim-box').classList.remove('hidden');
+    trSet(0, Math.min(30, a.duration));
+  }, { once: true });
+});
+$('tr-r1').addEventListener('input', () => trSet(+$('tr-r1').value, Math.max(trim.end, +$('tr-r1').value + 1), 'start'));
+$('tr-r2').addEventListener('input', () => trSet(Math.min(trim.start, +$('tr-r2').value - 1), +$('tr-r2').value, 'end'));
+$('tr-s').addEventListener('change', () => { const t = parseT($('tr-s').value); isNaN(t) ? trSet(trim.start, trim.end) : trSet(t, Math.max(trim.end, t + 1)); });
+$('tr-e').addEventListener('change', () => { const t = parseT($('tr-e').value); isNaN(t) ? trSet(trim.start, trim.end) : trSet(Math.min(trim.start, t - 1), t); });
+$('tr-play').addEventListener('click', () => {
+  const a = trim && trim.audio; if (!a) return;
+  if (!a.paused) { a.pause(); $('tr-play').textContent = '▶ Preview'; return; }
+  a.currentTime = trim.start; a.play(); $('tr-play').textContent = '■ Stop';
+  const stopAt = () => { if (a.currentTime >= trim.end || a.paused) { a.pause(); a.removeEventListener('timeupdate', stopAt); $('tr-play').textContent = '▶ Preview'; } };
+  a.addEventListener('timeupdate', stopAt);
+});
+
+// ---------- history ----------
+function when(t) {
+  const d = new Date(t * 1000), now = new Date();
+  return d.toDateString() === now.toDateString() ? d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    : d.toLocaleDateString([], { day: 'numeric', month: 'short' }) + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+async function loadHistory() {
+  let list = [];
+  try { const r = await fetch('history', { cache: 'no-store' }); if (r.ok) list = await r.json(); } catch (e) {}
+  $('hist-card').classList.toggle('hidden', !list.length);
+  const box = $('hist-list'); box.innerHTML = '';
+  for (const h of list) {
+    const row = document.createElement('div'); row.className = 'hist';
+    const play = document.createElement('button'); play.className = 'ib'; play.textContent = '▶'; play.title = 'Play';
+    play.onclick = () => playHistory(h.id, play);
+    const main = document.createElement('div'); main.className = 'grow';
+    const t = document.createElement('div'); t.className = 't'; t.textContent = h.text;
+    const voiceName = h.cast && h.cast.length > 1 ? h.cast.map(id => byId[id] ? byId[id].label : id).join(' + ') : (byId[h.voice] ? byId[h.voice].label : (h.voice || 'default voice'));
+    const m = document.createElement('div'); m.className = 'tags';
+    m.textContent = [when(h.time), voiceName, h.seconds + ' s', h.speed && h.speed !== 1 ? h.speed + '×' : '', h.bg || ''].filter(Boolean).join(' · ');
+    main.append(t, m);
+    const dl = document.createElement('a'); dl.href = 'history/' + h.id + '.wav'; dl.textContent = 'WAV'; dl.download = 'tts-' + h.id + '.wav';
+    const og = document.createElement('a'); og.href = '#'; og.textContent = 'OGG';
+    og.onclick = async e => { e.preventDefault(); const b = await (await fetch('history/' + h.id + '.wav')).blob(); lastBlob = b; $('dl-ogg').click(); };
+    const reuse = document.createElement('button'); reuse.className = 'ib del'; reuse.textContent = '↺'; reuse.title = 'Put this text back in the box';
+    reuse.onclick = () => { $('text').value = h.text; checkCast(); $('text').scrollIntoView({ block: 'center' }); };
+    const del = document.createElement('button'); del.className = 'ib del'; del.textContent = '✕'; del.title = 'Remove';
+    del.onclick = async () => { await fetch('history/' + h.id, { method: 'DELETE' }); loadHistory(); };
+    row.append(play, main, dl, og, reuse, del);
+    box.appendChild(row);
+  }
+}
+async function playHistory(id, btn) {
+  const a = $('sample');
+  if (playingBtn === btn && !a.paused) { a.pause(); stopPreview(); return; }
+  a.pause(); stopPreview();
+  a.src = 'history/' + id + '.wav'; playingBtn = btn; btn.classList.add('playing'); btn.textContent = '■';
+  try { await a.play(); } catch (e) { stopPreview(); }
+}
+
+// ---------- API keys (admin) ----------
+async function loadKeys() {
+  const r = await fetch('api-keys', { cache: 'no-store' }); if (!r.ok) return;
+  const list = await r.json(), box = $('api-list'); box.innerHTML = '';
+  for (const k of list) {
+    const row = document.createElement('div'); row.className = 'sh';
+    const t = document.createElement('span'); t.className = 'grow';
+    t.textContent = `${k.label || 'Key'} · ${k.uses} uses` + (k.last_used ? ' · last ' + when(k.last_used) : ' · never used');
+    const x = document.createElement('button'); x.className = 'ghost'; x.textContent = 'Revoke';
+    x.onclick = async () => { if (!confirm('Revoke this key? Anything using it stops working.')) return; await fetch('api-keys/' + k.id, { method: 'DELETE' }); loadKeys(); };
+    row.append(t, x); box.appendChild(row);
+  }
+}
+$('api-make').addEventListener('click', async () => {
+  const fd = new FormData(); fd.append('label', $('api-label').value);
+  const r = await fetch('api-keys', { method: 'POST', body: fd }); if (!r.ok) return;
+  const { key } = await r.json();
+  $('api-key').textContent = key;
+  const v = byId[cur] && !cur.startsWith('own:') ? cur : 'alba';
+  $('api-example').textContent = `${location.origin}/api/tts.mp3?key=${key}&voice=${encodeURIComponent(v)}&text=${encodeURIComponent('The washing machine is done.')}`;
+  $('api-new').classList.remove('hidden'); $('api-label').value = '';
+  loadKeys();
+});
+
 // ---------- OGG download ----------
 let lastBlob = null;
 $('dl-ogg').addEventListener('click', async e => {
@@ -464,9 +649,12 @@ $('go').addEventListener('click', async () => {
   if (!text) { status('Write some text first.', true); return; }
   if (player) player.stop();
   const fd = new FormData(); fd.append('text', text); fd.append('model', $('model').value);
-  fd.append('bg', $('bg').value); fd.append('bg_level', bgLevel); fd.append('tail', $('tail').value);
+  fd.append('bg', $('bg').value); fd.append('bg_level', bgLevel); fd.append('tail', $('tail').value); fd.append('speed', $('speed').value);
   const clip = $('clip').files[0], saveAs = $('save-as').value.trim();
-  if (clip) { fd.append('voice_wav', clip); if (saveAs) fd.append('save_as', saveAs); }
+  if (clip) {
+    fd.append('voice_wav', clip); if (saveAs) fd.append('save_as', saveAs);
+    if (trim) { fd.append('trim_start', trim.start.toFixed(2)); fd.append('trim_end', trim.end.toFixed(2)); }
+  }
   else {
     if (!GUEST && byId[cur] && !byId[cur].installed) await fetch('install-voice/' + encodeURIComponent(cur), { method: 'POST' });
     fd.append('voice', cur);
@@ -486,8 +674,9 @@ $('go').addEventListener('click', async () => {
     $('audio').src = url; $('dl').href = url; $('out').classList.remove('hidden');
     const first = player.first ? ((player.first - t0) / 1000).toFixed(1) + ' s to first sound, ' : '';
     status('Done: ' + first + ((performance.now() - t0) / 1000).toFixed(1) + ' s total.');
+    setTimeout(loadHistory, 300);
     if (clip) {
-      $('clip').value = ''; $('save-as').value = '';
+      $('clip').value = ''; $('save-as').value = ''; trim = null; $('trim-box').classList.add('hidden');
       await loadConfig();
       const want = saveAs ? (GUEST ? 'guest:' : 'own:') + saveAs.toLowerCase().replace(/ /g, '-') : null;
       const clips = voices.filter(v => /^(own|guest):clip-/.test(v.id)).map(v => v.id).sort();
@@ -621,7 +810,9 @@ if (GUEST) {
   b.textContent = 'Shared link: works until ' + new Date(GUEST.expires * 1000).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) + '.';
 } else {
   $('share-card').classList.remove('hidden');
+  $('api-card').classList.remove('hidden');
 }
+loadHistory();
 
 loadConfig().then(() => {
   if (location.hash === '#voices') $('toggle').click();
