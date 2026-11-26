@@ -19,7 +19,7 @@ that runs on an ordinary CPU, with voice cloning.
 - **7 languages** (English, French, German, Spanish, Italian, Portuguese, Dutch); extra models install from the page
 - **Background ambience** (street, café, rain, …) at low / medium / high, plus a little extra time at the end
 - **Share links**: give a friend a login-free link that expires (1 h – 7 days), revoke it any time
-- **Pauses** (`[pause 2s]`), **speed** 0.7–1.5× (pitch kept), and **conversations**: lines like `Alba: Hi!` /
+- **Pauses** (`[pause 2s]`), **speed** 0.7–1.5× (pitch kept), **expressiveness** (steady ↔ lively), and **conversations**: lines like `Alba: Hi!` /
   `George: Hello.` become one clip with several voices
 - **Trim** uploaded clips with a slider, and a **history** of your last 20 clips
 - An **API** with keys, for Home Assistant, scripts or chat bots (MP3 / OGG / WAV)
@@ -111,7 +111,7 @@ curl -o door.ogg -H "Authorization: Bearer YOUR_KEY" -H "Content-Type: applicati
 
 Parameters: `text` (required, max 5000 chars), `voice` (id or name, see `GET /api/voices`), `model`, `format`
 (`mp3` default, `ogg`, `wav`, or put it in the path: `/api/tts.mp3`), `bg`, `bg_level` (low/medium/high), `speed`,
-`tail`. The key goes in `?key=`, `X-API-Key:` or `Authorization: Bearer`.
+`tail`, `expressiveness` (0.1–1.0, default 0.3). The key goes in `?key=`, `X-API-Key:` or `Authorization: Bearer`.
 
 **Home Assistant** example (a Cast speaker fetches the URL itself, so it must be reachable from the speaker):
 

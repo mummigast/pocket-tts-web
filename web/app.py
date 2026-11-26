@@ -596,8 +596,22 @@ def history_file(who: str, hid: str) -> Path:
 
 
 # ---- generation: parts → chunks → background → speed → stream (+ history) ----
-def chunk_stream(model: TTSModel, mid: str, parts: list, default_state, guest: str | None, stop: threading.Event):
+def tuned(model: TTSModel, temp: float | None) -> TTSModel:
+    """A per-request view of the model with its own sampling temperature. copy.copy shares the weights and
+    sub-modules (no extra memory); only plain attributes like .temp are per copy, so concurrent requests
+    with different settings don't interfere."""
+    if temp is None or abs(temp - model.temp) < 1e-6:
+        return model
+    import copy
+    m = copy.copy(model)
+    m.temp = temp
+    return m
+
+
+def chunk_stream(model: TTSModel, mid: str, parts: list, default_state, guest: str | None, stop: threading.Event,
+                 temp: float | None = None):
     sr = model.config.mimi.sample_rate
+    gen_model = tuned(model, temp)
     for p in parts:
         if stop.is_set():
             return
@@ -605,7 +619,7 @@ def chunk_stream(model: TTSModel, mid: str, parts: list, default_state, guest: s
             yield torch.zeros(int(p[1] * sr))
         else:
             state = default_state if p[1] is None else get_state(mid, model, p[1], guest)
-            yield from model.generate_audio_stream(model_state=state, text_to_generate=p[2], stop=stop)
+            yield from gen_model.generate_audio_stream(model_state=state, text_to_generate=p[2], stop=stop)
 
 
 def apply_speed(audio: np.ndarray, sr: int, speed: float) -> np.ndarray:
@@ -622,7 +636,7 @@ def render(model, mid, parts, default_state, guest, opts) -> tuple[np.ndarray, i
     """Whole clip at once (API, speed ≠ 1)."""
     stop = threading.Event()
     sr = model.config.mimi.sample_rate
-    chunks = chunk_stream(model, mid, parts, default_state, guest, stop)
+    chunks = chunk_stream(model, mid, parts, default_state, guest, stop, opts.get("temp"))
     if opts["bg"] or opts["tail"] > 0:
         chunks = with_background(chunks, opts["bg"], opts["bg_level"], opts["tail"])
     audio = np.concatenate([c.detach().float().cpu().numpy().reshape(-1) for c in chunks] or [np.zeros(1, np.float32)])
@@ -655,7 +669,7 @@ def stream(model, mid, parts, default_state, guest, opts, on_done=None, record=N
                 kept = [audio]
                 stream_audio_chunks(ToQueue(), iter([torch.from_numpy(audio)]), sr)
             else:
-                chunks = chunk_stream(model, mid, parts, default_state, guest, stop)
+                chunks = chunk_stream(model, mid, parts, default_state, guest, stop, opts.get("temp"))
                 if opts["bg"] or opts["tail"] > 0:
                     chunks = with_background(chunks, opts["bg"], opts["bg_level"], opts["tail"])
 
@@ -664,7 +678,7 @@ def stream(model, mid, parts, default_state, guest, opts, on_done=None, record=N
                         kept.append(c.detach().float().cpu().numpy().reshape(-1))
                         yield c
                 stream_audio_chunks(ToQueue(), tee(chunks), sr)
-            if record and kept and not stop.is_set():
+            if record and kept and not stop.is_set():   # stop is only set when the listener left early
                 record(np.concatenate(kept), sr)
         except Exception:
             log.exception("generation failed")
@@ -672,21 +686,29 @@ def stream(model, mid, parts, default_state, guest, opts, on_done=None, record=N
 
     t = threading.Thread(target=work, daemon=True)
     t.start()
+    finished = False
     try:
         while (d := q.get()) is not None:
             yield d
+        finished = True
     finally:
-        stop.set()
+        if not finished:
+            stop.set()      # client disconnected: stop generating
         t.join()
         if on_done:
             on_done()
 
 
-def check_opts(bg: str, bg_level: str, tail: float, speed: float) -> dict:
+TEMP_MIN, TEMP_MAX = 0.1, 1.0   # measured: above ~1.1 endings start to break up
+
+
+def check_opts(bg: str, bg_level: str, tail: float, speed: float, temp: float | None = None) -> dict:
     bg, tail = check_bg(bg, bg_level, tail)
     if not 0.7 <= speed <= 1.5:
         raise HTTPException(400, "Speed must be 0.7–1.5")
-    return {"bg": bg, "bg_level": bg_level, "tail": tail, "speed": speed}
+    if temp is not None and not TEMP_MIN <= temp <= TEMP_MAX:
+        raise HTTPException(400, f"Expressiveness must be {TEMP_MIN}–{TEMP_MAX}")
+    return {"bg": bg, "bg_level": bg_level, "tail": tail, "speed": speed, "temp": temp}
 
 
 def encode(audio: np.ndarray, sr: int, fmt: str) -> tuple[bytes, str]:
@@ -744,13 +766,14 @@ def parse_summary(text: str, guest: str | None) -> dict:
 def tts(text: str = Form(...), model: str = Form(DEFAULT_MODEL), voice: str = Form(""),
         voice_wav: UploadFile | None = File(None), save_as: str | None = Form(None),
         trim_start: float | None = Form(None), trim_end: float | None = Form(None),
-        bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0), speed: float = Form(1.0)) -> StreamingResponse:
+        bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0), speed: float = Form(1.0),
+        temp: float | None = Form(None)) -> StreamingResponse:
     text = text.strip()
     if not text:
         raise HTTPException(400, "Text cannot be empty")
     if len(text) > 20000:
         raise HTTPException(400, "Text too long (max 20 000 characters)")
-    opts = check_opts(bg, bg_level, tail, speed)
+    opts = check_opts(bg, bg_level, tail, speed, temp)
     parsed = parse_text(text, None)
     m = check_model(model)
     if voice_wav is not None and voice_wav.filename:
@@ -933,9 +956,9 @@ def guest_tts(token: str, text: str = Form(...), model: str = Form(DEFAULT_MODEL
               voice_wav: UploadFile | None = File(None), save_as: str | None = Form(None),
               trim_start: float | None = Form(None), trim_end: float | None = Form(None),
               bg: str = Form(""), bg_level: str = Form("low"), tail: float = Form(1.0),
-              speed: float = Form(1.0)) -> StreamingResponse:
+              speed: float = Form(1.0), temp: float | None = Form(None)) -> StreamingResponse:
     g = check_token(token)
-    opts = check_opts(bg, bg_level, tail, speed)
+    opts = check_opts(bg, bg_level, tail, speed, temp)
     text = text.strip()
     if not text:
         raise HTTPException(400, "Text cannot be empty")
@@ -1211,10 +1234,11 @@ def api_render(params: dict, fmt: str):
     model = params.get("model") or DEFAULT_MODEL
     voice = api_voice(params.get("voice") or "")
     try:
+        t = params.get("expressiveness") or params.get("temp")
         opts = check_opts(params.get("bg", ""), params.get("bg_level", "low"),
-                          float(params.get("tail", 0.5)), float(params.get("speed", 1.0)))
+                          float(params.get("tail", 0.5)), float(params.get("speed", 1.0)), float(t) if t else None)
     except ValueError:
-        raise HTTPException(400, "tail and speed must be numbers")
+        raise HTTPException(400, "tail, speed and expressiveness must be numbers")
     parsed = parse_text(text, None)
     m = check_model(model)
     state = get_state(model, m, voice)
@@ -1227,7 +1251,7 @@ def api_render(params: dict, fmt: str):
 
 @app.api_route("/api/tts", methods=["GET", "POST"])
 async def api_tts(request: Request):
-    """text, voice (id or name), model, format (mp3|ogg|wav, default mp3), bg, bg_level, tail, speed."""
+    """text, voice (id or name), model, format (mp3|ogg|wav, default mp3), bg, bg_level, tail, speed, expressiveness."""
     check_api_key(request)
     params = await api_params(request)
     from starlette.concurrency import run_in_threadpool

@@ -138,6 +138,11 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
       <label for="speed">Speed <span class="note" id="speed-val">1.00×</span></label>
       <input type="range" class="speed" id="speed" min="0.7" max="1.5" step="0.05" value="1">
     </div>
+    <div>
+      <label for="temp">Expressiveness <span class="note" id="temp-val"></span></label>
+      <input type="range" class="speed" id="temp" min="0.1" max="1" step="0.05" value="0.3">
+      <div class="row note" style="justify-content:space-between; margin-top:-2px"><span>steady</span><span>lively</span></div>
+    </div>
     <div class="row hidden" id="bg-level-row">
       <span class="note">Background level</span>
       <div class="chips" id="bg-level">
@@ -505,11 +510,21 @@ function checkCast() {
 }
 $('text').addEventListener('input', checkCast);
 
+// ---------- expressiveness (sampling temperature) ----------
+function showTemp() {
+  const t = +$('temp').value;
+  $('temp-val').textContent = t.toFixed(2) + (Math.abs(t - 0.3) < 0.001 ? ' (standard)' : t < 0.3 ? ' (steadier)' : t > 0.7 ? ' (very lively, can wander)' : ' (livelier)');
+  store.set('tts-temp', $('temp').value); soundSum();
+}
+$('temp').addEventListener('input', showTemp);
+{ const tv = store.get('tts-temp'); if (tv) $('temp').value = tv; showTemp(); }
+
 // ---------- speed ----------
 function soundSum() {
   const b = (cfg && cfg.backgrounds || []).find(x => x.id === $('bg').value);
-  const t = +$('tail').value, sp = +$('speed').value;
-  setSum('sound', [b ? b.label.replace(/ \(.*\)$/, '') + ' · ' + bgLevel : 'No background', t ? t + ' s end' : 'no extra end', sp.toFixed(2) + '×'].join(' · '));
+  const t = +$('tail').value, sp = +$('speed').value, te = +$('temp').value;
+  setSum('sound', [b ? b.label.replace(/ \(.*\)$/, '') + ' · ' + bgLevel : 'No background', t ? t + ' s end' : 'no extra end',
+    sp.toFixed(2) + '×', Math.abs(te - 0.3) < 0.001 ? '' : (te < 0.3 ? 'steadier' : 'livelier')].filter(Boolean).join(' · '));
 }
 function showSpeed() { $('speed-val').textContent = (+$('speed').value).toFixed(2) + '×' + (+$('speed').value !== 1 ? ' (arrives when done, no streaming)' : ''); store.set('tts-speed', $('speed').value); soundSum(); }
 $('speed').addEventListener('input', showSpeed);
@@ -573,7 +588,8 @@ async function loadHistory() {
     const t = document.createElement('div'); t.className = 't'; t.textContent = h.text;
     const voiceName = h.cast && h.cast.length > 1 ? h.cast.map(id => byId[id] ? byId[id].label : id).join(' + ') : (byId[h.voice] ? byId[h.voice].label : (h.voice || 'default voice'));
     const m = document.createElement('div'); m.className = 'tags';
-    m.textContent = [when(h.time), voiceName, h.seconds + ' s', h.speed && h.speed !== 1 ? h.speed + '×' : '', h.bg || ''].filter(Boolean).join(' · ');
+    m.textContent = [when(h.time), voiceName, h.seconds + ' s', h.speed && h.speed !== 1 ? h.speed + '×' : '',
+      h.temp && Math.abs(h.temp - 0.3) > 0.001 ? (h.temp < 0.3 ? 'steadier' : 'livelier') : '', h.bg || ''].filter(Boolean).join(' · ');
     main.append(t, m);
     const dl = document.createElement('a'); dl.href = 'history/' + h.id + '.wav'; dl.textContent = 'WAV'; dl.download = 'tts-' + h.id + '.wav';
     const og = document.createElement('a'); og.href = '#'; og.textContent = 'OGG';
@@ -667,7 +683,7 @@ $('go').addEventListener('click', async () => {
   if (!text) { status('Write some text first.', true); return; }
   if (player) player.stop();
   const fd = new FormData(); fd.append('text', text); fd.append('model', $('model').value);
-  fd.append('bg', $('bg').value); fd.append('bg_level', bgLevel); fd.append('tail', $('tail').value); fd.append('speed', $('speed').value);
+  fd.append('bg', $('bg').value); fd.append('bg_level', bgLevel); fd.append('tail', $('tail').value); fd.append('speed', $('speed').value); fd.append('temp', $('temp').value);
   const clip = $('clip').files[0], saveAs = $('save-as').value.trim();
   if (clip) {
     fd.append('voice_wav', clip); if (saveAs) fd.append('save_as', saveAs);
