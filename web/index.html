@@ -210,23 +210,6 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
     <p class="note">The last 20 are kept on the server.</p>
   </div>
 
-  <div class="card hidden" id="api-card" data-c="api">
-    <span class="lbl">API (Home Assistant, scripts)</span>
-    <div class="row">
-      <input type="text" id="api-label" class="grow" style="width:auto" placeholder="What is it for? e.g. Home Assistant">
-      <button class="ghost" id="api-make">Create key</button>
-    </div>
-    <div id="api-new" class="hidden" style="display:grid; gap:6px;">
-      <p class="note">Copy it now, it is only shown once:</p>
-      <div class="keybox" id="api-key"></div>
-      <p class="note">Example (MP3 a speaker can play):</p>
-      <div class="keybox" id="api-example"></div>
-    </div>
-    <div id="api-list"></div>
-    <p class="note">GET or POST <code>/api/tts</code> (or <code>/api/tts.mp3</code>, <code>.ogg</code>, <code>.wav</code>) with <code>text</code>, <code>voice</code> (id or name),
-      optional <code>model</code>, <code>bg</code>, <code>bg_level</code>, <code>speed</code>, <code>tail</code>. Key as <code>?key=</code>, <code>X-API-Key</code> or <code>Authorization: Bearer</code>.
-      Voice list: <code>/api/voices</code>. Pauses and conversations work here too.</p>
-  </div>
   <div class="card hidden" id="share-card" data-c="share">
     <span class="lbl">Share with a friend (no login)</span>
     <div class="row">
@@ -246,6 +229,23 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
       max 3000 characters per text. Their uploaded clips are kept in their own folder.</p>
   </div>
 
+  <div class="card hidden" id="api-card" data-c="api">
+    <span class="lbl">API (Home Assistant, scripts)</span>
+    <div class="row">
+      <input type="text" id="api-label" class="grow" style="width:auto" placeholder="What is it for? e.g. Home Assistant">
+      <button class="ghost" id="api-make">Create key</button>
+    </div>
+    <div id="api-new" class="hidden" style="display:grid; gap:6px;">
+      <p class="note">Copy it now, it is only shown once:</p>
+      <div class="keybox" id="api-key"></div>
+      <p class="note">Example (MP3 a speaker can play):</p>
+      <div class="keybox" id="api-example"></div>
+    </div>
+    <div id="api-list"></div>
+    <p class="note">GET or POST <code>/api/tts</code> (or <code>/api/tts.mp3</code>, <code>.ogg</code>, <code>.wav</code>) with <code>text</code>, <code>voice</code> (id or name),
+      optional <code>model</code>, <code>bg</code>, <code>bg_level</code>, <code>speed</code>, <code>tail</code>. Key as <code>?key=</code>, <code>X-API-Key</code> or <code>Authorization: Bearer</code>.
+      Voice list: <code>/api/voices</code>. Pauses and conversations work here too.</p>
+  </div>
   <audio id="sample" class="hidden"></audio>
 </main>
 
