@@ -127,7 +127,7 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
   </div>
 
   <div class="card" data-c="sound">
-    <span class="lbl">Sound</span>
+    <span class="lbl">Effects &amp; speed</span>
     <div class="grid2">
       <div><label for="bg">Background</label><select id="bg"><option value="">None</option></select></div>
       <div><label for="tail">Extra time at the end</label>
@@ -197,25 +197,6 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
       Every clip is kept and shows up under "Mine" (unnamed ones get the date as name).</p>
   </div>
 
-  <div class="card hidden" id="share-card" data-c="share">
-    <span class="lbl">Share with a friend (no login)</span>
-    <div class="row">
-      <select id="share-hours" style="width:auto">
-        <option value="1">1 hour</option><option value="24" selected>24 hours</option>
-        <option value="72">3 days</option><option value="168">7 days</option>
-      </select>
-      <input type="text" id="share-label" class="grow" placeholder="Who is it for? (optional)" style="width:auto">
-      <button id="share-make">Create link</button>
-    </div>
-    <div class="row hidden" id="share-new">
-      <input type="text" id="share-url" class="grow" readonly style="width:auto">
-      <button class="ghost" id="share-copy">Copy</button>
-    </div>
-    <div id="share-list"></div>
-    <p class="note">Friends get this page without your clones (except the ones marked shared), can't install models,
-      max 3000 characters per text. Their uploaded clips are kept in their own folder.</p>
-  </div>
-
   <button id="go">Generate</button>
   <div id="status"></div>
 
@@ -246,6 +227,25 @@ input[type=range].speed { width:100%; accent-color:var(--accent); }
       optional <code>model</code>, <code>bg</code>, <code>bg_level</code>, <code>speed</code>, <code>tail</code>. Key as <code>?key=</code>, <code>X-API-Key</code> or <code>Authorization: Bearer</code>.
       Voice list: <code>/api/voices</code>. Pauses and conversations work here too.</p>
   </div>
+  <div class="card hidden" id="share-card" data-c="share">
+    <span class="lbl">Share with a friend (no login)</span>
+    <div class="row">
+      <select id="share-hours" style="width:auto">
+        <option value="1">1 hour</option><option value="24" selected>24 hours</option>
+        <option value="72">3 days</option><option value="168">7 days</option>
+      </select>
+      <input type="text" id="share-label" class="grow" placeholder="Who is it for? (optional)" style="width:auto">
+      <button id="share-make">Create link</button>
+    </div>
+    <div class="row hidden" id="share-new">
+      <input type="text" id="share-url" class="grow" readonly style="width:auto">
+      <button class="ghost" id="share-copy">Copy</button>
+    </div>
+    <div id="share-list"></div>
+    <p class="note">Friends get this page without your clones (except the ones marked shared), can't install models,
+      max 3000 characters per text. Their uploaded clips are kept in their own folder.</p>
+  </div>
+
   <audio id="sample" class="hidden"></audio>
 </main>
 

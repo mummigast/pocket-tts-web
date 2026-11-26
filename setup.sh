@@ -77,7 +77,7 @@ if [ $NOISE -eq 1 ]; then
   if ls noise/*.wav >/dev/null 2>&1 && [ "$(ls noise/*.wav | wc -l)" -ge 9 ]; then echo "already built"
   else noise/fetch.sh && noise/build.sh; fi
 else
-  echo "skipped (--no-noise); the Sound card will only offer 'None'"
+  echo "skipped (--no-noise); the Effects & speed card will only offer 'None' as background"
 fi
 
 say "5/5 Service"

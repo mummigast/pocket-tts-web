@@ -9,7 +9,7 @@ that runs on an ordinary CPU, with voice cloning.
 <p align="center">
   <img src="docs/screenshots/phone-voices.png" alt="On a phone: language, text and the voice browser" width="260">
   &nbsp;&nbsp;
-  <img src="docs/screenshots/phone-compact.png" alt="On a phone: the compact page, with Sound, YouTube and clip options folded into one-line cards" width="260">
+  <img src="docs/screenshots/phone-compact.png" alt="On a phone: the compact page, with effects, YouTube and clip options folded into one-line cards" width="260">
 </p>
 <p align="center"><em>Made for phones too: the same page works one-handed on a phone, nothing to install.</em></p>
 
