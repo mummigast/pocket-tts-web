@@ -4,14 +4,13 @@ A self-hosted web page for [Kyutai Pocket TTS](https://github.com/kyutai-labs/po
 that runs on an ordinary CPU, with voice cloning.
 
 <p align="center">
-  <img src="docs/screenshots/desktop.png" alt="Pocket TTS web UI on a desktop browser, extra options folded into one-line cards" width="720">
+  <img src="docs/screenshots/desktop-folded.png" alt="Pocket TTS in a desktop browser, extra options folded into one-line cards" height="300">
+  &nbsp;
+  <img src="docs/screenshots/phone-folded.png" alt="The same page on a phone" height="300">
+  &nbsp;
+  <img src="docs/screenshots/phone-voice-browser.png" alt="On a phone: the voice browser with tabs, search and filters" height="300">
+  <br><em>Desktop and phone: the same page, made to work one-handed on a phone too.</em>
 </p>
-<p align="center">
-  <img src="docs/screenshots/phone-voices.png" alt="On a phone: language, text and the voice browser" width="260">
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/phone-compact.png" alt="On a phone: the compact page, with effects, YouTube and clip options folded into one-line cards" width="260">
-</p>
-<p align="center"><em>Made for phones too: the same page works one-handed on a phone, nothing to install.</em></p>
 
 - **~690 voices** from Kyutai's voice library, with a browser: tabs, search, pitch / gender / accent / mood filters,
   ▶ previews, favourites
