@@ -4,7 +4,7 @@ A self-hosted web page for [Kyutai Pocket TTS](https://github.com/kyutai-labs/po
 that runs on an ordinary CPU, with voice cloning.
 
 <p align="center">
-  <img src="docs/screenshots/desktop.png" alt="Pocket TTS web UI on a desktop browser, voice browser open" width="720">
+  <img src="docs/screenshots/desktop.png" alt="Pocket TTS web UI on a desktop browser, extra options folded into one-line cards" width="720">
 </p>
 <p align="center">
   <img src="docs/screenshots/phone-voices.png" alt="On a phone: language, text and the voice browser" width="260">
