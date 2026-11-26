@@ -3,6 +3,16 @@
 A self-hosted web page for [Kyutai Pocket TTS](https://github.com/kyutai-labs/pocket-tts): fast text-to-speech
 that runs on an ordinary CPU, with voice cloning.
 
+<p align="center">
+  <img src="docs/screenshots/desktop.png" alt="Pocket TTS web UI on a desktop browser, voice browser open" width="720">
+</p>
+<p align="center">
+  <img src="docs/screenshots/phone-voices.png" alt="On a phone: language, text and the voice browser" width="260">
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/phone-cards.png" alt="On a phone: background sound, YouTube cloning, clip upload and share links" width="260">
+</p>
+<p align="center"><em>Made for phones too: the same page works one-handed on a phone, nothing to install.</em></p>
+
 - **~690 voices** from Kyutai's voice library, with a browser: tabs, search, pitch / gender / accent / mood filters,
   ▶ previews, favourites
 - **Clone a voice** from an uploaded clip (any format a phone records, e.g. WhatsApp `.ogg` voice notes) or from a
