@@ -1386,7 +1386,49 @@ def api_render(params: dict, fmt: str):
     m = check_model(model)
     state = get_state(model, m, voice)
     audio, sr = render(m, model, parsed["parts"], state, None, opts)
-    data, mime = encode(audio, sr, fmt)
+    return encode(audio, sr, fmt)
+
+
+# Short-lived clip cache: an identical API request within CLIP_TTL is served from memory, and a request that arrives
+# while the same clip is still being generated waits for it instead of generating it twice. Lets a client "prefetch"
+# a clip (fire the request early, ignore the answer) so the real request a moment later is instant.
+CLIP_TTL, CLIP_MAX = 600, 50
+_clips: dict[str, tuple[float, bytes, str]] = {}
+_clips_busy: dict[str, threading.Event] = {}
+_clips_lock = threading.Lock()
+
+
+def api_render_cached(params: dict, fmt: str):
+    key = hashlib.sha256(json.dumps([sorted(params.items()), fmt]).encode()).hexdigest()
+    while True:
+        with _clips_lock:
+            now = time.time()
+            for k in [k for k, (t, _, _) in _clips.items() if now - t > CLIP_TTL]:
+                del _clips[k]
+            if key in _clips:
+                _, data, mime = _clips[key]
+                break
+            ev = _clips_busy.get(key)
+            if ev is None:
+                ev = _clips_busy[key] = threading.Event()
+                owner = True
+            else:
+                owner = False
+        if not owner:
+            # Someone else is generating it: wait, then look again (if that request failed, we generate it).
+            ev.wait(120)
+            continue
+        try:
+            data, mime = api_render(params, fmt)
+            with _clips_lock:
+                _clips[key] = (time.time(), data, mime)
+                while len(_clips) > CLIP_MAX:
+                    del _clips[min(_clips, key=lambda k: _clips[k][0])]
+        finally:
+            with _clips_lock:
+                _clips_busy.pop(key, None)
+            ev.set()
+        break
     from fastapi.responses import Response
     return Response(data, media_type=mime, headers={"Content-Disposition": f"inline; filename=tts.{fmt}",
                                                     "Cache-Control": "no-store"})
@@ -1398,7 +1440,7 @@ async def api_tts(request: Request):
     check_api_key(request)
     params = await api_params(request)
     from starlette.concurrency import run_in_threadpool
-    return await run_in_threadpool(api_render, params, params.get("format", "mp3"))
+    return await run_in_threadpool(api_render_cached, params, params.get("format", "mp3"))
 
 
 @app.api_route("/api/tts.{fmt}", methods=["GET", "POST"])
@@ -1407,7 +1449,7 @@ async def api_tts_ext(request: Request, fmt: str):
     check_api_key(request)
     params = await api_params(request)
     from starlette.concurrency import run_in_threadpool
-    return await run_in_threadpool(api_render, params, fmt)
+    return await run_in_threadpool(api_render_cached, params, fmt)
 
 
 @app.get("/api/voices")

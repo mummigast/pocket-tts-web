@@ -114,7 +114,11 @@ Parameters: `text` (required, max 5000 chars), `voice` (id or name, see `GET /ap
 `tail`, `expressiveness` (0.1–1.0, default 0.3). The key goes in `?key=`, `X-API-Key:` or `Authorization: Bearer`.
 
 Security: keys are long random tokens, stored only as hashes; 10 wrong keys from one address within 10 minutes get
-that address blocked for a while. If you use `?key=` in URLs, blank it out of your proxy's access log
+that address blocked for a while.
+
+Caching: an identical request within 10 minutes is answered from memory (last 50 clips), and one that arrives while
+the same clip is still being generated waits for it. So a client can "prefetch" a clip (send the request early and
+ignore the answer) and the real request moments later is instant, e.g. play a short sound first, then the speech. If you use `?key=` in URLs, blank it out of your proxy's access log
 (see the `log` block in [`deploy/Caddyfile.example`](deploy/Caddyfile.example)).
 
 **Home Assistant** example (a Cast speaker fetches the URL itself, so it must be reachable from the speaker):
